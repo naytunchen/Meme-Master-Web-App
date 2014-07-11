@@ -15,3 +15,16 @@ body{
 	margin:15px;
 	display:block;
 }
+
+.brand{
+	overflow:hidden;
+	background-color: gray;
+}
+
+#logo{
+	float:left;
+}
+
+#team-name{
+	text-align: center;
+}
