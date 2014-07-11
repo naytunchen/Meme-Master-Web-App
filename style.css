@@ -16,6 +16,10 @@ body{
 	display:block;
 }
 
+.intro,.name{
+	width:200px;
+}
+
 .brand{
 	overflow:hidden;
 	background-color: gray;
