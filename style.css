@@ -1,14 +1,21 @@
 body{
 	background-color:black;
 	color:white;
+	text-align: center;
 }
 
-.main-panel{
-	width:90%;
+header{
+	width:100%;
+}
+
+.member-intro,.main-panel{
+	display:inline-block;
 	margin-left: auto;
 	margin-right: auto;
 	overflow:hidden;
+	text-align: center;
 }
+
 
 .info{
 	float:left;
