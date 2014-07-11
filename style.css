@@ -1,4 +1,17 @@
+body{
+	background-color:black;
+	color:white;
+}
+
+.main-panel{
+	width:90%;
+	margin-left: auto;
+	margin-right: auto;
+	overflow:hidden;
+}
 
 .info{
 	float:left;
+	margin:15px;
+	display:block;
 }
