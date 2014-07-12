@@ -1,11 +1,25 @@
+
+
 body{
 	background-color:black;
 	color:white;
 	text-align: center;
+	font-family: Laconic_Regular, Arial, Helvetica, sans-serif;
 }
 
 header{
 	width:100%;
+}
+
+@font-face {
+	font-family: 'Laconic_Regular';
+	src: url('font/laconic/laconic_regular-webfont.eot');
+	src: url('font/laconic/laconic_regular-webfont.eot?#iefix') format('embedded-opentype'),
+     	 url('font/laconic/laconic_regular-webfont.woff') format('woff'),
+     	 url('font/laconic/laconic_regular-webfont.ttf') format('truetype'),
+     	 url('font/laconic/laconic_regular-webfont.svg#RalewayThin') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 .member-intro,.main-panel{
@@ -16,6 +30,10 @@ header{
 	text-align: center;
 }
 
+.team-intro{
+	margin-top:20px;
+	margin-bottom:20px;
+}
 
 .info{
 	float:left;
@@ -28,14 +46,17 @@ header{
 }
 
 .brand{
+	height:80px;
 	overflow:hidden;
 	background-color: gray;
-}
-
-#logo{
-	float:left;
+	text-align: center;
+	background-image:url(pic/dummy_profile_picture.jpg);
+	background-position:left;
+	background-repeat:no-repeat;
+	background-size: 80px;
 }
 
 #team-name{
+	display:inline;
 	text-align: center;
 }
