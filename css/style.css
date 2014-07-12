@@ -18,6 +18,10 @@ a:active {
     color: #0000FF;
 }
 
+h1
+{
+	margin-top: 10px;
+}
 
 body{
 	background-color:black;
@@ -47,7 +51,7 @@ header{
 
 .brand {
 	font-family: Higher;
-	font-size: xx-large;
+	font-size: 250%;
 	color: red;
 	vertical-align: center;
 }
