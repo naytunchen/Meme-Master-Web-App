@@ -46,14 +46,17 @@ header{
 }
 
 .brand{
+	height:80px;
 	overflow:hidden;
 	background-color: gray;
-}
-
-#logo{
-	float:left;
+	text-align: center;
+	background-image:url(pic/dummy_profile_picture.jpg);
+	background-position:left;
+	background-repeat:no-repeat;
+	background-size: 80px;
 }
 
 #team-name{
+	display:inline;
 	text-align: center;
 }
