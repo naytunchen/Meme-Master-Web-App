@@ -1,11 +1,25 @@
+
+
 body{
 	background-color:black;
 	color:white;
 	text-align: center;
+	font-family: Laconic_Regular, Arial, Helvetica, sans-serif;
 }
 
 header{
 	width:100%;
+}
+
+@font-face {
+	font-family: 'Laconic_Regular';
+	src: url('font/laconic/laconic_regular-webfont.eot');
+	src: url('font/laconic/laconic_regular-webfont.eot?#iefix') format('embedded-opentype'),
+     	 url('font/laconic/laconic_regular-webfont.woff') format('woff'),
+     	 url('font/laconic/laconic_regular-webfont.ttf') format('truetype'),
+     	 url('font/laconic/laconic_regular-webfont.svg#RalewayThin') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 .member-intro,.main-panel{

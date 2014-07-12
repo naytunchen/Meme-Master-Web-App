@@ -1,0 +1,41 @@
+body{
+	background-color:black;
+	color:white;
+	text-align: center;
+}
+
+header{
+	width:100%;
+}
+
+.member-intro,.main-panel{
+	display:inline-block;
+	margin-left: auto;
+	margin-right: auto;
+	overflow:hidden;
+	text-align: center;
+}
+
+
+.info{
+	float:left;
+	margin:15px;
+	display:block;
+}
+
+.intro,.name{
+	width:200px;
+}
+
+.brand{
+	overflow:hidden;
+	background-color: gray;
+}
+
+#logo{
+	float:left;
+}
+
+#team-name{
+	text-align: center;
+}
