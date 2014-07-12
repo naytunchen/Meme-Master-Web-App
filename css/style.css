@@ -5,6 +5,7 @@ body{
 	color:white;
 	text-align: center;
 	font-family: Laconic_Regular, Arial, Helvetica, sans-serif;
+	background-image:url("../pic/background.jpg");
 }
 
 header{
