@@ -65,8 +65,13 @@ header{
 }
 
 .team-intro{
+	width:1000px;
 	margin-top:20px;
 	margin-bottom:20px;
+	margin-left:auto;
+	margin-right:auto;
+	color:rgba(172,172,172,1.0);
+	text-align: left;
 }
 
 .info{
@@ -87,6 +92,7 @@ header{
 
 .intro{
 	text-align: left;
+	color:rgba(255,255,255,0.9);
 }
 
 .brand{
@@ -100,16 +106,13 @@ header{
 	background-size: 80px;
 }
 
-#team-name{
-	display:inline;
-	text-align: center;
-}
-
 img{
 	box-shadow: 6px -8px 10px rgba(34,34,34,0.6);
 }
 
-h1{
-	margin-top:7px;
-	font-size: 54px;
+#team-name{
+	color: rgba(62,62,62,1);
+	margin-top:-21px;
+	font-size: 100px;
+	text-shadow: 2px 0px 3px #666;
 }
