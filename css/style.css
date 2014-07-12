@@ -46,7 +46,7 @@ header{
 	overflow:hidden;
 	background-color: gray;
 	text-align: center;
-	background-image:url(pic/dummy_profile_picture.jpg);
+	background-image:url(../pic/dummy_profile_picture.jpg);
 	background-position:left;
 	background-repeat:no-repeat;
 	background-size: 80px;
