@@ -33,6 +33,7 @@ header{
 }
 
 .info{
+	font-size: 14px;
 	float:left;
 	margin:15px;
 	display:block;
@@ -40,6 +41,10 @@ header{
 
 .intro,.name{
 	width:200px;
+}
+
+.intro{
+	text-align: left;
 }
 
 .brand{
