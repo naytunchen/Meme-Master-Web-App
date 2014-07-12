@@ -100,3 +100,12 @@ header{
 	display:inline;
 	text-align: center;
 }
+
+img{
+	box-shadow: 6px -8px 10px rgba(34,34,34,0.6);
+}
+
+h1{
+	margin-top:7px;
+	font-size: 54px;
+}
