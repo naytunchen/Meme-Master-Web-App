@@ -38,6 +38,20 @@ header{
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'Higher';
+	src: url('font/higher_font/Higher.otf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.brand {
+	font-family: Higher;
+	font-size: xx-large;
+	color: red;
+	vertical-align: center;
+}
+
 .member-intro,.main-panel{
 	display:inline-block;
 	margin-left: auto;
