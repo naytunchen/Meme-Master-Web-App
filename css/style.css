@@ -13,11 +13,7 @@ header{
 
 @font-face {
 	font-family: 'Laconic_Regular';
-	src: url('font/laconic/laconic_regular-webfont.eot');
-	src: url('font/laconic/laconic_regular-webfont.eot?#iefix') format('embedded-opentype'),
-     	 url('font/laconic/laconic_regular-webfont.woff') format('woff'),
-     	 url('font/laconic/laconic_regular-webfont.ttf') format('truetype'),
-     	 url('font/laconic/laconic_regular-webfont.svg#RalewayThin') format('svg');
+	src: url('font/laconic/Laconic_Regular.otf');
 	font-weight: normal;
 	font-style: normal;
 }
