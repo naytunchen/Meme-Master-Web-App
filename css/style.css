@@ -1,3 +1,22 @@
+/* unvisited link */
+a:link {
+    color: #4c59e8;
+}
+
+/* visited link */
+a:visited {
+    color: #00FF00;
+}
+
+/* mouse over link */
+a:hover {
+    color: #eb8321;
+}
+
+/* selected link */
+a:active {
+    color: #0000FF;
+}
 
 
 body{
@@ -19,6 +38,20 @@ header{
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'Higher';
+	src: url('font/higher_font/Higher.otf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.brand {
+	font-family: Higher;
+	font-size: xx-large;
+	color: red;
+	vertical-align: center;
+}
+
 .member-intro,.main-panel{
 	display:inline-block;
 	margin-left: auto;
@@ -33,19 +66,29 @@ header{
 }
 
 .info{
+	font-size: 14px;
 	float:left;
 	margin:15px;
 	display:block;
+	opacity: 0.9;
+}
+
+.info:hover{
+	opacity: 1.0;
 }
 
 .intro,.name{
 	width:200px;
 }
 
+.intro{
+	text-align: left;
+}
+
 .brand{
 	height:80px;
 	overflow:hidden;
-	background-color: gray;
+	background-color: rgba(200,255,255,0.1);
 	text-align: center;
 	background-image:url(../pic/dummy_profile_picture.jpg);
 	background-position:left;
@@ -56,4 +99,13 @@ header{
 #team-name{
 	display:inline;
 	text-align: center;
+}
+
+img{
+	box-shadow: 6px -8px 10px rgba(34,34,34,0.6);
+}
+
+h1{
+	margin-top:7px;
+	font-size: 54px;
 }
