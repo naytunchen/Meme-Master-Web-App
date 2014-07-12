@@ -69,7 +69,7 @@ header{
 .brand{
 	height:80px;
 	overflow:hidden;
-	background-color: gray;
+	background-color: rgba(200,255,255,0.1);
 	text-align: center;
 	background-image:url(../pic/dummy_profile_picture.jpg);
 	background-position:left;
