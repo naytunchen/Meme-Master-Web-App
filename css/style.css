@@ -64,6 +64,10 @@ header{
 	text-align: center;
 }
 
+.member-intro{
+	margin-top: 20px;
+}
+
 .team-intro{
 	width:1000px;
 	margin-top:20px;
@@ -84,6 +88,8 @@ header{
 
 .info:hover{
 	opacity: 1.0;
+	-webkit-filter: none;
+  	filter: none;
 }
 
 .intro,.name{
@@ -100,18 +106,26 @@ header{
 	overflow:hidden;
 	background-color: rgba(200,255,255,0.1);
 	text-align: center;
-	background-image:url(../pic/dummy_profile_picture.jpg);
+	/*background-image:url(../pic/dummy_profile_picture.jpg);*/
 	background-position:left;
 	background-repeat:no-repeat;
 	background-size: 80px;
 }
 
-img{
+.profile-img{
 	box-shadow: 6px -8px 10px rgba(34,34,34,0.6);
+	-webkit-filter: grayscale(1);
+  	filter: grayscale(1);
+}
+
+.profile-img:hover{
+	box-shadow: 6px -8px 10px rgba(34,34,34,0.6);
+	-webkit-filter: none;
+  	filter: none;
 }
 
 #team-name{
-	color: rgba(62,62,62,1);
+	color: rgba(232,232,242,0.8);
 	margin-top:-21px;
 	font-size: 100px;
 	text-shadow: 2px 0px 3px #666;
