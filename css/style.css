@@ -94,8 +94,8 @@ header{
 	margin:15px;
 	display:block;
 	opacity: 0.9;
-	-webkit-transition: opacity 0.5s;
-    transition: opacity 0.5s;
+	-webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
 }
 
 .info:hover{
@@ -107,6 +107,27 @@ header{
 .info:hover .profile-img{
 	-webkit-filter: none;
   	filter: none;
+}
+
+.info:nth-child(1):hover h2{
+	color: rgba(255,255,150,1);
+}
+.info:nth-child(2):hover h2{
+	color: rgba(255,173,153,1);
+}
+.info:nth-child(3):hover h2{
+	color: rgba(255,190,120,1);
+}
+.info:nth-child(4):hover h2{
+	color: rgba(245,212,180,1);
+}
+.info:nth-child(5):hover h2{
+	color: rgba(180,180,255,1);
+}
+
+h2{
+	-webkit-transition: color 0.3s;
+    transition: color 0.3s;
 }
 
 .intro,.name{
@@ -138,8 +159,8 @@ header{
 	box-shadow: 6px 8px 6px rgba(34,34,34,0.6);
 	-webkit-filter: contrast(1.3) grayscale(1);
   	filter: contrast(1.3) grayscale(1);
-  	-webkit-transition: filter 0.5s, -webkit-filter 0.5s;
-    transition: filter 0.5s, -webkit-filter 0.5s;
+  	-webkit-transition: filter 0.3s, -webkit-filter 0.5s;
+    transition: filter 0.3s, -webkit-filter 0.5s;
 }
 
 .profile-img:hover{
