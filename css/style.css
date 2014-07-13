@@ -1,9 +1,10 @@
-/* unvisited link */
+@import url("animation.css");
 
 a{
 	text-decoration: none;
 }
 
+/* unvisited link */
 a:link {
     color: rgba(133,133,255,1.0);
 }
@@ -25,6 +26,7 @@ a:active {
 
 h1
 {
+	display: inline;
 	padding-top: 20px;
 	margin-top: 10px;
 }
@@ -76,11 +78,10 @@ header{
 
 .team-intro{
 	width:1100px;
-	margin-top:20px;
 	margin-bottom:20px;
 	margin-left:auto;
 	margin-right:auto;
-	margin-top:-40px;
+	margin-top:30px;
 	color:rgba(190,190,200,1.0);
 	text-align: justify;
 	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
@@ -146,7 +147,12 @@ header{
   	filter: none;
 }
 
-#team-name{
+#team-name-div{
+	display: inline-block;
+	text-align: left;
+}
+
+.team-name{
 	color: rgba(255,255,255,0.9);
 	margin-top:-10px;
 	font-size: 100px;
