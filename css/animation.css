@@ -1,0 +1,55 @@
+
+h1:nth-child(1){
+	-webkit-animation: team-name-anim 5s linear 0s infinite;
+	animation: team-name-anim 5s linear 0s infinite;
+}
+h1:nth-child(2){
+	-webkit-animation: team-name-anim 5s linear 0.2s infinite;
+	animation: team-name-anim 5s linear 0.2s infinite;
+}
+h1:nth-child(3){
+	-webkit-animation: team-name-anim 5s linear 0.4s infinite;
+	animation: team-name-anim 5s linear 0.4s infinite;
+}
+h1:nth-child(4){
+	-webkit-animation: team-name-anim 5s linear 0.6s infinite;
+	animation: team-name-anim 5s linear 0.6s infinite;
+}
+h1:nth-child(5){
+	-webkit-animation: team-name-anim 5s linear 0.8s infinite;
+	animation: team-name-anim 5s linear 0.8s infinite;
+}
+h1:nth-child(6){
+	-webkit-animation: team-name-anim 5s linear 0.8s infinite;
+	animation: team-name-anim 5s linear 0.8s infinite;
+}
+
+@-webkit-keyframes team-name-anim{
+	0%{
+		transform: rotateY(0deg) translatey(0px) translatex(0px);
+		-webkit-transform: rotateY(0deg) translatey(0px) translatex(0px);
+	}
+	5%{
+		transform: rotateY(180deg) translatey(-5px) translatex(12px);
+		-webkit-transform: rotateY(180deg) translatey(-5px) translatex(12px);
+	}
+	10%,100%{
+		transform: rotateY(360deg) translatey(0px) translatex(0px);
+		-webkit-transform: rotateY(360deg) translatey(0px) translatex(0px);
+	}
+}
+
+@keyframes team-name-anim{
+	0%{
+		transform: rotateY(0deg) translatey(0px) translatex(0px);
+		-webkit-transform: rotateY(0deg) translatey(0px) translatex(0px);
+	}
+	5%{
+		transform: rotateY(180deg) translatey(-5px) translatex(12px);
+		-webkit-transform: rotateY(180deg) translatey(-5px) translatex(12px);
+	}
+	10%,100%{
+		transform: rotateY(360deg) translatey(0px) translatex(0px);
+		-webkit-transform: rotateY(360deg) translatey(0px) translatex(0px);
+	}
+}
