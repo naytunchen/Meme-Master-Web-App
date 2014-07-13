@@ -1,21 +1,26 @@
 /* unvisited link */
+
+a{
+	text-decoration: none;
+}
+
 a:link {
-    color: #4c59e8;
+    color: rgba(133,133,255,1.0);
 }
 
 /* visited link */
 a:visited {
-    color: #00FF00;
+    color: rgba(255,133,133,1.0);
 }
 
 /* mouse over link */
 a:hover {
-    color: #eb8321;
+    color: rgba(255,255,133,1.0);
 }
 
 /* selected link */
 a:active {
-    color: #0000FF;
+    color: green;
 }
 
 h1
@@ -49,6 +54,15 @@ header{
 	font-style: normal;
 }
 
+@font-face {
+	font-family: 'Roboto-Regular';
+	src: url('font/Roboto_v1.2/Roboto/Roboto-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
 .brand {
 	font-family: Higher;
 	font-size: 250%;
@@ -76,6 +90,7 @@ header{
 	margin-right:auto;
 	color:rgba(172,172,172,1.0);
 	text-align: left;
+	font-family: Roboto-Regular;
 }
 
 .info{
