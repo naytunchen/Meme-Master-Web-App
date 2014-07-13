@@ -100,6 +100,11 @@ header{
   	filter: none;
 }
 
+.info:hover .profile-img{
+	-webkit-filter: none;
+  	filter: none;
+}
+
 .intro,.name{
 	width:200px;
 }
