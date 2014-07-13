@@ -107,7 +107,7 @@ header{
 .intro{
 	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 	text-align: left;
-	color:rgba(255,255,255,0.9);
+	color:rgba(255,255,255,1.0);
 }
 
 .brand{
@@ -154,6 +154,8 @@ hr{
 
 #meme-master-link{
 	margin-top: -10px;
+	font-size: 32px;
+	font-family: 'Orbitron', sans-serif;
 }
 
 em{
