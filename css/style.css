@@ -80,9 +80,9 @@ header{
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:-40px;
-	color:rgba(172,172,172,1.0);
+	color:rgba(190,190,200,1.0);
 	text-align: justify;
-	font-family: Roboto-Regular;
+	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 	font-size: 16px;
 }
 
@@ -105,6 +105,7 @@ header{
 }
 
 .intro{
+	font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
 	text-align: left;
 	color:rgba(255,255,255,0.9);
 }
@@ -136,10 +137,10 @@ header{
 }
 
 #team-name{
-	color: rgba(232,232,242,0.8);
-	margin-top:-21px;
+	color: rgba(255,255,255,0.9);
+	margin-top:-10px;
 	font-size: 100px;
-	text-shadow: 2px 0px 3px #666;
+	text-shadow: 4px 6px 3px rgba(255,255,255,0.4);
 }
 
 hr{
@@ -153,4 +154,9 @@ hr{
 
 #meme-master-link{
 	margin-top: -10px;
+}
+
+em{
+	color: rgba(255,60,60,1.0);
+	font-size: 14px;
 }
