@@ -38,6 +38,11 @@
 	height:100%;
 }
 
+.edit{
+	position:absolute;
+	top: 200px;
+}
+
 .memeImg{
 	float:left;
 	margin-top:20px;
