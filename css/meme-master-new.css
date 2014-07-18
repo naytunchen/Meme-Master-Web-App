@@ -9,7 +9,7 @@ body{
 	background-color: black;
 }
 
-div,input,button{
+span,div,input,button{
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;         /* Opera/IE 8+ */
@@ -69,8 +69,10 @@ div,input,button{
 			#search-box{
 				width:88%;
 				height:0.7in;
+				padding-left: 0.1in;
 				margin-top: 0.15in;
 				margin-left:1%;
+				font-size: 1.5em;
 			}
 
 			#search-button{
@@ -78,6 +80,7 @@ div,input,button{
 				width:10%;
 				height: 0.7in;
 				margin-top: 0.15in;
+				font-size: 1.5em;
 			}
 
 		.content-view{
