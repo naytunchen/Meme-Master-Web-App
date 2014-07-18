@@ -1,0 +1,213 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html{
+	height:100%;
+}
+
+body{
+	padding:0;
+	margin:0;
+	height:100%;
+	background-color: black;
+}
+
+span,div,input,button{
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.container{
+	height:100%;
+	background-color: yellow;
+	overflow: hidden;
+}
+
+	.left-panel{
+		height:100%;
+		width:2in;
+		background-color: red;
+		float:left;
+		overflow: hidden;
+	}
+
+		.logo{
+			width:100%;
+			height:2in;
+			background-color: blue;
+		}
+
+		.category{
+			display: inline-block;
+			width:100%;
+			height:100%;
+			background-color: green;
+			padding-bottom: 2in;
+		}
+
+			.category-item{
+				width:100%;
+				height:0.8in;
+				background-color: pink;
+				text-align: center;
+				padding-top: 0.3in;
+				border-top: 1px solid black;
+			}
+
+	.right-panel{
+		height:100%;
+		width:100%;
+		margin-left: 2in;
+		padding-right:2in;
+		background-color: grey;
+	}
+
+		.search-bar{
+			width:100%;
+			height:1in;
+			background-color: purple;
+		}
+
+			#search-box{
+				width:88%;
+				height:0.7in;
+				padding-left: 0.1in;
+				margin-top: 0.15in;
+				margin-left:1%;
+				font-size: 1.5em;
+			}
+
+			#search-button{
+				margin-left: -0.1in;
+				width:10%;
+				height: 0.7in;
+				margin-top: 0.15in;
+				font-size: 1.5em;
+			}
+
+		.content-view{
+			width:100%;
+			height:100%;
+			background-color: orange;
+			padding-bottom: 1in;
+		}
+			.memeImg{
+				float:left;
+				margin-top: 0.2in;
+				margin-left: 0.2in;
+			}
+
+.diy-slideshow{
+  margin: 50px 180px;
+  vertical-align: middle;
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: auto;
+  height: 600px;
+  max-width: 700px;
+  max-height: 600px;
+}
+
+img {
+  vertical-align: middle;
+  height: 100%;
+}
+
+figure{
+  position: absolute;
+  opacity: 0;
+  vertical-align: middle;
+  max-width: auto;
+  height: 100%;
+  min-height: 600px;
+  max-height: 600px;
+  transition: 1s opacity;
+}
+figcaption{
+  position: absolute;
+  font-family: sans-serif;
+  font-size: .8em;
+  bottom: .75em;
+  right: .35em;
+  padding: .25em;
+  color: #fff;
+  background: rgba(0,0,0, .25);
+  border-radius: 2px;
+}
+figcaption a{
+  color: #fff;
+}
+figure.show{
+  opacity: 1;
+  position: static;
+  transition: 1s opacity;
+}
+.next, .prev{
+  color: #fff;
+  position: absolute;
+  background: rgba(0,0,0, .6);
+  top: 50%;
+  z-index: 1;
+  font-size: 2em;
+  margin-top: -.75em;
+  opacity: .3;
+  user-select: none;
+}
+.next:hover, .prev:hover{
+  cursor: pointer;
+  opacity: 1;
+}
+.next{
+  right: 0;
+  padding: 10px 5px 15px 10px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.prev{
+  left: 0;
+  padding: 10px 10px 15px 5px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.edit{
+	position: absolute;
+	top: 200px;
+}
+
+.memeImg{
+	float:left;
+	margin-top:20px;
+	margin-left:20px;
+}
+
+.edit-meme{
+	/*position:absolute;*/
+	display: block;
+	margin: auto;
+	width: auto;
+}
+
+
+/* Star Rating */
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}
+

@@ -4,46 +4,104 @@
 	padding: 0;
 }
 
-#main{
-	width:100%;
-	background-color: red;
-	height:100%;
+html
+{
+	height: 100;
 }
 
-#top-panel{
-	width:100%;
-	background-color: blue;
-	/*text-align: right;*/
-	overflow: hidden;
-}
-
-#top-panel div{
-	float: right;
-}
-
-#bottom-panel{
-	width:100%;
-	height:750px;
-	overflow: hidden;
-	background-color: green;
-}
-
-#left-panel{
-	/*display: inline-block;*/
-	background-color: yellow;
-	float:left;
+body
+{
+	padding: 0;
+	margin: 0;
 	height: 100%;
-	width:15%;
-	z-index: 10;
-}
-
-#right-panel{
-	/*display: inline-block;*/
 	background-color: black;
-	float:right;
-	width:85%;
+}
+
+span, div, input, button {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.container
+{
 	height: 100%;
-	z-index: 2;
+	background-color: yellow;
+	overflow: hidden;
+}
+
+#left-panel
+{
+	height: 100%;
+	width: 2in;
+	background-color: red;
+	float: left;
+	overflow: hidden;
+}
+
+.logo
+{
+	width: 100%;
+	height; 2in;
+	background-color: blue;
+}
+
+.category
+{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	background-color: green;
+	padding-bottom: 2in;
+}
+
+.category-item
+{
+	width: 100%;
+	height: 0.8in;
+	background-color: pink;
+	text-align: center;
+	padding-top: 0.3in;
+	border-top: 1px solid black;
+}
+.search-bar {
+	width: 100%;
+	height: 1in;
+	background-color: purple;
+}
+
+#search-box {
+	width: 88%;
+	height: 0.7in;
+	padding-left: 0.1in;
+	margin-top: 0.15in;
+	margin-left: 1%;
+}
+
+#search-button
+{
+	margin-left: -0.1in;
+	width: 10%;
+	height: 0.7in;
+	margin-top: 0.15in;
+	font-size: 1.5em;
+}
+
+.content-view 
+{
+	width: 100%;
+	height: 100%;
+	background-color: orange;
+	padding-bottom: 1in;
+}
+
+.right-panel{
+	/*display: inline-block;*/
+	height: 100%;
+	width: 100%;
+	margin-left: 2in;
+	padding-right: 2in;
+	background-color: grey;
 }
 
 .edit{
@@ -82,138 +140,6 @@
    content: "\2605";
    position: absolute;
 }
-
-
-/*.rating {
-	unicode-bidi: bidi-override;
-	direction: rtl;
-}
-
-.rating > span {
-	display: inline-block;
-	position: relative;
-	width: 1.1em;
-}
-
-.rating > span:hover:before,
-.rating > span:hover ~ span:before {
-	content: "\2605";
-	position: absolute;
-}
-
-.rating > span: {}
-
-.container {
-	width: 500px;
-	height: 500px;
-	position: relative;
-	margin: 50px auto;
-	/* background-color: #000;
-	border: 1px solid #CCC; */
-	/*-webkit-perspective: 1100;
-}
-
-#coverflow {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	/* background-color: #000; */
-	/*-webkit-transform: translateZ(-200px);
-	-webkit-transform-style: preserve-3d;
-	/* -webkit-backface-visibility: hidden; */
-/*	z-index: -2;
-}
-
-#coverflow figure {
-    display: block;
-    position: absolute;
-    width: auto;
-    height: auto;
-    max-width: 500px;
-    max-height: 400px;      
-    border: 2px solid black; 
-    cursor:pointer;           
-    -webkit-transition: -webkit-transform 0.5s ease; 
-    z-index: -2;
-
-} 
-
-#coverflow figure img
-{
-    width:auto;
-    height:auto;
-    max-width: 500px;
-    max-height: 400px;
-}
-
-
-
-/*initial configuration*/
-/*#coverflow figure:nth-child(1) {
-	-webkit-transform:translateX(100px) rotateY(-60deg);         
-}
-#coverflow figure:nth-child(2) {
-    -webkit-transform:translateX(150px) rotateY(-60deg);        
-}
-#coverflow figure:nth-child(3) {
-    -webkit-transform:translateX(200px) rotateY(-60deg);         
-}
-#coverflow figure:nth-child(4) {
-    -webkit-transform:translateX(250px) rotateY(-60deg);        
-}
-#coverflow figure:nth-child(5) {
-    -webkit-transform:translateX(300px) rotateY(-60deg);        
-} 
-#coverflow figure:nth-child(6) {
-    -webkit-transform:translateX(350px) rotateY(-60deg);        
-} 
-#coverflow figure:nth-child(7) {
-    -webkit-transform:translateX(400px) rotateY(-60deg);        
-} 
-   
-.pushBtn
-{
-    width:100px; 
-    height:30px;  
-    cursor:pointer;   
-    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#90CF23), to(#6A9C1D), color-stop(.4,#8BC20A));  
-    -webkit-border-radius:5px;
-    border:none;
-    font-family:helvetica;
-    color:#fff;
-    font-size:13px;
-    font-weight:bold;
-} 
-
-
-section.container {
-	background-color: black;
-	min-width: 100%;
-	min-height: 100%%;
-	max-width: 100%;
-	max-height: 100%;
-	width: 100%%;
-	height: 100%%;
-	float: left;
-
-}
-
-.btnContainer {
-	float: left;
-	width: inherit;
-	padding-top: 400px;
-}
-
-#prevBtn {
-	float: left;
-	margin-left: 50px;
-}
-
-#nextBtn {
-	right: 0;
-}
-
-*/
 
 
 /* slider frame */
