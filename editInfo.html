@@ -43,7 +43,7 @@
 				</div>
 			</div>
 			<div id = "right-panel">
-				<div id = "content-view">content view
+				<div id = "content-view">
 					<section class="container">
 						<div id="coverflow">
 							<figure id="fig1" cp="-200" a="60" onclick="moveTo(this)"><img src="pic/meme1.png"/></figure>
@@ -52,12 +52,18 @@
 							<figure id="fig4" cp="0" a="60" onclick="moveTo(this)"><img src="pic/meme4.png"/></figure>
 							<figure id="fig5" cp="100" a="60" onclick="moveTo(this)"><img src="pic/meme5.png"/></figure>
 							<figure id="fig6" cp="150" a="60" onclick="moveTo(this)"><img src="pic/meme6.png"/></figure>
-							<figure id="fig7" cp="200" a="60" onclick="moveTo(this)"><img src="pic/meme7.png"/></figure>
+							<figure id="fig7" cp="200" a="60" onclick="moveTo(this)"><img src="pic/meme7.png"/></figure>	
 						</div>
+
+						<div class="btnContainer">
+							<input class="pushBtn" id="prevBtn" type="button" value="Prev" onclick="left()" data="1">
+							<input class="pushBtn" id="nextBtn" type="button" value="Next" onclick="right()" data="-1">
+						</div>
+							
 					</section>
 					
-					<input class="pushBtn" type="button" value="Prev" onclick="left()" data="1"></div>
-					<input class="pushBtn" type="button" value="Next" onclick="right()" data="-1"></div>
+					
+					
 				
 				</div>
 
