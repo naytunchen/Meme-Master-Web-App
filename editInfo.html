@@ -1,33 +1,33 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>MemeMaster</title>
-		<link rel="stylesheet" href="css/static.css" />
-		<link rel="stylesheet" href="css/newedit.css"/>
-	</head>
-	<body>
-		<div class="container">
-			<div class="left-panel">
-				<div class="logo">
-
-				</div>
-				<div class="category">
-					<div class="category-item">category 1</div>
-					<div class="category-item">category 2</div>
-					<div class="category-item">category 3</div>
-					<div class="category-item">category 4</div>
-					<div class="category-item">category 5</div>
-					<div class="category-item">category 6</div>
-					<div class="category-item">category 7</div>
-				</div>
+<head>
+	<meta charset="utf-8">
+	<title>MemeMaster - Meme Information Edit Page</title>
+	<link rel="stylesheet" href="css/editpage.css"/>
+</head>
+<body>
+	<div class="container">
+		<div class="left-panel">
+			
+			<div class="logo">
 			</div>
-			<div class="right-panel">
-				<div class="search-bar">
-					<input id="search-box" type="search" placeholder="search"/>
-					<button id="search-button" type="button">Search</button>
-				</div>
-				<table class="edit-meme" align="right">
+			
+			<div class="category">
+				<div class="category-item"> category 1</div>
+				<div class="category-item"> category 2</div>
+				<div class="category-item"> category 3</div>
+				<div class="category-item"> category 4</div>
+				<div class="category-item"> category 5</div>
+				<div class="category-item"> category 6</div>
+				<div class="category-item"> category 7</div>
+			</div>
+		</div>
+		<div class="right-panel">
+			<div class="search-bar">
+				<input id="search-box" type="search" placeholder="search"/>
+				<button id="search-button" type="button"> Search </button>
+			</div>
+			
+			<table class="edit-meme" align="right">
 				<tbody>
 					<tr>
 						<td>
@@ -70,36 +70,43 @@
 					</tr>
 				</tbody>
 			</table>
-				
-				<div class="content-view">
-					<div class="diy-slideshow">
-						<figure class="show">
-							<img src="pic/meme1.png" width="100%" /><figcaption>meme1</figcaption>
-						</figure>
-						<figure>
-							<img src="pic/meme2.png" width="100%" /><figcaption>meme2</figcaption>
-						</figure>
-						<figure>
-							<img src="pic/meme3.png" width="100%" /><figcaption>meme3</figcaption>
-						</figure>
-						<figure>
-							<img src="pic/meme4.png" width="100%" /><figcaption>meme4</figcaption>
-						</figure>
-						<figure>
-							<img src="pic/meme5.png" width="100%" /><figcaption>meme5</figcaption>
-						</figure>
-						<figure>
-							<img src="pic/meme6.png" width="100%" /><figcaption>meme6</figcaption>
-						</figure>
+			
+			<div class="content-view">
+				<div class="diy-slideshow">
+					<figure class="show">
+						<img src="pic/meme1.png" width="100%" /><figcaption>meme1</figcaption>
+					</figure>
+					<figure>
+						<img src="pig/meme2.png" width="100%" /><figcaption>meme2</figcaption>
+					</figure>
+					<figure>
+						<img src="pig/meme3.png" width="100%" /><figcaption>meme3</figcaption>
+					</figure>
+					<figure>
+						<img src="pig/meme4.png" width="100%" /><figcaption>meme4</figcaption>
+					</figure>
+					<figure>
+						<img src="pig/meme5.png" width="100%" /><figcaption>meme5</figcaption>
+					</figure>
+					<figure>
+						<img src="pig/meme6.png" width="100%" /><figcaption>meme6</figcaption>
+					</figure>
 						
-						<span class="prev">&laquo;</span>
-						<span class="next">&raquo;</span>
-					</div>
+					<span class="prev">&laquo;</span>
+					<span class="next">&raquo;</span>					</div>
 				</div>
 			</div>
 		</div>
-		
-		<script>
+	</div>
+	<footer>
+		<nav>
+			<a href="#" id="tou">Terms of Use</a> |
+			<a href="team-page.html" id="contactus">Contact Us</a> |
+			<a href="#" id="helplink">Help</a>
+		</nav>
+	</footer>
+	
+	<script>
 		(function(){
 			var counter = 0, // to keep track of current slide
 			$items = document.querySelectorAll('.diy-slideshow figure'), 
@@ -133,6 +140,4 @@
   
 		})();  
 	</script>
-	</body>
-
-</html>
+</body>
