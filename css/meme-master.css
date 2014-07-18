@@ -38,6 +38,16 @@
 	height:100%;
 }
 
+#searchbox{
+	width: 700px; 
+	height:35px;
+	margin-right:3px;
+	background-image: url(../pic/search.png);
+	background-repeat: no-repeat;
+	background-position: 660px;
+	border-radius: 15px;	
+}
+
 .memeImg{
 	float:left;
 	margin-top:20px;
