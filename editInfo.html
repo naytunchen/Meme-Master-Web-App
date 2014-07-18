@@ -42,8 +42,9 @@
 					<a id="cat4" href="#">category 3</a>
 				</div>
 			</div>
-			<div id = "right-panel">
+            <div id = "right-panel">
 				<div id = "content-view">
+                <!--
 					<section class="container">
 						<div id="coverflow">
 							<figure id="fig1" cp="-200" a="60" onclick="moveTo(this)"><img src="pic/meme1.png"/></figure>
@@ -61,20 +62,30 @@
 						</div>
 							
 					</section>
+                -->
 					
-					
-					
-				
-				</div>
-
-				<div class="edit" style="float: right; right: 120px;">
-					<b class="edit">Name:</b><input class="edit" placeholder="WTF Patrick Stewart">
-					<b class="edit">Comment:</b><input class="edit" placeholder="Testing Comment">
-					<div class="rating">
-						<span>&#9734</span><span>&#9734</span><span>&#9734</span><span>&#9734</span><span>&#9734</span>
-					</div>
-
-				</div>	
+			    <div class="diy-slideshow">
+                    <figure class="show">
+                        <img src="pic/meme1.png" width="100%" /><figcaption>meme1</figcaption> 
+                    </figure>
+                    <figure>
+                        <img src="pic/meme2.png" width="100%" /><figcaption>meme2</figcaption>  
+                    </figure>
+                    <figure>
+                        <img src="pic/meme3.png" width="100%" /><figcaption>meme3</figcaption> 
+                    </figure>
+                    <figure>
+                        <img src="pic/meme4.png" width="100%" /><figcaption>meme4</figcaption> 
+                    </figure>
+                    <figure>
+                        <img src="pic/meme5.png" width="100%" /><figcaption>meme5</figcaption> 
+                    </figure>
+                    <figure>
+                        <img src="pic/meme6.png" width="100%" /><figcaption>meme6</figcaption> > 
+                    </figure>
+                    <span class="prev">&laquo;</span>
+                    <span class="next">&raquo;</span>
+                </div>  
 			</div>
 		</div>
 	</div>
@@ -88,129 +99,39 @@
 		</nav>
 	</footer>
 
-	<script type="text/javascript">
-		var min = 1;
-        var max = 7;
-        var current = 4;
-        var currPos = 0;
-        var newPos = 0;
-        var currAngle = 0;
-        var newAngle = 0;
-        var gap = 50;
-        var clickedIndex = 0;      
-        var diff = 0;
-        window.onload = function() {
-        	initialThrust();
-        }
+	<script>
+		(function(){
+  
+var counter = 0, // to keep track of current slide
+    $items = document.querySelectorAll('.diy-slideshow figure'), // a collection of all of the slides, caching for performance
+    numItems = $items.length; // total number of slides
 
-        function initialThrust() {
-            setTimeout(function() {
-            	document.getElementById("fig1").style.webkitTransform = "translateX(-200px) rotateY(60deg)";
-                document.getElementById("fig2").style.webkitTransform = "translateX(-150px) rotateY(60deg)";
-                document.getElementById("fig3").style.webkitTransform = "translateX(-100px) rotateY(60deg)";
-                document.getElementById("fig4").style.webkitTransform = "translateX(0px) rotateY(0deg) translateZ(200px)";
-                document.getElementById("fig5").style.webkitTransform = "translateX(100px) rotateY(-60deg)";
-                document.getElementById("fig6").style.webkitTransform = "translateX(150px) rotateY(-60deg)";
-                document.getElementById("fig7").style.webkitTransform = "translateX(200px) rotateY(-60deg)";
-            }, 500);
-        }   
-      
-        function moveTo(targetObj) {                    
-            //console.log(targetObj.id);          
-                clickedIndex = parseInt(targetObj.id.slice(3, 4));
-                if (clickedIndex > current) {
-                    //move right to the clicked index
-                    console.log("Move right: " + clickedIndex + "/" + current + "/" + (clickedIndex - current));
-                    diff = clickedIndex - current;
-                    for (var i = 1; i <= diff; i++) {
-                        right();
-                    }
-                }
-                else if (clickedIndex < current) {
-                    //move left to the clicked index
-                    console.log("Move left: " + clickedIndex + "/" + current + "/" + (current - clickedIndex));
-                    diff = (current - clickedIndex);
-                    for (var i = 1; i <= diff; i++) {
-                        left();
-                    }
-                }
-                else {
-                    //same element is clicked....do nothing
-                }         
-        }
-        function left() {
-            //alert('test');
-            if (current > min) {
-                current--;
-                //console.log("Left: " + current);              
+// this function is what cycles the slides, showing the next or previous slide and hiding all the others
+var showCurrent = function(){
+  var itemToShow = Math.abs(counter%numItems);// uses remainder (aka modulo) operator to get the actual index of the element to show  
+  
+  // remove .show from whichever element currently has it 
+  // http://stackoverflow.com/a/16053538/2006057
+  [].forEach.call( $items, function(el){
+    el.classList.remove('show');
+  });
+  
+  // add .show to the one item that's supposed to have it
+  $items[itemToShow].classList.add('show');    
+};
 
-                for (var i = 1; i <= max; i++) {
-                    currPos = document.getElementById("fig" + i).getAttribute("cp");
-                    currAngle = document.getElementById("fig" + i).getAttribute("a");
-                    if (currPos == "-100" || currPos == "0") {
-                        newPos = parseInt(currPos) + (gap * 2) * (1);
-                        if (currPos == "0") {
-                            newAngle = -60;
-                        }
-                        else if (currPos = "-100") {
-                            newAngle = 0;
-                        }
-                        else {
-                        }
-                    }
-                    else {
-                        newPos = parseInt(currPos) + (gap) * (1);
-                        newAngle = parseInt(currAngle);
-                    }
-                    //console.log("Curr: " + currPos + " / New: " + newPos);
-                    //console.log("Curr angle: " + currAngle + " / New Angle: " + newAngle);
-                    if (i == current) {
-                        document.getElementById("fig" + i).style.webkitTransform = "translateX(" + newPos + "px) rotateY(" + newAngle + "deg) translateZ(200px)";
-                    }
-                    else {
-                        document.getElementById("fig" + i).style.webkitTransform = "translateX(" + newPos + "px) rotateY(" + newAngle + "deg)";
-                    }
-                    document.getElementById("fig" + i).setAttribute("cp", newPos);
-                    document.getElementById("fig" + i).setAttribute("a", newAngle);
-                }
-            }
-        }
-        function right() {
-            if (current < max) {
-                current++;
-                //console.log("Right: " + current);              
+// add click events to prev & next buttons 
+document.querySelector('.next').addEventListener('click', function() {
+     counter++;
+     showCurrent();
+  }, false);
 
-                for (var i = 1; i <= max; i++) {
-                    currPos = document.getElementById("fig" + i).getAttribute("cp");
-                    currAngle = document.getElementById("fig" + i).getAttribute("a");
-                    if (currPos == "100" || currPos == "0") {
-                        newPos = parseInt(currPos) + (gap * 2) * (-1);
-                        if (currPos == "0") {
-                            newAngle = 60;
-                        }
-                        else if (currPos = "100") {
-                            newAngle = 0;
-                        }
-                        else {
-                        }
-                    }
-                    else {
-                        newPos = parseInt(currPos) + (gap) * (-1);
-                        newAngle = parseInt(currAngle);
-                    }
-                    //console.log("Curr: " + currPos + " / New: " + newPos);
-                    //console.log("Curr angle: " + currAngle + " / New Angle: " + newAngle);
-                    if (i == current) {
-                        document.getElementById("fig" + i).style.webkitTransform = "translateX(" + newPos + "px) rotateY(" + newAngle + "deg) translateZ(200px)";
-                    }
-                    else {
-                        document.getElementById("fig" + i).style.webkitTransform = "translateX(" + newPos + "px) rotateY(" + newAngle + "deg)";
-                    }
-                    document.getElementById("fig" + i).setAttribute("cp", newPos);
-                    document.getElementById("fig" + i).setAttribute("a", newAngle);
-                }
-            }
-        }
+document.querySelector('.prev').addEventListener('click', function() {
+     counter--;
+     showCurrent();
+  }, false);
+  
+})();  
 	</script>
 	
 
