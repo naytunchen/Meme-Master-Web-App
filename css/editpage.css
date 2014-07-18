@@ -72,3 +72,8 @@
 	transition: all 1s;
 	-webkit-transition: all 1s;
 }
+
+.rating > span:hover:before {
+	content: "\2605";
+	position: absolute;
+}
