@@ -1,0 +1,93 @@
+html{
+	height:100%;
+}
+
+body{
+	padding:0;
+	margin:0;
+	height:100%;
+	background-color: black;
+}
+
+div,input,button{
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+}
+
+.container{
+	height:100%;
+	background-color: yellow;
+	overflow: hidden;
+}
+
+	.left-panel{
+		height:100%;
+		width:12em;
+		background-color: red;
+		float:left;
+		overflow: hidden;
+	}
+
+		.logo{
+			width:100%;
+			height:12em;
+			background-color: blue;
+		}
+
+		.category{
+			display: inline-block;
+			width:100%;
+			height:100%;
+			background-color: green;
+			padding-bottom: 12em;
+		}
+
+			.category-item{
+				width:100%;
+				height:5em;
+				background-color: pink;
+				text-align: center;
+				padding-top: 2em;
+				border-top: 1px solid black;
+			}
+
+	.right-panel{
+		height:100%;
+		width:100%;
+		margin-left: 12em;
+		padding-right:12em;
+		background-color: grey;
+	}
+
+		.search-bar{
+			width:100%;
+			height:6em;
+			background-color: purple;
+		}
+
+			#search-box{
+				width:88%;
+				height:5em;
+				margin-top: 1em;
+				margin-left:1%;
+			}
+
+			#search-button{
+				margin-left: -0.5em;
+				width:10%;
+				height:5em;
+				margin-top: 1em;
+			}
+
+		.content-view{
+			width:100%;
+			height:100%;
+			background-color: orange;
+			padding-bottom: 6em;
+		}
+			.memeImg{
+				float:left;
+				margin-top: 2em;
+				margin-left: 2em;
+			}
