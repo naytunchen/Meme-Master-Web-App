@@ -43,3 +43,27 @@
 	margin-top:20px;
 	margin-left:20px;
 }
+
+.coverflow {
+	width: 700px;
+	height: 150px;
+	perspective: 500px;
+	-webkit-perspective: 500px;
+	transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+}
+
+.coverflow .flowItem {
+	position: absolute;
+	height: 150px;
+	width: 200px;
+	left: 50%;
+	top: 50%;
+	margin-left: -100px;
+	margin-top: -75px;
+	cursor: pointer;
+	z-index: 10;
+
+	transition: all 1s;
+	-webkit-transition: all 1s;
+}
