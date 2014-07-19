@@ -72,6 +72,7 @@ span,div,input,button{
 }
 
 #search-box{
+	-webkit-appearance:none;
 	width:88%;
 	height:0.7in;
 	padding-left: 0.1in;
