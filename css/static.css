@@ -41,6 +41,10 @@ span,div,input,button{
 	background-color: white;
 }
 
+.logo img{
+  vertical-align: middle;
+  height: 100%;
+}
 
 .category{
 	display: inline-block;
