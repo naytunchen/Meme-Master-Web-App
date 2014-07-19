@@ -43,16 +43,21 @@
 	white-space:nowrap;
 }
 
-#searchbox{
+#searchboxdiv{
 	width: 75%; 
 	height:35px;
 	margin-top:5px;
 	margin-bottom:5px;
+	position: relative;
+}
+#searchbox{
+	width:100%;
+	height: 35px;
 	background-image: url(../pic/search.png);
 	background-repeat: no-repeat;
 	background-position: 100%;
 	border-radius: 15px;
-	position: relative;
+	position: absolute;
 	outline:none;
 }
 
@@ -63,8 +68,9 @@
 #signinbutton{
 	width: 90px;	
 	height:25px;
-	position:relative;
-	margin-left:12%;
+	top:10px;
+    right:15px;
+	position:absolute;
 	color: black;
 	font-weight: bold;
 	font-size: 95%;
@@ -74,19 +80,35 @@
 	background-position: 100%;
 	border: none;
 	outline:none;
+	cursor:pointer;
 }
 
 .header{
 	font-weight:bold;
-	font-size: 250%;
+	font-size: 250%; /* to make font change relative to container, you need javascript*/
 }
 
 #mememaster {
 	margin-bottom: 15px;
+	top: 0;
+	left: 0;
+}
+
+#searchbutton {
+	width: 70px;
+	height: 35px;
+	position:relative;
+	margin-left:91%;
+	cursor:pointer;
+	background:transparent;
+	border:none;
+	outline:none;
+	z-index: 2;
 }
 
 .memeImg{
 	float:left;
 	margin-top:20px;
 	margin-left:20px;
+	cursor:pointer;
 }
