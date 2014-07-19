@@ -1,6 +1,5 @@
 .diy-slideshow{
   margin-left: 100px;
-  padding-top: 50px;
   vertical-align: middle;
   position: relative;
   display: block;
@@ -95,6 +94,7 @@ figure.show{
 
 .edit-meme{
 	/*position:absolute;*/
+	border: 2px black;
 	display: block;
 	margin: auto;
 	width: auto;
