@@ -7,3 +7,8 @@
 .memeImg img{
 	box-shadow: 6px 8px 6px rgba(34,34,34,0.6);
 }
+
+#logopic {
+	vertical-align: middle;
+	height: 100%;
+}
