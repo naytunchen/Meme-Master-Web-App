@@ -30,32 +30,33 @@ span,div,input,button{
 .left-panel{
 	height:100%;
 	width:2in;
-	background-color: red;
+	background-color: rgba(255,255,255,0.2);
 	float:left;
 	overflow: hidden;
 }
 
 .logo{
 	width:100%;
-	height:2in;
-	background-color: blue;
+	height:1in;
+	/*background-color: blue;*/
 }
 
 .category{
 	display: inline-block;
 	width:100%;
 	height:100%;
-	background-color: green;
-	padding-bottom: 2in;
+	padding-bottom: 1in;
 }
 
 .category-item{
 	width:100%;
 	height:0.8in;
-	background-color: pink;
+	background-color: rgba(133,133,180,0.7);
 	text-align: center;
 	padding-top: 0.3in;
-	border-top: 1px solid black;
+	border-top: 1px solid rgba(250,250,250,0.8);
+	font-size:1.5em;
+	color:rgba(255,255,255,1.0);
 }
 
 .right-panel{
