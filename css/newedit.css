@@ -125,6 +125,7 @@ tr > td{
 }
 
 .edit-meme{
+<<<<<<< HEAD
 	position: relative;
 	float: right;
 	width: 25%;
@@ -132,6 +133,15 @@ tr > td{
 	border: solid 5px black;
 	background: grey;
 	
+=======
+  /*position: relative;*/
+	display: block;
+  margin: 25px 50px ;
+	width: 275px;
+  height: 400px;
+  border: solid 5px black;
+  background: grey;
+>>>>>>> FETCH_HEAD
 }
 
 #comment-box{
