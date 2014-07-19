@@ -3,3 +3,7 @@
 	margin-top: 0.2in;
 	margin-left: 0.2in;
 }
+
+.memeImg img{
+	box-shadow: 6px 8px 6px rgba(34,34,34,0.6);
+}
