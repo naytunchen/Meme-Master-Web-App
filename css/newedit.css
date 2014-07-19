@@ -21,7 +21,7 @@
   max-height: 3.5in;
   background-color: black;
   margin: auto;
-  overflow: auto;
+  overflow: visible;
   top: 0;
   left: 0;
   right: 0;
