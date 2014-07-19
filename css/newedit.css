@@ -1,11 +1,14 @@
 .diy-slideshow{
-  margin: 50px 180px;
+  margin-left: 100px;
+  padding-top: 50px;
   vertical-align: middle;
   position: relative;
   display: block;
   overflow: hidden;
   width: auto;
   height: 600px;
+  min-width: 700px;
+  min-height: 600px;
   max-width: 700px;
   max-height: 600px;
 }
@@ -21,6 +24,7 @@ figure{
   vertical-align: middle;
   max-width: auto;
   height: 100%;
+  min-width: 700px;
   min-height: 600px;
   max-height: 600px;
   transition: 1s opacity;
@@ -75,6 +79,12 @@ figure.show{
 .edit{
 	position: absolute;
 	top: 200px;
+}
+
+.edit-form
+{
+	position: fixed;
+	float: right;
 }
 
 .memeImg{
