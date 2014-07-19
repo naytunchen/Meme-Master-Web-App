@@ -37,9 +37,10 @@ span,div,input,button{
 
 .logo{
 	width:100%;
-	height:2in;
-	background-color: blue;
+	height:0.8in;
+	background-color: white;
 }
+
 
 .category{
 	display: inline-block;
