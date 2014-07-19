@@ -5,11 +5,11 @@
   display: block;
   overflow: hidden;
   width: auto;
-  height: 600px;
-  min-width: 700px;
-  min-height: 600px;
-  max-width: 700px;
-  max-height: 600px;
+  height: 3.5in;
+  min-width: 4in;
+  min-height: 3.5in;
+  max-width: 4in;
+  max-height: 3.5in;
 }
 
 img {
@@ -23,9 +23,9 @@ figure{
   vertical-align: middle;
   max-width: auto;
   height: 100%;
-  min-width: 700px;
-  min-height: 600px;
-  max-height: 600px;
+  min-width: 4in;
+  min-height: 3.5in;
+  max-height: 3.5in;
   transition: 1s opacity;
 }
 figcaption{
