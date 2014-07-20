@@ -24,7 +24,7 @@ h1:nth-child(6){
 	animation: team-name-anim 5s linear 0.8s infinite;
 }
 
-@-webkit-keyframes team-name-anim{
+/*@-webkit-keyframes team-name-anim{
 	0%{
 		transform: rotateY(0deg) translatey(0px) translatex(0px);
 		-webkit-transform: rotateY(0deg) translatey(0px) translatex(0px);
@@ -37,7 +37,7 @@ h1:nth-child(6){
 		transform: rotateY(360deg) translatey(0px) translatex(0px);
 		-webkit-transform: rotateY(360deg) translatey(0px) translatex(0px);
 	}
-}
+}*/
 
 @keyframes team-name-anim{
 	0%{
@@ -60,7 +60,7 @@ h1:nth-child(6){
 	animation: name-anim 0.3s linear;
 }
 
-@-webkit-keyframes name-anim{
+/*@-webkit-keyframes name-anim{
 	0%{
 		transform: translatey(0px);
 		-webkit-transform: translatey(0px);
@@ -73,7 +73,7 @@ h1:nth-child(6){
 		transform: translatey(0px);
 		-webkit-transform: translatey(0px);
 	}
-}
+}*/
 
 @keyframes name-anim{
 	0%{
@@ -96,7 +96,7 @@ h1:nth-child(6){
 	animation: profile-img-anim 0.3s linear;
 }
 
-@-webkit-keyframes profile-img-anim{
+/*@-webkit-keyframes profile-img-anim{
 	0%{
 		transform: scale3d(1,1,1) translatey(0px);
 		-webkit-transform: scale3d(1,1,1) translatey(0px);
@@ -109,7 +109,7 @@ h1:nth-child(6){
 		transform: scale3d(1,1,1) translatey(0px);
 		-webkit-transform: scale3d(1,1,1) translatey(0px);
 	}
-}
+}*/
 
 @keyframes profile-img-anim{
 	0%{

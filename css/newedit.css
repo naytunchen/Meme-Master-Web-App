@@ -1,4 +1,5 @@
 .slide_wrapper {
+  text-align:center;
 	position: relative;
 	background-color: rgba(0,0,0, 0.7);
 	display: inline-block;
@@ -123,7 +124,12 @@ tr > td{
 	margin-left:20px;
 }
 
+.form_table{
+  text-align:center;
+}
+
 .edit-meme{
+  text-align:center;
 	position: relative;
 	float: right;
 	width: 25%;
@@ -148,6 +154,7 @@ tr > td{
 
 /* Star Rating */
 .rating {
+  text-align:center;
   unicode-bidi: bidi-override;
   direction: rtl;
 }
@@ -162,4 +169,8 @@ tr > td{
 .rating > span:hover ~ span:before {
    content: "\2605";
    position: absolute;
+}
+
+.comment{
+  text-align:center;
 }
