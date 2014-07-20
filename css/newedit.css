@@ -36,7 +36,7 @@ figure{
   position: absolute;
   opacity: 0;
   vertical-align: middle;
-  max-width: auto;
+  /*max-width: auto;*/
   height: 100%;
   min-width: 4in;
   min-height: 3.5in;

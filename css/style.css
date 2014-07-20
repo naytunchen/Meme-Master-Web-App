@@ -163,7 +163,7 @@ h2{
 	font-family: Higher;
 	font-size: 250%;
 	color: red;
-	vertical-align: center;
+	/*vertical-align: center;*/
 	height:350px;
 	overflow:hidden;
 	background-color: rgba(0,0,0,0);
@@ -224,7 +224,7 @@ hr{
 #Horiz-Line{
 	
 	width: 100%;
-	size: 3;
+	/*size: 3;*/
 	color: black ;
 
 }
