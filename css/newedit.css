@@ -87,7 +87,7 @@ tr > td{
   font-size: 2em;
   margin-top: -.75em;
   opacity: .3;
-  user-select: none;
+  /*user-select: none;*/
 }
 .next:hover, .prev:hover{
   cursor: pointer;
@@ -127,7 +127,7 @@ tr > td{
 	position: relative;
 	float: right;
 	width: 25%;
-	height: 85%;
+	height: 95%;
 	border: solid 5px black;
 	background: grey;
 	/*position: relative;*/
