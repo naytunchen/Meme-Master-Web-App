@@ -189,7 +189,7 @@ ul, menu
 
 li
 {
-	display: list item;
+	/*display: list item;*/
 	text-align: -webkit-match-parent;
 }
 
@@ -203,7 +203,7 @@ a {
 }
 
 a:-webkit-any-link {
-	color: webkit link;
+	/*color: webkit link;*/
 	text-decoration: none;
 	text-align: center;
 	cursor: auto;
