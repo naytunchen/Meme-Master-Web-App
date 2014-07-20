@@ -8,7 +8,7 @@
 	vertical-align: middle;
 }
 
-.diy-slideshow{
+.diy-slideshow, .addMeme{
   position: absolute;
   display: inline-block;
   overflow: hidden;
