@@ -3,16 +3,23 @@
 	padding: 0;
 }
 
-html{
+html
+{
+	font-family: "Whitney SSm 5r", "lucida grande", tahoma, verdana, arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-size: 12px;
 	height:100%;
+	line-height: 18px;
+	overflow-y: auto;
 }
 
 body{
 	padding:0;
 	margin:0;
-	height:91%;
+	height:100%;
 	/*background-color: black;*/
 	background-image: url("../pic/mememaster-background.jpg");
+	background-color: #F0E6D4;
 }
 
 span,div,input,button{
@@ -22,13 +29,14 @@ span,div,input,button{
 }
 
 .container{
-	height:100%;
+	height:87%;
 	/*background-color: yellow;*/
 	overflow: hidden;
 }
 
 .left-panel{
-	height:100%;
+	position: relative;
+	height: 95.44%;
 	width:2in;
 	background-color: rgba(255,255,255,0.3);
 	float:left;
@@ -73,7 +81,8 @@ span,div,input,button{
 }
 
 .right-panel{
-	height:100%;
+	position: relative;
+	height: 95.44%%;
 	width:100%;
 	margin-left: 2in;
 	padding-right:2in;
@@ -108,21 +117,15 @@ span,div,input,button{
 }
 
 .content-view{
-	width:100%;
-	height:100%;
-	/*background-color: rgba(255,255,255,0.2);*/
-	padding-bottom: 1in;
+	position: relative;
+	width:99.7%%;
+	height:88%;
+	background-color: rgba(0,0,0, 0.2);
+	overflow-y: hidden;
 }
 
 
-html
-{
-	font-family: "Whitney SSm 5r", "lucida grande", tahoma, verdana, arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	font-size: 12px;
-	line-height: 18px;
-	overflow-y: auto;
-}
+
 
 .footer_wraper
 {
@@ -137,6 +140,7 @@ html
 	font-family: "Whitney SSm 5r","lucida grande", tahoma, verdana, arial, sans-serif;
 	font-size: 14px;
 	height: 100%;
+	border-top: 1px solid #94999c;
 }
 
 .footer_wraper .body .lower_content .soft_target
@@ -146,8 +150,8 @@ html
 
 .footer_wraper .body .lower_content
 {
-	width: 100%;
 	position: relative;
+	width: 100%;
 	z-index: 1;
 }
 
@@ -232,7 +236,7 @@ footer
 	position: relative;
 	padding: 0;
 	margin: 0;
-	height: 1in;
+	height: 17%;
 }
 
 /*.footer {
