@@ -5,7 +5,7 @@
 
 html
 {
-	font-family: "Whitney SSm 5r", "lucida grande", tahoma, verdana, arial, sans-serif;
+	font-family: "Whitney 4 r", Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	font-size: 12px;
 	height:100%;
@@ -14,6 +14,7 @@ html
 }
 
 body{
+	font-family: "Whitney 4 r", Helvetica, Arial, sans-serif;
 	padding:0;
 	margin:0;
 	height:100%;
@@ -270,5 +271,23 @@ footer
 	text-decoration: none;
 	border: 1px solid #000;
 } 
+
+.create-button
+{
+	position: relative;
+	margin: 0.7% 0% 0.5% 0;
+	text-align: center;
+	height: 6%;
+}
+
+.createBtn
+{
+	position: relative;
+	font-size: 12pt;
+	color: white;
+	background-color: red;
+	width: 60%;
+	height: 100%;
+}
 
 
