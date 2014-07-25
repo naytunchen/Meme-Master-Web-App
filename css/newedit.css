@@ -154,45 +154,117 @@ tbody
 #name-row
 {
 	position: absolute;
-	height: 20%;
+	height: 0.5in;
 	width: 100%;
-	margin-top: 5%;
+	margin-top: 10%;
+}
+
+div#name-row > label
+{
+	float: left;
+	margin-left: 10%;
+	text-shadow: 1px 1px 1px black;
+}
+
+div#name-row > input
+{
+	float: right;
+	margin-right: 10%;
+	text-align: center;
+	-webkit-appearance:none;
+	border:none;
+	height:45%;
+	font-size: 10pt;
+	background-color: whitesmoke;
+	color:rgba(0,0,0,0.9);
+	border: 1px solid grey;
 }
 
 #cat-row
 {
 	position: absolute;
-	height: 20%;
+	height: 0.5in;
 	width: 100%;
-	margin-top: 15%;
+	margin-top: 30%;
+}
+
+div#cat-row > label
+{
+	float: left;
+	margin-left: 10%;
+	text-shadow: 1px 1px 1px black;
+}
+
+div#cat-row > select
+{
+	float: right;
+	margin-right: 10%;
 }
 
 #tag-row
 {
 	position: absolute;
-	height: 20%;
+	height: 0.5in;
 	width: 100%;
-	margin-top: 30%;
+	margin-top: 50%;
+}
+
+div#tag-row > label
+{
+	float: left;
+	margin-left: 10%;
+	text-shadow: 1px 1px 1px black;
+}
+
+div#tag-row > input
+{
+	float: right;
+	margin-right: 10%;
+	text-align: center;
+	-webkit-appearance:none;
+	border:none;
+	height:45%;
+	font-size: 10pt;
+	background-color: whitesmoke;
+	color:rgba(0,0,0,0.9);
+	border: 1px solid grey;
 }
 
 #rating-row
 {
 	position: absolute;
-	height: 20%;
+	height: 0.5in;
 	width: 100%;
-	margin-top: 40%;
+	margin-top: 70%;
+}
+
+div#rating-row > label
+{
+	float: left;
+	margin-left: 10%;
+	text-shadow: 1px 1px 1px black;
+}
+
+div#rating-row > .rating
+{
+	float: right;
+	margin-right: 10%;
+	color: yellow;
 }
 
 #comment-wrapper
 {
-	position: relative;
+	position: absolute;
+	margin-top: 90%;
 	height: 50%;
+	width: 100%;
 	text-align: center;
 	overflow: hidden !important;
 }
 
 #comment-row
 {
+	text-shadow: 1px 1px 1px black;
 	overflow: hidden !important;
 }
 
