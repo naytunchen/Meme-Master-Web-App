@@ -56,7 +56,46 @@
 					</div>
 					
 					<div class="edit-meme">
-						<table  class="form_table">
+						<form id="form-box">
+							<div id="name-row">
+								<label>Name:</label> <input type='text' tabindex='1' value="WTF Patrick Steward" />
+							</div>
+							<div id="cat-dropdown">
+								<select name="catDrop">
+									<option>Category 1</option>
+									<option>Category 2</option>
+									<option>Category 3</option>
+									<option>Category 4</option>
+									<option>Category 5</option>
+								</select>
+							</div>
+							<div id="tag-row">
+								<label>Add Tag:</label> 
+								<input type='text' tabindex='2' placeholder="Enter tag here">
+								<a href='#' id='tag'>+</a>
+							</div>
+							<div id="rating-row">
+								<label>Rating:</label>
+								<form type='hidden' class="rating" tabindex="3">
+									<span>☆</span>
+									<span>☆</span>
+									<span>☆</span>
+									<span>☆</span>
+									<span>☆</span>
+								</form>
+							</div>
+							<div id='comment-row'>
+								<label>Comment:</label> <br />
+								<textarea rows="5">
+								</textarea>
+							</div>
+							
+							<div id="button">
+								<input tabindex="4" type='submit' value='Save Changes'>
+								<input tabindex="5" type='submit' value='Cancel'>
+							</div>
+						</form>
+						<!--<table  class="form_table">
 							<tbody >
 								<tr>
 									<td>
@@ -103,7 +142,7 @@
 									</td>
 								</tr>
 							</tbody>
-						</table>
+						</table> -->
 					</div>
 
 					
