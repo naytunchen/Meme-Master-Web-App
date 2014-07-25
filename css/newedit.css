@@ -5,7 +5,9 @@
 	display: inline-block;
 	height: 100%;
 	float: left;
-	width: 9.77in;
+	width: 75%;
+	min-width: 5in;
+	min-height: 4.5in;
 	vertical-align: middle;
 }
 
