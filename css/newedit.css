@@ -5,7 +5,7 @@
 	display: inline-block;
 	height: 100%;
 	float: left;
-	width: 75%;
+	width: 9.77in;
 	vertical-align: middle;
 }
 
@@ -136,19 +136,20 @@ tbody
 	color: white;
 	font-weight: bold;
 	font-size: medium;
-	width: 25%;
+	width: 3.22in;
 	height: 100%;
 	border: solid 5px black;
 	background: rgba(0,0,0, 0.8);
 	border: solid 5px black;
 	background: #95BBC4;
+	overflow: visible;
 }
 
 #form-box
 {
 	position: relative;
 	text-align: center;
-	height: 50%%;
+	height: 50%;
 }
 
 #name-row

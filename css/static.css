@@ -87,6 +87,7 @@ span,div,input,button{
 	width:100%;
 	margin-left: 2in;
 	padding-right:2in;
+	overflow: visible;
 	/*background-color: grey;*/
 }
 
@@ -119,7 +120,7 @@ span,div,input,button{
 
 .content-view{
 	position: relative;
-	width:99.7%%;
+	width:100%;
 	height:88%;
 	background-color: rgba(0,0,0, 0.2);
 	overflow-y: hidden;
