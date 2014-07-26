@@ -1,0 +1,34 @@
+.edit-meme{
+	position: relative;
+  	text-align:center;
+	/*float: right;*/
+	color: white;
+	font-weight: bold;
+	font-size: medium;
+	width: 3.22in;
+	height: 100%;
+	border: solid 5px black;
+	background: rgba(0,0,0, 0.8);
+	border: solid 5px black;
+	background: #95BBC4;
+	overflow: visible;
+}
+
+/* Star Rating */
+.rating {
+  text-align:center;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
+   position: absolute;
+}
