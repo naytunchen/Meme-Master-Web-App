@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+		<title>MemeChromeExt</title>
+		<link rel="stylesheet" href="css/popup.css" />
+	</head>
+	<body class="edit-meme">
+		<table  class="form_table">
+			<tbody >
+				<tr>
+					<td>
+						<label>Url:</label>
+					</td>
+					<td>
+						<input type="text" tabindex="0" value="Url here">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>Name:</label>
+					</td>
+					<td>
+						<input type="text" tabindex="1" value="WTF Patrick Stewart">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>Add Tag:</label>
+					</td>
+					<td>
+						<input type="text" tabindex="2" placeholder="enter tag here">
+						<a href=# id="tag">+</a>
+					</td>
+				</tr>
+				<tr>
+					<td>Rating: </td>
+					<td tabindex="3" class="rating">
+						<span>☆</span>
+						<span>☆</span>
+						<span>☆</span>
+						<span>☆</span>
+						<span>☆</span>
+					</td>
+				</tr>
+				<tr>
+					<td>Comments:</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="comment"><textarea rows="4" ></textarea></td>
+				</tr>
+				<tr id="button">
+					<td colspan="2" class ="comment">
+						<span>
+							<input tabindex="4" type="submit" value="Add">
+							&nbsp;
+						</span>
+						<span>
+							<input tabindex="5" id="cancel" type="submit" value="Cancel">
+						</span>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

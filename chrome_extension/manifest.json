@@ -1,15 +1,15 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 1,
 
-  "name": "One-click Kittens",
+  "name": "MemeMaster",
   "description": "This extension demonstrates a 'browser action' with kittens.",
   "version": "1.0",
 
   "browser_action": {
-    "default_icon": "icon.png",
+    "default_icon": "logo.permissionsg",
     "default_popup": "popup.html"
   },
-  "permissions": [
-    "https://secure.flickr.com/"
-  ]
+  "permissions": ["tabs"],
+  // chrome.windows.update(integer windowId, object updateInfo, function callback)
+
 }
