@@ -15,7 +15,7 @@
 		<div class="container">
 			<div class="left-panel">
 				<div class="logo">
-					<a href="index.html"><img id="logopic" src="pic/logo.jpg" alt="logo"/></a>
+					<img id="logopic" src="pic/logo.jpg" alt="logo" onclick="updateAllCat()"/>
 				</div>
 				<div class="category" id="cat-bar">
 					<input class="createBtn" id="createBtn" type='button' value="Create Meme"/>
@@ -94,8 +94,8 @@
 									</textarea>
 								</div>
 								<div id="button">
-									<input id="edit-save" tabindex="4" type='submit' value='Save Changes'>
-									<input id="edit-cancel" tabindex="5" type='submit' value='Cancel'>
+									<input id="edit-save" tabindex="4" type='button' value='Save Changes'>
+									<input id="edit-cancel" tabindex="5" type='button' value='Cancel'>
 									</div>
 							</div>
 						</form>
@@ -153,11 +153,11 @@
 								<tr id="button">
 									<td colspan="2" class ="comment">
 										<span>
-											<input tabindex="4" type="submit" value="Add">
+											<input id="add-save" tabindex="4" type="button" value="Add">
 											&nbsp;
 										</span>
 										<span>
-											<input tabindex="5" id="cancel" type="submit" value="Cancel">
+											<input id="add-cancel" tabindex="5" id="cancel" type="button" value="Cancel">
 										</span>
 									</td>
 								</tr>
@@ -233,11 +233,11 @@
 								<tr id="button">
 									<td colspan="2" class="comment">
 										<span>
-											<input tabindex="6" type="submit" value="Create" onclick="location.href='createMemeResult.html';" >
+											<input id="create-save" tabindex="6" type="button" value="Create">
 											&nbsp;
 										</span>
 										<span>
-											<input tabindex="7" id="cancel" type="submit" value="Cancel">
+											<input id="create-cancel" tabindex="7" id="cancel" type="button" value="Cancel">
 										</span>
 									</td>
 								</tr>

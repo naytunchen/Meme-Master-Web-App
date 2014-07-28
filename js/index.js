@@ -61,16 +61,6 @@ var setupDefault = function(){
 };
 
 var updateAllCat = function(){
-  //switch stylesheets
-  for ( i=0; i<document.styleSheets.length; i++) {
-    document.styleSheets.item(i).disabled=true;
-  }
-  document.styleSheets.item(0).disabled=false;
-  document.styleSheets.item(1).disabled=false;
-  //show meme view only
-  hideView();
-  var MV = document.getElementById('meme-view');
-  MV.style.display = "block";
   //insert memes
   var meme_query = new Parse.Query(Meme);
   meme_query.find({
@@ -89,6 +79,16 @@ var updateAllCat = function(){
       for(i=0;i<meme_div.length;i++){
         meme_div[i].addEventListener("click",updateEditView,false);
       }
+      //switch stylesheets
+      for ( i=0; i<document.styleSheets.length; i++) {
+        document.styleSheets.item(i).disabled=true;
+      }
+      document.styleSheets.item(0).disabled=false;
+      document.styleSheets.item(1).disabled=false;
+      //show meme view only
+      hideView();
+      var MV = document.getElementById('meme-view');
+      MV.style.display = "block";
     },
     error: function(error){
       alert("updateAllCat error: "+error);
@@ -124,10 +124,11 @@ var updateCatBar = function(){
 };
 
 var updateEditView = function(){
-  //show edit view only
-  hideView();
-  var ev = document.getElementById('edit-view');
-  ev.style.display = "block";
+  //bind events
+  var es = document.getElementById("edit-save");
+  es.addEventListener("click",editSave,false);
+  var ec = document.getElementById("edit-cancel");
+  ec.addEventListener("click",updateAllCat,false);
   //switch stylesheets
   for ( i=0; i<document.styleSheets.length; i++) {
     document.styleSheets.item(i).disabled=true;
@@ -135,27 +136,16 @@ var updateEditView = function(){
   document.styleSheets.item(0).disabled=false;
   document.styleSheets.item(1).disabled=false;
   document.styleSheets.item(2).disabled=false;
-
-  //bind events
-  // var es = document.getElementById("edit-save");
-  // es.addEventListener("click",editSave,false);
-  // var ec = document.getElementById("edit-cancel");
-  // ec.addEventListener("click",updateAllCat,false);
+  //show edit view only
+  hideView();
+  var ev = document.getElementById('edit-view');
+  ev.style.display = "block";
 };
 
 var updateCatView = function(){
   if(this.id=="all-cat"){
-    //switch stylesheets
-    for ( i=0; i<document.styleSheets.length; i++) {
-      document.styleSheets.item(i).disabled=true;
-    }
-    document.styleSheets.item(0).disabled=false;
-    document.styleSheets.item(1).disabled=false;
     updateAllCat();
   }else{
-    hideView();
-    var MV = document.getElementById('meme-view');
-    MV.style.display = "block";
     //insert memes
     var meme_query = new Parse.Query(Meme);
     meme_query.equalTo("cat",this.getAttribute("data-name"));
@@ -175,6 +165,16 @@ var updateCatView = function(){
         for(i=0;i<meme_div.length;i++){
           meme_div[i].addEventListener("click",updateEditView,false);
         }
+        //switch stylesheets
+        for ( i=0; i<document.styleSheets.length; i++) {
+          document.styleSheets.item(i).disabled=true;
+        }
+        document.styleSheets.item(0).disabled=false;
+        document.styleSheets.item(1).disabled=false;
+        //show meme view only
+        hideView();
+        var MV = document.getElementById('meme-view');
+        MV.style.display = "block";
       },
       error: function(error){
         alert("updateAllCat error");
@@ -184,10 +184,30 @@ var updateCatView = function(){
 };
 
 var updateAddView = function(){
+  //bind events
+  var as = document.getElementById("add-save");
+  as.addEventListener("click",addSave,false);
+  var ac = document.getElementById("add-cancel");
+  ac.addEventListener("click",updateAllCat,false);
+  //switch stylesheets
+  for ( i=0; i<document.styleSheets.length; i++) {
+    document.styleSheets.item(i).disabled=true;
+  }
+  document.styleSheets.item(0).disabled=false;
+  document.styleSheets.item(1).disabled=false;
+  document.styleSheets.item(2).disabled=false;
   //show edit view only
   hideView();
   var ev = document.getElementById('add-view');
   ev.style.display = "block";
+};
+
+var updateCreateView = function(){
+  //bind events
+  var cs = document.getElementById("create-save");
+  cs.addEventListener("click",createSave,false);
+  var cc = document.getElementById("create-cancel");
+  cc.addEventListener("click",updateAllCat,false);
   //switch stylesheets
   for ( i=0; i<document.styleSheets.length; i++) {
     document.styleSheets.item(i).disabled=true;
@@ -195,26 +215,10 @@ var updateAddView = function(){
   document.styleSheets.item(0).disabled=false;
   document.styleSheets.item(1).disabled=false;
   document.styleSheets.item(2).disabled=false;
-};
-
-var updateCreateView = function(){
   //show edit view only
   hideView();
   var ev = document.getElementById('create-view');
   ev.style.display = "block";
-  //switch stylesheets
-  for ( i=0; i<document.styleSheets.length; i++) {
-    document.styleSheets.item(i).disabled=true;
-  }
-  document.styleSheets.item(0).disabled=false;
-  document.styleSheets.item(1).disabled=false;
-  document.styleSheets.item(2).disabled=false;
-
-  //bind events
-  // var es = document.getElementById("edit-save");
-  // es.addEventListener("click",editSave,false);
-  // var ec = document.getElementById("edit-cancel");
-  // ec.addEventListener("click",updateAllCat,false);
 };
 
 var editSave = function(){
@@ -224,9 +228,13 @@ var editSave = function(){
 };
 
 var createSave = function(){
-
+  //TODO: save action
+  updateAllCat();
+  updateCatBar();
 };
 
 var addSave = function(){
-
+  //TODO: save action
+  updateAllCat();
+  updateCatBar();
 };

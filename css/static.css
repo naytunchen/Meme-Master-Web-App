@@ -50,6 +50,10 @@ span,div,input,button{
 	background-color: whitesmoke;
 }
 
+.logo:hover{
+	cursor:pointer;
+}
+
 .logo img{
   vertical-align: middle;
   height: 100%;
