@@ -26,6 +26,7 @@ window.onload = function(){
   updateCatBar();
 };
 
+//nide everything in conten view
 var hideView = function(){
   var cv = document.getElementsByClassName('content-view');
   for(i=0;i<cv.length;i++){
@@ -33,6 +34,7 @@ var hideView = function(){
   }
 };
 
+//setup the default data in database
 var setupDefault = function(){
   var default_memes = [{src:"pic/meme1.png",name:"lol1",cat:"Cat1"},
                        {src:"pic/meme2.png",name:"lol2",cat:"Cat2"},
@@ -60,6 +62,7 @@ var setupDefault = function(){
   }
 };
 
+//show all memes in content view
 var updateAllCat = function(){
   //insert memes
   var meme_query = new Parse.Query(Meme);
@@ -96,6 +99,7 @@ var updateAllCat = function(){
   });
 };
 
+//show categories on side bar
 var updateCatBar = function(){
   var cat_query = new Parse.Query(Cat);
   cat_query.find({
@@ -123,6 +127,7 @@ var updateCatBar = function(){
   });
 };
 
+//show edit page in content view
 var updateEditView = function(){
   //bind events
   var es = document.getElementById("edit-save");
@@ -142,6 +147,7 @@ var updateEditView = function(){
   ev.style.display = "block";
 };
 
+//show memes in content view based on category
 var updateCatView = function(){
   if(this.id=="all-cat"){
     updateAllCat();
@@ -183,6 +189,7 @@ var updateCatView = function(){
   }
 };
 
+//show add page in content view
 var updateAddView = function(){
   //bind events
   var as = document.getElementById("add-save");
@@ -202,6 +209,7 @@ var updateAddView = function(){
   ev.style.display = "block";
 };
 
+//show create page in content view
 var updateCreateView = function(){
   //bind events
   var cs = document.getElementById("create-save");
@@ -221,18 +229,21 @@ var updateCreateView = function(){
   ev.style.display = "block";
 };
 
+//called when edit page is saved
 var editSave = function(){
   //TODO: save action
   updateAllCat();
   updateCatBar();
 };
 
+//called when create page is saved
 var createSave = function(){
   //TODO: save action
   updateAllCat();
   updateCatBar();
 };
 
+//called when add page is saved
 var addSave = function(){
   //TODO: save action
   updateAllCat();
