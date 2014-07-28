@@ -9,6 +9,10 @@
 	opacity: 0.95;
 }
 
+.memeImg:hover{
+	cursor: pointer;
+}
+
 #logopic {
 	vertical-align: middle;
 	height: 100%;

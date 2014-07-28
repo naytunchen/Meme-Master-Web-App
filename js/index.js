@@ -1,5 +1,5 @@
 //global declaration
-var Meme,Cat,meme_query,cat_query;
+var Meme,Cat;
 
 /* called when page loads first time */
 window.onload = function(){
@@ -10,15 +10,27 @@ window.onload = function(){
   //gloabal definition
   Meme = Parse.Object.extend("Meme");
   Cat = Parse.Object.extend("Cat");
-  meme_query = new Parse.Query(Meme);
-  cat_query = new Parse.Query(Cat);
 
   //setup default meme and cat (run only once)
   //setupDefault();
 
+  //switch stylesheets
+  for ( i=0; i<document.styleSheets.length; i++) {
+    document.styleSheets.item(i).disabled=true;
+  }
+  document.styleSheets.item(0).disabled=false;
+  document.styleSheets.item(1).disabled=false;
+
   //insert contents
   updateAllCat();
   updateCatBar();
+};
+
+var hideView = function(){
+  var cv = document.getElementsByClassName('content-view');
+  for(i=0;i<cv.length;i++){
+    cv[i].style.display = "none";
+  }
 };
 
 var setupDefault = function(){
@@ -49,43 +61,61 @@ var setupDefault = function(){
 };
 
 var updateAllCat = function(){
+  //switch stylesheets
+  for ( i=0; i<document.styleSheets.length; i++) {
+    document.styleSheets.item(i).disabled=true;
+  }
+  document.styleSheets.item(0).disabled=false;
+  document.styleSheets.item(1).disabled=false;
+  //show meme view only
+  hideView();
+  var MV = document.getElementById('meme-view');
+  MV.style.display = "block";
   //insert memes
+  var meme_query = new Parse.Query(Meme);
   meme_query.find({
     success: function(results){
-      var cv = document.getElementById("content-view");
+      var mv = $("#meme-view");
+      $("div").remove(".memeImg");
       for(i in results){
-        cv.innerHTML = cv.innerHTML+"<div class=\"memeImg\">"+
-              "<a href=\"newEdit.html\"><img src=\""+results[i].attributes.src+"\" alt=\""
-              +results[i].attributes.name+"\" data-id=\""+results[i].id
-              +"\" height=\"150\" width=\"150\"></a>"+
-              "</div>";
+        mv.append("<div class=\"memeImg\">"+
+              "<img src=\""+results[i].get("src")+"\" alt=\""
+              +results[i].get("name")+"\" data-id=\""+results[i].id
+              +"\" height=\"150\" width=\"150\">"+
+              "</div>");
       }
       //attach event listener
       var meme_div = document.getElementsByClassName('memeImg');
       for(i=0;i<meme_div.length;i++){
-        meme_div[i].addEventListener("click",updateEdit,false);
+        meme_div[i].addEventListener("click",updateEditView,false);
       }
     },
     error: function(error){
-      alert("updateAllCat error");
+      alert("updateAllCat error: "+error);
     }
   });
 };
 
 var updateCatBar = function(){
+  var cat_query = new Parse.Query(Cat);
   cat_query.find({
     success: function(results){
-      var cb = document.getElementById("cat-bar");
+      var cb = $("#cat-bar");
+      $("div").remove(".category-sub");
       for(i in results){
-        cb.innerHTML = cb.innerHTML+"<a href=\"indexCat2.html\">"
-        +"<div class=\"category-item\" data-name=\""+results[i].attributes.name
-        +"\" data-id=\""+results[i].id+"\">"+results[i].attributes.name+"</div>"
+        cb.append("<div class=\"category-item category-sub\" data-name=\""
+          +results[i].get("name")+"\" data-id=\""+results[i].id+"\">"
+          +results[i].get("name")+"</div>");
       }
       //attach event listener
       var cat_div = document.getElementsByClassName('category-item');
       for(i=0;i<cat_div.length;i++){
         cat_div[i].addEventListener("click",updateCatView,false);
       }
+      var cb = document.getElementById('createBtn');
+      var ub = document.getElementById("uploadBtn");
+      cb.addEventListener("click",updateCreateView,false);
+      ub.addEventListener("click",updateAddView,false);
     },
     error: function(error){
       alert("updateCatBar error");
@@ -93,37 +123,110 @@ var updateCatBar = function(){
   });
 };
 
-var updateEdit = function(){
-  // alert("hihihi");
+var updateEditView = function(){
+  //show edit view only
+  hideView();
+  var ev = document.getElementById('edit-view');
+  ev.style.display = "block";
+  //switch stylesheets
+  for ( i=0; i<document.styleSheets.length; i++) {
+    document.styleSheets.item(i).disabled=true;
+  }
+  document.styleSheets.item(0).disabled=false;
+  document.styleSheets.item(1).disabled=false;
+  document.styleSheets.item(2).disabled=false;
+
+  //bind events
+  // var es = document.getElementById("edit-save");
+  // es.addEventListener("click",editSave,false);
+  // var ec = document.getElementById("edit-cancel");
+  // ec.addEventListener("click",updateAllCat,false);
 };
 
 var updateCatView = function(){
+  if(this.id=="all-cat"){
+    //switch stylesheets
+    for ( i=0; i<document.styleSheets.length; i++) {
+      document.styleSheets.item(i).disabled=true;
+    }
+    document.styleSheets.item(0).disabled=false;
+    document.styleSheets.item(1).disabled=false;
+    updateAllCat();
+  }else{
+    hideView();
+    var MV = document.getElementById('meme-view');
+    MV.style.display = "block";
+    //insert memes
+    var meme_query = new Parse.Query(Meme);
+    meme_query.equalTo("cat",this.getAttribute("data-name"));
+    meme_query.find({
+      success: function(results){
+        var mv = $("#meme-view");
+        $("div").remove(".memeImg");
+        for(i in results){
+          mv.append("<div class=\"memeImg\">"+
+                "<img src=\""+results[i].get("src")+"\" alt=\""
+                +results[i].get("name")+"\" data-id=\""+results[i].id
+                +"\" height=\"150\" width=\"150\">"+
+                "</div>");
+        }
+        //attach event listener
+        var meme_div = document.getElementsByClassName('memeImg');
+        for(i=0;i<meme_div.length;i++){
+          meme_div[i].addEventListener("click",updateEditView,false);
+        }
+      },
+      error: function(error){
+        alert("updateAllCat error");
+      }
+    });
+  }
+};
 
-}
+var updateAddView = function(){
+  //show edit view only
+  hideView();
+  var ev = document.getElementById('add-view');
+  ev.style.display = "block";
+  //switch stylesheets
+  for ( i=0; i<document.styleSheets.length; i++) {
+    document.styleSheets.item(i).disabled=true;
+  }
+  document.styleSheets.item(0).disabled=false;
+  document.styleSheets.item(1).disabled=false;
+  document.styleSheets.item(2).disabled=false;
+};
 
-// var TestObject = Parse.Object.extend("TestObject");
-// var testObject = new TestObject();
-//   testObject.save({foo: "bar"}, {
-//   success: function(object) {
-//     alert("success");
-//   },
-//   error: function(model, error) {
-//     alert("error");
-//   }
-// });
+var updateCreateView = function(){
+  //show edit view only
+  hideView();
+  var ev = document.getElementById('create-view');
+  ev.style.display = "block";
+  //switch stylesheets
+  for ( i=0; i<document.styleSheets.length; i++) {
+    document.styleSheets.item(i).disabled=true;
+  }
+  document.styleSheets.item(0).disabled=false;
+  document.styleSheets.item(1).disabled=false;
+  document.styleSheets.item(2).disabled=false;
 
-// var query = new Parse.Query(TestObject);
-// query.equalTo("foo","bar");
-// query.find({
-//   success: function(results) {
-//     alert("Successfully retrieved " + results.length + " scores.");
-//     // Do something with the returned Parse.Object values
-//     for (var i = 0; i < results.length; i++) { 
-//       var object = results[i];
-//       alert(object.id + ' - ' + object.get('foo'));
-//     }
-//   },
-//   error: function(error) {
-//     alert("Error: " + error.code + " " + error.message);
-//   }
-// });
+  //bind events
+  // var es = document.getElementById("edit-save");
+  // es.addEventListener("click",editSave,false);
+  // var ec = document.getElementById("edit-cancel");
+  // ec.addEventListener("click",updateAllCat,false);
+};
+
+var editSave = function(){
+  //TODO: save action
+  updateAllCat();
+  updateCatBar();
+};
+
+var createSave = function(){
+
+};
+
+var addSave = function(){
+
+};

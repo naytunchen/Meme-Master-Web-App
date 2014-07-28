@@ -5,8 +5,9 @@
 		<title>MemeMaster</title>
 		<link rel="stylesheet" href="css/meme-master-new.css"/>
 		<link rel="stylesheet" href="css/static.css"/>
+		<link rel="stylesheet" href="css/newedit.css"/>
 		<script src='https://cdn.firebase.com/js/client/1.0.17/firebase.js'></script>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.19.min.js"></script>
   		<script src="js/index.js"></script>
 	</head>
@@ -17,9 +18,9 @@
 					<a href="index.html"><img id="logopic" src="pic/logo.jpg" alt="logo"/></a>
 				</div>
 				<div class="category" id="cat-bar">
-					<input class="createBtn" type='button' value="Create Meme"/>
-					<input class="uploadBtn" type="button" value="Upload"/>
-					<a href="index.html"><div class="category-item">All</div></a>
+					<input class="createBtn" id="createBtn" type='button' value="Create Meme"/>
+					<input class="uploadBtn" id="uploadBtn" type="button" value="Upload"/>
+					<div class="category-item" id="all-cat">All</div>
 				</div>
 			</div>
 			<div class="right-panel">
@@ -27,10 +28,223 @@
 					<input id="search-box" type="search" placeholder="search"/>
 					<button id="search-button" type="button">Search</button>
 				</div>
-				<div class="content-view" id="content-view">
-					<div class="memeImg">
-						<a href="addPage.html"><img src="pic/AddButton.jpg" alt="Add Meme" height="150" width="150"></a>
+				<div class="content-view" id="meme-view" display="none">
+				</div>
+				<div class="content-view" id="edit-view" display="none">
+					<div class="slide_wrapper">
+					<div class="diy-slideshow">
+						<figure class="show">
+							<img src="pic/meme1.png" style="width:100%;" /><figcaption>meme1</figcaption>
+						</figure>
+						<figure>
+							<img src="pic/meme2.png" style="width:100%;" /><figcaption>meme2</figcaption>
+						</figure>
+						<figure>
+							<img src="pic/meme3.png" style="width:100%;" /><figcaption>meme3</figcaption>
+						</figure>
+						<figure>
+							<img src="pic/meme4.png" style="width:100%;" /><figcaption>meme4</figcaption>
+						</figure>
+						<figure>
+							<img src="pic/meme5.png" style="width:100%;" /><figcaption>meme5</figcaption>
+						</figure>
+						<figure>
+							<img src="pic/meme6.png" style="width:100%;" /><figcaption>meme6</figcaption>
+						</figure>
+						
+						<span class="prev">&laquo;</span>
+						<span class="next">&raquo;</span>
 					</div>
+					</div>
+					
+					<div class="edit-meme">
+						<form id="form-box">
+							<div id="name-row">
+								<label>Name:</label> <input type='text' tabindex='1' value="WTF Patrick Steward" />
+							</div>
+							<div id="cat-row">
+								<label>Category:</label>
+								<select name="catDrop">
+									<option>Category 1</option>
+									<option>Category 2</option>
+									<option>Category 3</option>
+									<option>Category 4</option>
+									<option>Category 5</option>
+								</select>
+							</div>
+							<div id="tag-row">
+								<label>Add Tag:</label> 
+								<input type='text' tabindex='2' placeholder="Enter tag here">
+								<a href='#' id='tag'>+</a>
+							</div>
+							<div id="rating-row">
+								<label>Rating:</label>
+								<div class="rating" tabindex="3">
+									<span>☆</span>
+									<span>☆</span>
+									<span>☆</span>
+									<span>☆</span>
+									<span>☆</span>
+								</div>
+							</div>
+							<div id='comment-wrapper'>
+								<div id='comment-row'>
+									<label>Comment:</label> <br />
+									<textarea rows="7">
+									</textarea>
+								</div>
+								<div id="button">
+									<input id="edit-save" tabindex="4" type='submit' value='Save Changes'>
+									<input id="edit-cancel" tabindex="5" type='submit' value='Cancel'>
+									</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="content-view" id="add-view" display="none">
+					<div class="slide_wrapper">
+
+					</div>
+					
+					<div class="edit-meme">
+						<table  class="form_table">
+							<tbody >
+								<tr>
+									<td>
+										<label>Url:</label>
+									</td>
+									<td>
+										<input type="text" tabindex="0" value="Url here">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label>Name:</label>
+									</td>
+									<td>
+										<input type="text" tabindex="1" value="WTF Patrick Stewart">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label>Add Tag:</label>
+									</td>
+									<td>
+										<input type="text" tabindex="2" placeholder="enter tag here">
+										<a href=# id="tag">+</a>
+									</td>
+								</tr>
+								<tr>
+									<td>Rating: </td>
+									<td tabindex="3" class="rating">
+										<span>☆</span>
+										<span>☆</span>
+										<span>☆</span>
+										<span>☆</span>
+										<span>☆</span>
+									</td>
+								</tr>
+								<tr>
+									<td>Comments:</td>
+								</tr>
+								<tr>
+									<td colspan="2" class="comment"><textarea rows="4" ></textarea></td>
+								</tr>
+								<tr id="button">
+									<td colspan="2" class ="comment">
+										<span>
+											<input tabindex="4" type="submit" value="Add">
+											&nbsp;
+										</span>
+										<span>
+											<input tabindex="5" id="cancel" type="submit" value="Cancel">
+										</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="content-view" id="create-view" display="none">
+					<div class="slide_wrapper">
+						<div class="addMeme"><img src="pic/grumpyCat.jpg" style="width:100%;" alt="cat"/></div>
+					</div>
+					
+					<div class="edit-meme">
+						<table  class="form_table">
+							<tbody >
+								<tr>
+									<td>
+										<label>Url:</label>
+									</td>
+									<td>
+										<input type="text" tabindex="0" value="URL here">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label>Name:</label>
+									</td>
+									<td>
+										<input type="text" tabindex="1" value="Grumpy Cat">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label>Top Text:</label>
+									</td>
+									<td>
+										<input type="text" tabindex="2" value="I had fun once">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label>Bottom Text:</label>
+									</td>
+									<td>
+										<input type="text" tabindex="3" value="It was awful">
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<label>Add Tag:</label>
+									</td>
+									<td>
+										<input type="text" tabindex="4" placeholder="enter tag here">
+										<a href=# id="tag">+</a>
+									</td>
+								</tr>
+								<tr>
+									<td>Rating: </td>
+									<td tabindex="5" class="rating">
+										<span>☆</span>
+										<span>☆</span>
+										<span>☆</span>
+										<span>☆</span>
+										<span>☆</span>
+									</td>
+								</tr>
+								<tr>
+									<td>Comments:</td>
+								</tr>
+								<tr>
+									<td class="comment" colspan="2"><textarea rows="4" ></textarea></td>
+								</tr>
+								<tr id="button">
+									<td colspan="2" class="comment">
+										<span>
+											<input tabindex="6" type="submit" value="Create" onclick="location.href='createMemeResult.html';" >
+											&nbsp;
+										</span>
+										<span>
+											<input tabindex="7" id="cancel" type="submit" value="Cancel">
+										</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
 				</div>
 			</div>
 		</div>
@@ -58,6 +272,42 @@
 				</div>
 			</div>
 		</footer>
+
+		<script>
+		(function(){
+			var counter = 0, // to keep track of current slide
+			$items = document.querySelectorAll('.diy-slideshow figure'), 
+			// a collection of all of the slides, caching for performance
+			numItems = $items.length; // total number of slides
+
+			// this function is what cycles the slides, showing the next or previous slide and hiding all the others
+			var showCurrent = function(){
+				var itemToShow = Math.abs(counter%numItems);// uses remainder (aka modulo) operator to get the actual index of the element to show  
+  
+  // remove .show from whichever element currently has it 
+  // http://stackoverflow.com/a/16053538/2006057
+  			[].forEach.call( $items, function(el){
+	  			el.classList.remove('show');
+	  		});
+  
+  // add .show to the one item that's supposed to have it
+  			$items[itemToShow].classList.add('show');    
+  			};
+
+// add click events to prev & next buttons 
+			document.querySelector('.next').addEventListener('click', function() {
+				counter++;
+				showCurrent();
+			}, false);
+
+			document.querySelector('.prev').addEventListener('click', function() 			{
+				counter--;
+				showCurrent();
+			}, false);
+  
+		})();  
+	</script>
+
 	</body>
 
 </html>
