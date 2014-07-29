@@ -79,13 +79,26 @@
 							</div>
 							<div class="rating-row">
 								<label>Rating:</label>
-								<div class="rating" tabindex="3">
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-									<span>☆</span>
-								</div>
+								<div class="starRating">
+											<div>
+												<div>
+													<div>
+														<div>
+															<input class="rating1" type="radio" name="rating" value="1">
+															<label for="rating1"><span>1</span></label>
+														</div>
+														<input class="rating2" type="radio" name="rating" value="2">
+														<label for="rating2"><span>2</span></label>
+													</div>
+													<input class="rating3" type="radio" name="rating" value="3">
+													<label for="rating3"><span>3</span></label>
+												</div>
+												<input class="rating4" type="radio" name="rating" value="4">
+												<label for="rating4"><span>4</span></label>
+											</div>
+											<input class="rating5" type="radio" name="rating" value="5">
+											<label for="rating5"><span>5</span></label>
+										</div>
 							</div>
 							<div class='comment-wrapper'>
 								<div class='comment-row'>
@@ -101,85 +114,64 @@
 						</form>
 					</div>
 				</div>
+				
+
 				<div class="content-view" id="add-view" display="none">
 					<div class="slide_wrapper">
 
 					</div>
 					
 					<div class="edit-meme">
-					<form name="add_form">
-						<table  class="form_table">
-							<tbody >
-								<tr>
-									<td>
-										<label>Url:</label>
-									</td>
-									<td>
-
-										<input class="url_textbox" name="add_url"type="text" tabindex="0" value="Url here">
-
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<label>Name:</label>
-									</td>
-									<td>
-										<input name="add_name" type="text" tabindex="1" value="WTF Patrick Stewart">
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<label>Add Tag:</label>
-									</td>
-									<td>
-										<input name="add_tag" type="text" tabindex="2" placeholder="enter tag here">
-										<a href=# id="add-addTag">+</a>
-									</td>
-								</tr>
-								<tr>
-									<td colspan="2">
-										<div class="starRating">
+					<form class="form-box" name="add_form">
+						<div class="url-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 10%;">
+							<label style="float: left; margin-left: 10%; text-shadow: 1px 1px 1px black;">URL:</label><input style="float: right; margin-right: 10%; text-align: center; -webkit-appearance: none; border:none; height:45%; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey;" class="url_textbox" name="add_url" type="text" tabindex='1' placeholder="URL here"/>
+						</div>
+						
+						<div class="name-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 30%;">
+							<label style="float:left; margin-left:10%; text-shadow: 1px 1px 1px black;">Name:</label><input style="float: right; margin-right: 10%; text-align: center; -webkit-appearance: none; border:none; height:45%; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey;" name="add_name" type='text' tabindex="2" placeholder="Name here" />
+						</div>
+						
+						<div class="tag-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 50%;">
+							<label style="float:left; margin-left:10%; text-shadow: 1px 1px 1px black;">Add Tag:</label><input style="float: right; margin-right: 10%; text-align: center; -webkit-appearance: none; border:none; height:45%; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey;" name="add_tag" type="text" tabindex="3" placeholder="Enter tag here" />
+							<a href='#' id='add-addTag'>+</a>
+						</div>
+						
+						<div class="rating-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 70%;">
+								<label style="float:left; margin-left: 10%; text-shadow: 1px 1px 1px black;">Rating:</label>
+								<div class="starRating">
 											<div>
 												<div>
 													<div>
 														<div>
-															<input id="rating1" type="radio" name="rating" value="1">
+															<input class="rating1" type="radio" name="rating" value="1">
 															<label for="rating1"><span>1</span></label>
 														</div>
-														<input id="rating2" type="radio" name="rating" value="2">
+														<input class="rating2" type="radio" name="rating" value="2">
 														<label for="rating2"><span>2</span></label>
 													</div>
-													<input id="rating3" type="radio" name="rating" value="3">
+													<input class="rating3" type="radio" name="rating" value="3">
 													<label for="rating3"><span>3</span></label>
 												</div>
-												<input id="rating4" type="radio" name="rating" value="4">
+												<input class="rating4" type="radio" name="rating" value="4">
 												<label for="rating4"><span>4</span></label>
 											</div>
-											<input id="rating5" type="radio" name="rating" value="5">
+											<input class="rating5" type="radio" name="rating" value="5">
 											<label for="rating5"><span>5</span></label>
 										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>Comments:</td>
-								</tr>
-								<tr>
-									<td colspan="2" class="comment"><textarea name="add_comment" rows="4" ></textarea></td>
-								</tr>
-								<tr class="button">
-									<td colspan="2" class ="comment">
-										<span>
-											<input id="add-save" tabindex="4" type="button" value="Add">
-											&nbsp;
-										</span>
-										<span>
-											<input id="add-cancel" tabindex="5" type="button" value="Cancel">
-										</span>
-									</td>
-								</tr>
-							</tbody>
-						</table>
+							</div>
+							
+							<div class='comment-wrapper' style="position: absolute; margin-top: 90%; height: 60%; width: 100%; text-align: center; overflow: hidden !important;">
+								<div class="comment-row" style="text-shadow: 1px 1px 1px black; overflow: hidden !important;">
+									<label>Comment</label><br />
+									<textarea name="add_comment" rows="7"></textarea>
+								</div>
+								<div class="button" style="position: relative; margin-top: 2%; bottom: 0; left: 0;">
+									<input id="add-save" tabindex="4" type='button' value="Save">
+									<input id="add-cancel" tabindex="5" type='button' value="Cancel">
+								</div>
+							</div>
+							
+							
 					</form>
 					</div>
 				</div>
@@ -255,19 +247,19 @@
 												<div>
 													<div>
 														<div>
-															<input id="rating1" type="radio" name="rating" value="1">
+															<input class="rating1" type="radio" name="rating" value="1">
 															<label for="rating1"><span>1</span></label>
 														</div>
-														<input id="rating2" type="radio" name="rating" value="2">
+														<input class="rating2" type="radio" name="rating" value="2">
 														<label for="rating2"><span>2</span></label>
 													</div>
-													<input id="rating3" type="radio" name="rating" value="3">
+													<input class="rating3" type="radio" name="rating" value="3">
 													<label for="rating3"><span>3</span></label>
 												</div>
-												<input id="rating4" type="radio" name="rating" value="4">
+												<input class="rating4" type="radio" name="rating" value="4">
 												<label for="rating4"><span>4</span></label>
 											</div>
-											<input id="rating5" type="radio" name="rating" value="5">
+											<input class="rating5" type="radio" name="rating" value="5">
 											<label for="rating5"><span>5</span></label>
 										</div>
 									</td>
@@ -378,7 +370,6 @@
 
 	</script>
 
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function(){
 		//  Check Radio-box
@@ -393,6 +384,7 @@
         		var userRating = this.value;
     		}); 
 		});
+
 	</script>
 
 	</body>
