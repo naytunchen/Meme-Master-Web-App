@@ -36,9 +36,9 @@ var hideView = function(){
 
 //setup the default data in database
 var setupDefault = function(){
-  var default_memes = [{src:"pic/meme1.png",name:"lol1",cat:"Cat1"},
-                       {src:"pic/meme2.png",name:"lol2",cat:"Cat2"},
-                       {src:"pic/meme3.png",name:"lol3",cat:"Cat3"}];
+  var default_memes = [{src:"pic/meme1.png",name:"lol1",cat:"Cat1",tag:"tag0,tag1",rating:"3",comment:"some comment"},
+                       {src:"pic/meme2.png",name:"lol2",cat:"Cat2",tag:"tag0,tag2",rating:"4",comment:"some comment"},
+                       {src:"pic/meme3.png",name:"lol3",cat:"Cat3",tag:"tag0,tag3",rating:"5",comment:"some comment"}];
   var default_cats = [{name:"Cat1", count:1},{name:"Cat2", count:1},{name:"Cat3", count:1}];
   //SAVE DEFAULT MEME TO SERVER
   for(i in default_memes){
@@ -153,6 +153,10 @@ var updateEditView = function(){
     meme_query.find({
       success: function(results){
         document.edit_form.edit_name.value = results[0].get("name");
+        document.edit_form.edit_tag.value = results[0].get("tag");
+        document.edit_form.edit_comment.value = results[0].get("comment");
+        for(i=0;i<parseInt(results[0].get("rating"));i++){
+        }
         $('#edit_catDrop option[value=' + results[0].get("cat") + ']').prop('selected', true);
       },
       error: function(error){
