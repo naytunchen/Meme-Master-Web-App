@@ -26,7 +26,7 @@ window.onload = function(){
   updateCatBar();
 };
 
-//nide everything in conten view
+//nide everything in content view
 var hideView = function(){
   var cv = document.getElementsByClassName('content-view');
   for(i=0;i<cv.length;i++){
@@ -118,13 +118,58 @@ var updateCatBar = function(){
       }
       var cb = document.getElementById('createBtn');
       var ub = document.getElementById("uploadBtn");
+	  var lb = document.getElementById("login-button");
+	  var sb = document.getElementById("login_signupButton");
+	  var signupSubmit = document.getElementById("signupSubmitButton");
+	  var signIn = document.getElementById("login_signinButton");
       cb.addEventListener("click",updateCreateView,false);
       ub.addEventListener("click",updateAddView,false);
+	  lb.addEventListener("click", updateLoginView, false);
+	  sb.addEventListener("click", updateSignupView, false);
+	  signupSubmit.addEventListener("click", submitSignup, false);
+	  signIn.addEventListener("click", signin, false);
     },
     error: function(error){
       alert("updateCatBar error");
     }
   });
+};
+
+//signIn
+var signin = function() {
+	Parse.User.logIn(document.getElementById("loginUsername").value, document.getElementById("loginPassword").value, {
+	  success: function(user) {
+		updateAllCat();
+	  },
+	  error: function(user, error) {
+		// The login failed. Check error to see why.
+		alert("Invalid username or password");
+	  }
+	});
+}
+
+//create account
+var submitSignup = function() {
+	var user = new Parse.User();
+	user.set("username", document.getElementById("signup_username").value);
+	user.set("password", document.getElementById("signup_password").value);
+	user.set("email", document.getElementById("signup_email").value);
+	
+	user.signUp(null, {
+	  success: function(user) {
+		document.getElementById("signup_username").value = "";
+		document.getElementById("signup_firstName").value = "";
+		document.getElementById("signup_lastName").value = "";
+		document.getElementById("signup_password").value = "";
+		document.getElementById("signup_email").value = "";
+		alert("Congratulations! You're now a MemeMaster.");
+		updateAllCat();
+	  },
+	  error: function(user, error) {
+		// Show the error message somewhere and let the user try again.
+		alert("Error: " + error.code + " " + error.message);
+	  }
+	});
 };
 
 //show edit page in content view
@@ -243,6 +288,20 @@ var updateAddView = function(){
   var ev = document.getElementById('add-view');
   ev.style.display = "block";
 };
+
+//show signup page in content view
+var updateSignupView = function() {
+	hideView();
+	var ev = document.getElementById('signup-view');
+	ev.style.display="block";
+}
+
+//show login page in content view
+var updateLoginView = function() {
+	hideView();
+	var ev = document.getElementById('login-view');
+	ev.style.display="block";
+}
 
 //show create page in content view
 var updateCreateView = function(){
