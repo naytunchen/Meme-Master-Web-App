@@ -153,6 +153,63 @@
 					</table>
 				</div>
 				
+				
+				<div class="content-view" id="signup-view" display="none">
+					<div style="font-size:30px; width: 50%; margin: 4% 45%;"> Sign Up </div>
+					<div> 
+						<table class="signup_table">
+							<tbody>
+								<tr class="spaceUnder">
+									<td>
+										<label>First Name:</label>
+									</td>
+									<td>
+										<input type="text" tabindex="0" id="signup_firstName">
+									</td>
+								</tr>
+								<tr class="spaceUnder">
+									<td>
+										<label>Last Name:</label>
+									</td>
+									<td>
+										<input type="text" tabindex="0" id="signup_lastName">
+									</td>
+								</tr>
+								<tr class="spaceUnder">
+									<td>
+										<label>Username:</label>
+									</td>
+									<td>
+										<input type="text" tabindex="0" id="signup_username">
+									</td>
+								</tr>
+								<tr class="spaceUnder">
+									<td>
+										<label>Password:</label>
+									</td>
+									<td>
+										<input type="password" tabindex="0"id="signup_password">
+									</td>
+								</tr>
+								<tr class="spaceUnder">
+									<td>
+										<label>Email:</label>
+									</td>
+									<td>
+										<input type="text" tabindex="0" id="signup_email">
+									</td>
+								</tr>
+								<tr class="spaceUnder">
+									<td colspan="2" align="center">
+										<button id="signupSubmitButton" style="border-radius: 5px; width: 100%;"> Submit </button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
+
 				<div class="content-view" id="add-view" display="none">
 					<div class="slide_wrapper">
 
@@ -212,171 +269,17 @@
 					</form>
 					</div>
 				</div>
-				
-				<div class="content-view" id="signup-view" display="none">
-					<div style="font-size:30px; width: 50%; margin: 4% 45%;"> Sign Up </div>
-					<div> 
-						<table class="signup_table">
-							<tbody>
-								<tr class="spaceUnder">
-									<td>
-										<label>First Name:</label>
-									</td>
-									<td>
-										<input type="text" tabindex="0" id="signup_firstName">
-									</td>
-								</tr>
-								<tr class="spaceUnder">
-									<td>
-										<label>Last Name:</label>
-									</td>
-									<td>
-										<input type="text" tabindex="0" id="signup_lastName">
-									</td>
-								</tr>
-								<tr class="spaceUnder">
-									<td>
-										<label>Username:</label>
-									</td>
-									<td>
-										<input type="text" tabindex="0" id="signup_username">
-									</td>
-								</tr>
-								<tr class="spaceUnder">
-									<td>
-										<label>Password:</label>
-									</td>
-									<td>
-										<input type="password" tabindex="0"id="signup_password">
-									</td>
-								</tr>
-								<tr class="spaceUnder">
-									<td>
-										<label>Email:</label>
-									</td>
-									<td>
-										<input type="text" tabindex="0" id="signup_email">
-									</td>
-								</tr>
-								<tr class="spaceUnder">
-									<td colspan="2" align="center">
-										<button id="signupSubmitButton" style="border-radius: 5px; width: 100%;"> Submit </button>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-				</div>
-				
+
+
 				<div class="content-view" id="create-view" display="none">
 					<div class="slide_wrapper">
 						<div class="addMeme"><img id='imageViewer' src="#" style="width:100%;" alt="cat"/></div>
 					</div>
 
 					<div class="edit-meme">
-					<form name="create_form">
-						<table  class="form_table" align="center" style="margin: 0; position: absolute; top: 0; left: 0; right: 0; bottom: 0; width: auto; margin: auto;
-						max-width:2.5in;">
-
-							<tbody >
-								<tr>
-									<td colspan="2" style="margin: 0; padding: 0;">
-										<form id="form1" runat="server">
-											<input class="uploadImgBtn" id="uploadImgBtn" type="button" value="Upload Local Image" style="cursor: pointer; position: relative; width; 2in; height: 0.3in; color: white; background-color: red; font-size: small;"/>
-											<input type='file' id="imgInp" style="display:none" />
-										</form>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<label>Url:</label>
-									</td>
-									<td>
-
-										<input class="inputText" name="create_url" type="text" tabindex="0" value="URL here">
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<label>Name:</label>
-									</td>
-									<td>
-										<input class="inputText" name="create_name" type="text" tabindex="1" value="Grumpy Cat">
-
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<label>Top Text:</label>
-									</td>
-									<td>
-
-										<input class="inputText" name="create_topText" type="text" tabindex="2" value="I had fun once">
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<label>Bottom Text:</label>
-									</td>
-									<td>
-										<input class="inputText" name="create_bottomText" type="text" tabindex="3" value="It was awful">
-
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<label>Add Tag:</label>
-									</td>
-									<td>
-										<input class="inputText" name="create_tag" type="text" tabindex="4" placeholder="enter tag here">
-										<a href=# id="create-addTag">+</a>
-
-									</td>
-								</tr>
-								<tr>
-									<td colspan="2">
-										<div class="starRating">
-											<div>
-												<div>
-													<div>
-														<div>
-															<input class="rating1" type="radio" name="rating" value="1">
-															<label for="rating1"><span>1</span></label>
-														</div>
-														<input class="rating2" type="radio" name="rating" value="2">
-														<label for="rating2"><span>2</span></label>
-													</div>
-													<input class="rating3" type="radio" name="rating" value="3">
-													<label for="rating3"><span>3</span></label>
-												</div>
-												<input class="rating4" type="radio" name="rating" value="4">
-												<label for="rating4"><span>4</span></label>
-											</div>
-											<input class="rating5" type="radio" name="rating" value="5">
-											<label for="rating5"><span>5</span></label>
-										</div>
-									</td>
-								</tr>
-								<tr>
-									<td>Comments:</td>
-								</tr>
-								<tr>
-									<td class="comment" colspan="2"><textarea name="create_comment" rows="4" ></textarea></td>
-								</tr>
-								<tr class="button">
-									<td colspan="2" class="comment">
-										<span>
-											<input id="create-save" tabindex="6" type="button" value="Create">
-											&nbsp;
-										</span>
-										<span>
-											<input id="create-cancel" tabindex="7" type="button" value="Cancel">
-										</span>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</form>
+						<form name="create_form">
+							
+						</form>
 					</div>
 
 				</div>
