@@ -17,8 +17,8 @@
 					<img id="logopic" src="pic/logo.jpg" alt="logo" onclick="updateAllCat()"/>
 				</div>
 				<div class="category" id="cat-bar">
-					<input class="createBtn" id="createBtn" type="button" value="Create Meme"/>
-					<input class="uploadBtn" id="uploadBtn" type="button" value="Upload"/>
+					<input class="createBtn" id="createBtn" type="button" value="Create Meme" style="font-weight: bold;" />
+					<input class="uploadBtn" id="uploadBtn" type="button" value="Upload" style="font-weight: bold;" />
 					<div class="category-item" id="all-cat">All</div>
 				</div>
 			</div>
@@ -277,8 +277,67 @@
 					</div>
 
 					<div class="edit-meme">
-						<form name="create_form">
+						<form class="form-box" name="create_form" runat="server">
+							<div class="upload-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 10%;">
+								<input class="uploadImgBtn" id="uploadImgBtn" type="button" value="Upload Your Own Image" style="color: white; background-color: red; font-size: medium; font-weight: bold; position: relative: width: 100%; height: 100%"/>
+								<input type="file" id="imgInp" style="display:none;" />
+							</div>
+							<div class="url-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 30%;">
+								<label style="float: left; margin-left: 10%; text-shadow: 1px 1px 1px black;">URL:</label><input style="float: right; margin-right: 10%; text-align: center; -webkit-appearance: none; border:none; height:45%; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey;" class="url_textbox" name="create_url" type="text" tabindex='1' placeholder="URL here"/>
+							</div>
+						
+							<div class="name-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 50%;">
+								<label style="float:left; margin-left:10%; text-shadow: 1px 1px 1px black;">Name:</label><input style="float: right; margin-right: 10%; text-align: center; -webkit-appearance: none; border:none; height:45%; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey;" name="create_name" type='text' tabindex="2" placeholder="Name here" />
+							</div>
+						
+							<div class="topText-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 70%;">
+								<label style="float:left; margin-left:10%; text-shadow: 1px 1px 1px black;">Top Text:</label><input class="inputText" style="float: right; margin-right: 10%; text-align: center; -webkit-appearance: none; border:none; height:45%; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey;" name="create_topText" type='text' tabindex="3" placeholder="Top Text Here" />
+							</div>
+
+							<div class="bottomText-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 90%;">
+								<label style="float:left; margin-left:10%; text-shadow: 1px 1px 1px black;">Bot Text:</label><input class="inputText" style="float: right; margin-right: 10%; text-align: center; -webkit-appearance: none; border:none; height:45%; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey;" name="create_bottomText" type='text' tabindex="4" placeholder="Bottom Text Here" />
+							</div>
+
+
+							<div class="tag-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 110%;">
+								<label style="float:left; margin-left:10%; text-shadow: 1px 1px 1px black;">Add Tag:</label><input style="float: right; margin-right: 10%; text-align: center; -webkit-appearance: none; border:none; height:45%; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey;" name="create_tag" type="text" tabindex="5" placeholder="Enter tag here" />
+								<a href='#' id='add-addTag'>+</a>
+							</div>
+						
+							<div class="rating-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 130%;">
+								<label style="float:left; margin-left: 10%; text-shadow: 1px 1px 1px black;">Rating:</label>
+								<div class="starRating">
+									<div>
+										<div>
+											<div>
+												<div>
+													<input class="rating1" type="radio" name="rating" value="1" >
+													<label for="rating1"><span>1</span></label>
+												</div>
+												<input class="rating2" type="radio" name="rating" value="2">
+												<label for="rating2"><span>2</span></label>
+											</div>
+											<input class="rating3" type="radio" name="rating" value="3">
+											<label for="rating3"><span>3</span></label>
+										</div>
+										<input class="rating4" type="radio" name="rating" value="4">
+										<label for="rating4"><span>4</span></label>
+									</div>
+									<input class="rating5" type="radio" name="rating" value="5">
+									<label for="rating5"><span>5</span></label>
+								</div>
+							</div>
 							
+							<div class='comment-wrapper' style="position: absolute; margin-top: 140%; height: 60%; width: 100%; text-align: center; overflow: hidden !important;">
+								<div class="comment-row" style="text-shadow: 1px 1px 1px black; overflow: hidden !important;">
+									<label>Comment</label><br />
+									<textarea name="create_comment" rows="7"></textarea>
+								</div>
+								<div class="button" style="position: relative; margin-top: 2%; bottom: 0; left: 0;">
+									<input id="create-save" tabindex="6" type='button' value="Create">
+									<input id="create-cancel" tabindex="7" type='button' value="Cancel">
+								</div>
+							</div>
 						</form>
 					</div>
 
