@@ -6,7 +6,6 @@
 		<link rel="stylesheet" href="css/meme-master-new.css"/>
 		<link rel="stylesheet" href="css/static.css"/>
 		<link rel="stylesheet" href="css/newedit.css"/>
-		<script src='https://cdn.firebase.com/js/client/1.0.17/firebase.js'></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.19.min.js"></script>
   		<script src="js/index.js"></script>
@@ -27,6 +26,7 @@
 				<div class="search-bar">
 					<input id="search-box" type="search" placeholder="search"/>
 					<button id="search-button" type="button">Search</button>
+					<button id="login-button" type="button">Login</button>
 				</div>
 				<div class="content-view" id="meme-view" display="none">
 				</div>
@@ -79,7 +79,7 @@
 							</div>
 							<div class="rating-row">
 								<label>Rating:</label>
-								<div class="starRating">
+								<div class="starRating" id="edit-rating">
 											<div>
 												<div>
 													<div>
@@ -115,7 +115,44 @@
 					</div>
 				</div>
 				
-
+				<div class="content-view" id="login-view" display="none">
+					<table  class="login_table">
+							<tbody >
+								<tr class="spaceUnder">
+									<td>
+										<label>Username: </label>
+									</td>
+									<td>
+										<input type="text" tabindex="0" placeholder="Enter username" id="loginUsername">
+									</td>
+								</tr>
+								<tr class="spaceUnder">
+									<td>
+										<label>Password: </label>
+									</td>
+									<td>
+										<input type="password" tabindex="0" placeholder="Enter password"  id="loginPassword">
+									</td>
+								</tr>
+								<tr class="spaceUnder">
+									<td>
+										&nbsp;
+									</td>
+								</tr>
+								<tr class="spaceUnder">
+									<td colspan="2" align="right">
+										<button id="login_signinButton" style="border-radius: 5px; width: 100%;"> Sign in </button>
+									</td>
+								</tr>
+								<tr class="spaceUnder">
+									<td colspan="2" align="center">
+										<button id="login_signupButton"> <u>Sign Up</u> </button>
+									</td>
+								</tr>
+							</tbody>
+					</table>
+				</div>
+				
 				<div class="content-view" id="add-view" display="none">
 					<div class="slide_wrapper">
 
@@ -175,6 +212,62 @@
 					</form>
 					</div>
 				</div>
+				
+				<div class="content-view" id="signup-view" display="none">
+					<div style="font-size:30px; width: 50%; margin: 4% 45%;"> Sign Up </div>
+					<div> 
+						<table class="signup_table">
+							<tbody>
+								<tr class="spaceUnder">
+									<td>
+										<label>First Name:</label>
+									</td>
+									<td>
+										<input type="text" tabindex="0" id="signup_firstName">
+									</td>
+								</tr>
+								<tr class="spaceUnder">
+									<td>
+										<label>Last Name:</label>
+									</td>
+									<td>
+										<input type="text" tabindex="0" id="signup_lastName">
+									</td>
+								</tr>
+								<tr class="spaceUnder">
+									<td>
+										<label>Username:</label>
+									</td>
+									<td>
+										<input type="text" tabindex="0" id="signup_username">
+									</td>
+								</tr>
+								<tr class="spaceUnder">
+									<td>
+										<label>Password:</label>
+									</td>
+									<td>
+										<input type="password" tabindex="0"id="signup_password">
+									</td>
+								</tr>
+								<tr class="spaceUnder">
+									<td>
+										<label>Email:</label>
+									</td>
+									<td>
+										<input type="text" tabindex="0" id="signup_email">
+									</td>
+								</tr>
+								<tr class="spaceUnder">
+									<td colspan="2" align="center">
+										<button id="signupSubmitButton" style="border-radius: 5px; width: 100%;"> Submit </button>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				
 				<div class="content-view" id="create-view" display="none">
 					<div class="slide_wrapper">
 						<div class="addMeme"><img id='imageViewer' src="#" style="width:100%;" alt="cat"/></div>
@@ -370,6 +463,10 @@
 
 	</script>
 
+<<<<<<< HEAD
+=======
+	<!-- // <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script> -->
+>>>>>>> FETCH_HEAD
 	<script type="text/javascript">
 		$(document).ready(function(){
 		//  Check Radio-box
