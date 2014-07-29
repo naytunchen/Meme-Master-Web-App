@@ -248,29 +248,6 @@ div.rating-row > label
 	text-shadow: 1px 1px 1px black;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-/*div#rating-row > .rating
-=======
-div.rating-row > .rating
->>>>>>> FETCH_HEAD
-=======
-div.rating-row > .rating
->>>>>>> FETCH_HEAD
-=======
-div.rating-row > .rating
->>>>>>> FETCH_HEAD
-=======
-div.rating-row > .rating
->>>>>>> FETCH_HEAD
-{
-	float: right;
-	margin-right: 10%;
-	color: yellow;
-}*/
-
 .comment-wrapper
 {
 	position: absolute;
@@ -295,24 +272,6 @@ div.rating-row > .rating
 }
 
 
-/* Star Rating */
-/*.rating {
-  text-align:center;
-  unicode-bidi: bidi-override;
-  direction: rtl;
-}
-
-.rating > span {
-  display: inline-block;
-  position: relative;
-  width: 1.1em;
-}
-
-.rating > span:hover:before,
-.rating > span:hover ~ span:before {
-   content: "\2605";
-   position: absolute;
-} */
 
 .comment{
   text-align:center;
