@@ -155,8 +155,8 @@ var updateEditView = function(){
         document.edit_form.edit_name.value = results[0].get("name");
         document.edit_form.edit_tag.value = results[0].get("tag");
         document.edit_form.edit_comment.value = results[0].get("comment");
-        for(i=0;i<parseInt(results[0].get("rating"));i++){
-        }
+        // for(i=0;i<parseInt(results[0].get("rating"));i++){
+        // }
         $('#edit_catDrop option[value=' + results[0].get("cat") + ']').prop('selected', true);
       },
       error: function(error){
