@@ -129,6 +129,37 @@ var updateCatBar = function(){
 
 //show edit page in content view
 var updateEditView = function(){
+  var target = this;
+  //fill in cat drop down info
+  var edit_catDrop = $("#edit_catDrop");
+  edit_catDrop.empty();
+  var cat_query = new Parse.Query(Cat);
+  cat_query.find({
+    success: function(results){
+      for(i in results){
+        edit_catDrop.append($('<option></option>').val(results[i].get("name")).html(results[i].get("name")));
+      }
+      fillEditInfo();
+    },
+    error: function(error){
+      alert("updateEditView error");
+    }
+  });
+
+  //fill in meme info
+  var fillEditInfo = function(){
+    var meme_query = new Parse.Query(Meme);
+    meme_query.equalTo("objectId",target.childNodes[0].getAttribute("data-id"));
+    meme_query.find({
+      success: function(results){
+        document.edit_form.edit_name.value = results[0].get("name");
+        $('#edit_catDrop option[value=' + results[0].get("cat") + ']').prop('selected', true);
+      },
+      error: function(error){
+        alert("updateEditView error");
+      }
+    });
+  }
   //bind events
   var es = document.getElementById("edit-save");
   es.addEventListener("click",editSave,false);

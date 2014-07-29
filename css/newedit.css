@@ -147,14 +147,14 @@ tbody
 	overflow: visible;
 }
 
-#form-box
+.form-box
 {
 	position: relative;
 	text-align: center;
 	height: 50%;
 }
 
-#name-row
+.name-row
 {
 	position: absolute;
 	height: 0.5in;
@@ -162,14 +162,14 @@ tbody
 	margin-top: 10%;
 }
 
-div#name-row > label
+div.name-row > label
 {
 	float: left;
 	margin-left: 10%;
 	text-shadow: 1px 1px 1px black;
 }
 
-div#name-row > input
+div.name-row > input
 {
 	float: right;
 	margin-right: 10%;
@@ -183,7 +183,7 @@ div#name-row > input
 	border: 1px solid grey;
 }
 
-#cat-row
+.cat-row
 {
 	position: absolute;
 	height: 0.5in;
@@ -191,20 +191,20 @@ div#name-row > input
 	margin-top: 30%;
 }
 
-div#cat-row > label
+div.cat-row > label
 {
 	float: left;
 	margin-left: 10%;
 	text-shadow: 1px 1px 1px black;
 }
 
-div#cat-row > select
+div.cat-row > select
 {
 	float: right;
 	margin-right: 10%;
 }
 
-#tag-row
+.tag-row
 {
 	position: absolute;
 	height: 0.5in;
@@ -212,14 +212,14 @@ div#cat-row > select
 	margin-top: 50%;
 }
 
-div#tag-row > label
+div.tag-row > label
 {
 	float: left;
 	margin-left: 10%;
 	text-shadow: 1px 1px 1px black;
 }
 
-div#tag-row > input
+div.tag-row > input
 {
 	float: right;
 	margin-right: 10%;
@@ -233,7 +233,7 @@ div#tag-row > input
 	border: 1px solid grey;
 }
 
-#rating-row
+.rating-row
 {
 	position: absolute;
 	height: 0.5in;
@@ -241,21 +241,37 @@ div#tag-row > input
 	margin-top: 70%;
 }
 
-div#rating-row > label
+div.rating-row > label
 {
 	float: left;
 	margin-left: 10%;
 	text-shadow: 1px 1px 1px black;
 }
 
-div#rating-row > .rating
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+/*div#rating-row > .rating
+=======
+div.rating-row > .rating
+>>>>>>> FETCH_HEAD
+=======
+div.rating-row > .rating
+>>>>>>> FETCH_HEAD
+=======
+div.rating-row > .rating
+>>>>>>> FETCH_HEAD
+=======
+div.rating-row > .rating
+>>>>>>> FETCH_HEAD
 {
 	float: right;
 	margin-right: 10%;
 	color: yellow;
-}
+}*/
 
-#comment-wrapper
+.comment-wrapper
 {
 	position: absolute;
 	margin-top: 90%;
@@ -265,13 +281,13 @@ div#rating-row > .rating
 	overflow: hidden !important;
 }
 
-#comment-row
+.comment-row
 {
 	text-shadow: 1px 1px 1px black;
 	overflow: hidden !important;
 }
 
-#button{
+.button{
   /*position: absolute; */
   margin-top: 2%;
   bottom: 0; 
@@ -280,7 +296,7 @@ div#rating-row > .rating
 
 
 /* Star Rating */
-.rating {
+/*.rating {
   text-align:center;
   unicode-bidi: bidi-override;
   direction: rtl;
@@ -296,7 +312,7 @@ div#rating-row > .rating
 .rating > span:hover ~ span:before {
    content: "\2605";
    position: absolute;
-}
+} */
 
 .comment{
   text-align:center;
@@ -307,4 +323,53 @@ textarea
 	resize: none;
 	height: 100%;
 	width: 70%;
+}
+
+.starRating{
+  display        : inline-block;
+  position       : relative;
+  height         : 24px;
+  background     : url('stars.png') repeat-x 0 0;
+  vertical-align : bottom;
+}
+
+.starRating div{
+  float    : left;
+  position : relative;
+  height   : 24px;
+}
+
+.starRating input{
+  position : relative;
+  z-index  : 1;
+  width    : 24px;
+  height   : 24px;
+  margin   : 0;
+  padding  : 0;
+  opacity  : 0;
+}
+
+.starRating label{
+  position : absolute;
+  top      : 0;
+  left     : 0;
+  width    : 100%;
+  height   : 24px;
+}
+
+.starRating span{
+  display : none;
+}
+
+.starRating       input:checked       + label,
+.starRating:hover input:checked:hover + label{
+  background : url('stars.png') repeat-x 0 -24px;
+}
+
+.starRating:hover input:checked + label{
+  background : transparent;
+}
+
+.starRating:hover input:hover + label{
+  background : url('stars.png') repeat-x 0 -48px;
 }
