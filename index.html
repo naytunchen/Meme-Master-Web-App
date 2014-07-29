@@ -58,13 +58,13 @@
 					</div>
 					
 					<div class="edit-meme">
-						<form id="form-box">
-							<div id="name-row">
-								<label>Name:</label> <input type='text' tabindex='1' value="WTF Patrick Steward" />
+						<form class="form-box" name="edit-form">
+							<div class="name-row">
+								<label>Name:</label> <input name="edit-name" type='text' tabindex='1' value="WTF Patrick Steward" />
 							</div>
-							<div id="cat-row">
+							<div class="cat-row">
 								<label>Category:</label>
-								<select name="catDrop">
+								<select name="edit-catDrop">
 									<option>Category 1</option>
 									<option>Category 2</option>
 									<option>Category 3</option>
@@ -72,12 +72,12 @@
 									<option>Category 5</option>
 								</select>
 							</div>
-							<div id="tag-row">
+							<div class="tag-row">
 								<label>Add Tag:</label> 
-								<input type='text' tabindex='2' placeholder="Enter tag here">
-								<a href='#' id='tag'>+</a>
+								<input name="edit-tag" type='text' tabindex='2' placeholder="Enter tag here">
+								<a href='#' id='edit-addTag'>+</a>
 							</div>
-							<div id="rating-row">
+							<div class="rating-row">
 								<label>Rating:</label>
 								<div class="rating" tabindex="3">
 									<span>☆</span>
@@ -87,13 +87,13 @@
 									<span>☆</span>
 								</div>
 							</div>
-							<div id='comment-wrapper'>
-								<div id='comment-row'>
+							<div class='comment-wrapper'>
+								<div class='comment-row'>
 									<label>Comment:</label> <br />
-									<textarea rows="7">
+									<textarea name="edit-comment" rows="7">
 									</textarea>
 								</div>
-								<div id="button">
+								<div class="button">
 									<input id="edit-save" tabindex="4" type='button' value='Save Changes'>
 									<input id="edit-cancel" tabindex="5" type='button' value='Cancel'>
 									</div>
@@ -107,6 +107,7 @@
 					</div>
 					
 					<div class="edit-meme">
+					<form name="add-form">
 						<table  class="form_table">
 							<tbody >
 								<tr>
@@ -114,7 +115,7 @@
 										<label>Url:</label>
 									</td>
 									<td>
-										<input type="text" tabindex="0" value="Url here">
+										<input name="add-url" type="text" tabindex="0" value="Url here">
 									</td>
 								</tr>
 								<tr>
@@ -122,7 +123,7 @@
 										<label>Name:</label>
 									</td>
 									<td>
-										<input type="text" tabindex="1" value="WTF Patrick Stewart">
+										<input name="add-name" type="text" tabindex="1" value="WTF Patrick Stewart">
 									</td>
 								</tr>
 								<tr>
@@ -130,8 +131,8 @@
 										<label>Add Tag:</label>
 									</td>
 									<td>
-										<input type="text" tabindex="2" placeholder="enter tag here">
-										<a href=# id="tag">+</a>
+										<input name="add-tag" type="text" tabindex="2" placeholder="enter tag here">
+										<a href=# id="add-addTag">+</a>
 									</td>
 								</tr>
 								<tr>
@@ -148,21 +149,22 @@
 									<td>Comments:</td>
 								</tr>
 								<tr>
-									<td colspan="2" class="comment"><textarea rows="4" ></textarea></td>
+									<td colspan="2" class="comment"><textarea name="add-comment" rows="4" ></textarea></td>
 								</tr>
-								<tr id="button">
+								<tr class="button">
 									<td colspan="2" class ="comment">
 										<span>
 											<input id="add-save" tabindex="4" type="button" value="Add">
 											&nbsp;
 										</span>
 										<span>
-											<input id="add-cancel" tabindex="5" id="cancel" type="button" value="Cancel">
+											<input id="add-cancel" tabindex="5" type="button" value="Cancel">
 										</span>
 									</td>
 								</tr>
 							</tbody>
 						</table>
+					</form>
 					</div>
 				</div>
 				<div class="content-view" id="create-view" display="none">
@@ -171,6 +173,7 @@
 					</div>
 					
 					<div class="edit-meme">
+					<form name="create-form">
 						<table  class="form_table">
 							<tbody >
 								<tr>
@@ -178,7 +181,7 @@
 										<label>Url:</label>
 									</td>
 									<td>
-										<input type="text" tabindex="0" value="URL here">
+										<input name="create-url" type="text" tabindex="0" value="URL here">
 									</td>
 								</tr>
 								<tr>
@@ -186,7 +189,7 @@
 										<label>Name:</label>
 									</td>
 									<td>
-										<input type="text" tabindex="1" value="Grumpy Cat">
+										<input name="create-name" type="text" tabindex="1" value="Grumpy Cat">
 									</td>
 								</tr>
 								<tr>
@@ -194,7 +197,7 @@
 										<label>Top Text:</label>
 									</td>
 									<td>
-										<input type="text" tabindex="2" value="I had fun once">
+										<input name="create-topText" type="text" tabindex="2" value="I had fun once">
 									</td>
 								</tr>
 								<tr>
@@ -202,7 +205,7 @@
 										<label>Bottom Text:</label>
 									</td>
 									<td>
-										<input type="text" tabindex="3" value="It was awful">
+										<input name="create-bottomText" type="text" tabindex="3" value="It was awful">
 									</td>
 								</tr>
 								<tr>
@@ -210,8 +213,8 @@
 										<label>Add Tag:</label>
 									</td>
 									<td>
-										<input type="text" tabindex="4" placeholder="enter tag here">
-										<a href=# id="tag">+</a>
+										<input name="create-tag" type="text" tabindex="4" placeholder="enter tag here">
+										<a href=# id="create-addTag">+</a>
 									</td>
 								</tr>
 								<tr>
@@ -228,21 +231,22 @@
 									<td>Comments:</td>
 								</tr>
 								<tr>
-									<td class="comment" colspan="2"><textarea rows="4" ></textarea></td>
+									<td class="comment" colspan="2"><textarea name="create-comment" rows="4" ></textarea></td>
 								</tr>
-								<tr id="button">
+								<tr class="button">
 									<td colspan="2" class="comment">
 										<span>
 											<input id="create-save" tabindex="6" type="button" value="Create">
 											&nbsp;
 										</span>
 										<span>
-											<input id="create-cancel" tabindex="7" id="cancel" type="button" value="Cancel">
+											<input id="create-cancel" tabindex="7" type="button" value="Cancel">
 										</span>
 									</td>
 								</tr>
 							</tbody>
 						</table>
+					</form>
 					</div>
 
 				</div>
