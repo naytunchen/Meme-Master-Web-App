@@ -129,6 +129,18 @@ var updateCatBar = function(){
 
 //show edit page in content view
 var updateEditView = function(){
+  //fill in meme info
+  var meme_query = new Parse.Query(Meme);
+  meme_query.equalTo("objectId",this.childNodes[0].getAttribute("data-id"));
+  meme_query.find({
+    success: function(results){
+      document.edit_form.edit_name.value = results[0].get("name");
+    },
+    error: function(error){
+      alert("updateEditView error");
+    }
+  });
+
   //bind events
   var es = document.getElementById("edit-save");
   es.addEventListener("click",editSave,false);
