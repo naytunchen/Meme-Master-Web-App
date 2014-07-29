@@ -50,6 +50,10 @@ span,div,input,button{
 	background-color: whitesmoke;
 }
 
+.logo:hover{
+	cursor:pointer;
+}
+
 .logo img{
   vertical-align: middle;
   height: 100%;
@@ -80,6 +84,7 @@ span,div,input,button{
 
 .category-item:hover{
 	background-color: rgba(255,255,255,0.9);
+	cursor: pointer;
 }
 
 .right-panel{
@@ -117,6 +122,10 @@ span,div,input,button{
 	height: 0.51in;
 	margin-top: 0.15in;
 	font-size: 1em;
+}
+
+#search-button:hover{
+	cursor: pointer;
 }
 
 .content-view{
@@ -285,6 +294,10 @@ footer
 	margin-top: 2.5%;
 }
 
+.createBtn:hover{
+	cursor: pointer;
+}
+
 .uploadBtn
 {
 	color: white;
@@ -293,4 +306,6 @@ footer
 	height:40px;
 }
 
-
+.uploadBtn:hover{
+	cursor: pointer;
+}

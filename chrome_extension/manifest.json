@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "MemeMaster",
+  "description": "This extension allows user to save, edit, and browse memes.",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "logo.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["tabs"]
+  // chrome.windows.update(integer windowId, object updateInfo, function callback)
+
+}
