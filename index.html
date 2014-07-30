@@ -403,8 +403,9 @@
 
     $(function() {
 		$('.url_textbox').on("change", function() {
-			$("#add_imageViewer").attr('src', $(this).val());
-			$("#imageViewer").attr('src', $(this).val());
+			var source_file = $(this).val();
+			$("#add_imageViewer").attr('src', source_file);
+			$("#imageViewer").attr('src', source_file);
 		});
 	});
 
