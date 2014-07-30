@@ -13,7 +13,7 @@
 						<label>Url:</label>
 					</td>
 					<td>
-						<input type="text" tabindex="0" value="Url here">
+						<input type="text" tabindex="0" id="meme_url" value="Url here">
 					</td>
 				</tr>
 				<tr>
@@ -21,7 +21,7 @@
 						<label>Name:</label>
 					</td>
 					<td>
-						<input type="text" tabindex="1" value="WTF Patrick Stewart">
+						<input type="text" tabindex="1" id="meme_title" value="WTF Patrick Stewart">
 					</td>
 				</tr>
 				<tr>
@@ -29,30 +29,29 @@
 						<label>Add Tag:</label>
 					</td>
 					<td>
-						<input type="text" tabindex="2" placeholder="enter tag here">
-						<a href=# id="tag">+</a>
+						<input type="text" tabindex="2" id="meme_tag" placeholder="enter tag here">
 					</td>
 				</tr>
 				<tr>
 					<td>Rating: </td>
-					<td tabindex="3" class="rating">
-						<span>☆</span>
-						<span>☆</span>
-						<span>☆</span>
-						<span>☆</span>
-						<span>☆</span>
+					<td tabindex="3"  class="rating">
+						<span id="star1" onclick="getstar(rate)">☆</span>
+						<span id="star2" onclick="getstar(rate)">☆</span>
+						<span id="star3" onclick="getstar(rate)">☆</span>
+						<span id="star4" onclick="getstar(rate)">☆</span>
+						<span id="star5" onclick="getstar(rate)">☆</span>
 					</td>
 				</tr>
 				<tr>
 					<td>Comments:</td>
 				</tr>
 				<tr>
-					<td colspan="2" class="comment"><textarea rows="4" ></textarea></td>
+					<td colspan="2" class="comment" id="meme_comment"><textarea rows="4" ></textarea></td>
 				</tr>
 				<tr id="button">
 					<td colspan="2" class ="comment">
 						<span>
-							<input tabindex="4" type="submit" value="Add">
+							<input tabindex="4" onclick="doit()" id="add_button" type="submit" value="Submit">
 							&nbsp;
 						</span>
 						<span>
