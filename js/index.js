@@ -438,7 +438,8 @@ var imgScreenshot = function(){
   html2canvas($('#createMeme_container'), {
     onrendered: function(canvas) {
       var imgString = canvas.toDataURL("image/png");
-      window.open(imgString, '_blank');
+      var tab = window.open(imgString, '_blank');
+      tab.focus();
     }
   });
 };
