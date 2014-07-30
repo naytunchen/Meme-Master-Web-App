@@ -333,11 +333,6 @@ textarea
   background : url('stars.png') repeat-x 0 -48px;
 }
 
-#createMeme_container
-{
-  position: relative;
-  text-align: center;
-}
 
 #top_text_pane {
   position: absolute;

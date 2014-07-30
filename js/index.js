@@ -306,6 +306,13 @@ var updateLoginView = function() {
 //show create page in content view
 var updateCreateView = function(){
   //bind events
+  document.getElementById('top_text_pane').style.border = '1px dotted black';
+  document.getElementById('bot_text_pane').style.border = '1px dotted black';
+  var imgViewer = document.getElementById('imageViewer');
+  imgViewer.src = "pic/Placeholder.jpg";
+  $("#top_text_pane").text("Enter Top Text Here");
+  $("#bot_text_pane").text("Enter Bot Text Here");
+
   var cs = document.getElementById("create-save");
   cs.addEventListener("click",createSave,false);
   var cc = document.getElementById("create-cancel");
@@ -333,8 +340,10 @@ var editSave = function(){
 //called when create page is saved
 var createSave = function(){
   //TODO: save action
+  borderClearer();
   updateAllCat();
   updateCatBar();
+  imgScreenshot();
 };
 
 //called when add page is saved
@@ -342,4 +351,24 @@ var addSave = function(){
   //TODO: save action
   updateAllCat();
   updateCatBar();
+};
+
+
+var imgScreenshot = function(){
+
+  html2canvas($('#createMeme_container'), {
+    onrendered: function(canvas) {
+      document.body.appendChild(canvas);
+    }
+  });
+};
+
+var borderClearer = function(){
+  var ttp = document.getElementById('top_text_pane');
+  var btp = document.getElementById('bot_text_pane');
+  ttp.style.border = 'none';
+  btp.style.border = 'none';
+  ttp.style.textShadow = '3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000';
+  btp.style.textShadow = '3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000';
+
 };
