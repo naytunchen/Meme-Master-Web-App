@@ -8,11 +8,9 @@
 		<link rel="stylesheet" href="css/newedit.css"/>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.19.min.js"></script>
-  		<script src="js/index.js"></script>
 
   		<link rel="stylesheet" href="jquery.tagsinput.css" />
   		<script type="text/javascript" src="jquery.tagsinput.js"></script>
-
   		<script>
   			$(function() {
   				$('.tagsystem').tagsInput({
@@ -20,9 +18,9 @@
   					height: '70px'
   				});
   			});
-  			
-
   		</script>
+
+  		<script src="js/index.js"></script>
 
 	</head>
 	<body>
@@ -89,7 +87,7 @@
 							</div>
 							<div class="tag-row">
 								<label>Tag:</label> 
-								<input class="tagsystem" id="tag1" name="edit_tag" value="test, one, two" style="display: none;"/>
+								<input class="tagsystem" id="tag1" name="edit_tag" style="display: none;"/>
 							</div>
 							<div class="rating-row">
 								<label>Rating:</label>
@@ -98,19 +96,19 @@
 												<div>
 													<div>
 														<div>
-															<input class="rating1" type="radio" name="rating" value="1">
+															<input id="edit-rate-1" class="rating1" type="radio" name="rating" value="1">
 															<label for="rating1"><span>1</span></label>
 														</div>
-														<input class="rating2" type="radio" name="rating" value="2">
+														<input id="edit-rate-2" class="rating2" type="radio" name="rating" value="2">
 														<label for="rating2"><span>2</span></label>
 													</div>
-													<input class="rating3" type="radio" name="rating" value="3">
+													<input id="edit-rate-3" class="rating3" type="radio" name="rating" value="3">
 													<label for="rating3"><span>3</span></label>
 												</div>
-												<input class="rating4" type="radio" name="rating" value="4">
+												<input id="edit-rate-4" class="rating4" type="radio" name="rating" value="4">
 												<label for="rating4"><span>4</span></label>
 											</div>
-											<input class="rating5" type="radio" name="rating" value="5">
+											<input id="edit-rate-5" class="rating5" type="radio" name="rating" value="5">
 											<label for="rating5"><span>5</span></label>
 										</div>
 							</div>
