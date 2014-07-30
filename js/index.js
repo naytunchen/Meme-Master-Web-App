@@ -292,6 +292,30 @@ var updateCatView = function(){
 
 //show add page in content view
 var updateAddView = function(){
+  //clear fields
+  document.add_form.add_url.value="";
+  document.add_form.add_name.value="";
+  document.add_form.add_tag.value="";
+  document.add_form.add_comment.value="";
+  for(i=1;i<6;i++){
+    document.getElementById("add-rate-"+i).checked=false;
+  }
+
+  //fill in cat drop down info
+  var add_catDrop = $("#add_catDrop");
+  add_catDrop.empty();
+  var cat_query = new Parse.Query(Cat);
+  cat_query.find({
+    success: function(results){
+      for(i in results){
+        add_catDrop.append($('<option></option>').val(results[i].get("name")).html(results[i].get("name")));
+      }
+    },
+    error: function(error){
+      alert("updateAddView error");
+    }
+  });
+
   //bind events
   var as = document.getElementById("add-save");
   as.addEventListener("click",addSave,false);
@@ -355,25 +379,25 @@ var updateCreateView = function(){
 
 //called when edit page is saved
 var editSave = function(){
-  //TODO: save action
+  //save action
   var meme_query = new Parse.Query(Meme);
-    meme_query.equalTo("objectId",meme_id);
-    meme_query.find({
-      success: function(results){
-        results[0].set("name",document.edit_form.edit_name.value);
-        results[0].set("tag",$('.tagsystem').val());
-        results[0].set("comment",document.edit_form.edit_comment.value);
-        results[0].set("rating",rating);
-        results[0].set("cat",$('#edit_catDrop').val());
-        results[0].save();
-      },
-      error: function(error){
-        alert("editSave error");
-      }
-    });
+  meme_query.equalTo("objectId",meme_id);
+  meme_query.find({
+    success: function(results){
+      results[0].set("name",document.edit_form.edit_name.value);
+      results[0].set("tag",decument.edit_form.edit_tag.value);
+      results[0].set("comment",document.edit_form.edit_comment.value);
+      results[0].set("rating",rating);
+      results[0].set("cat",$('#edit_catDrop').val());
+      results[0].save();
 
-  updateAllCat();
-  updateCatBar();
+      updateAllCat();
+      updateCatBar();
+    },
+    error: function(error){
+      alert("editSave error");
+    }
+  });
 };
 
 //called when create page is saved
@@ -387,9 +411,25 @@ var createSave = function(){
 
 //called when add page is saved
 var addSave = function(){
-  //TODO: save action
-  updateAllCat();
-  updateCatBar();
+  //save action
+  var new_meme = {
+    src: document.add_form.add_url.value,
+    name: document.add_form.add_name.value,
+    tag: document.add_form.add_tag.value,
+    comment: document.add_form.add_comment.value,
+    "rating": rating,
+    cat: $('#add_catDrop').val()
+  }
+  var meme = new Meme();
+  meme.save(new_meme,{
+  success: function(object) {
+    updateAllCat();
+    updateCatBar();
+  },
+  error: function(model, error) {
+    alert("addSave error");
+  }
+  });
 };
 
 
