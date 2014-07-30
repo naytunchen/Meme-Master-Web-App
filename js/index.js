@@ -17,6 +17,9 @@ window.onload = function(){
   //setup default meme and cat (run only once)
   //setupDefault();
 
+  //bind rating events
+  ratingFunc();
+
   //switch stylesheets
   for ( i=0; i<document.styleSheets.length; i++) {
     document.styleSheets.item(i).disabled=true;
@@ -28,6 +31,14 @@ window.onload = function(){
   updateAllCat();
   updateCatBar();
 };
+
+var ratingFunc = function(){
+  for(i=1;i<6;i++){
+    $(".rating"+i).bind("click",function(){
+      rating = this.value;
+    });
+  }
+}
 
 //nide everything in content view
 var hideView = function(){
@@ -206,6 +217,7 @@ var updateEditView = function(){
         document.edit_form.edit_comment.value = results[0].get("comment");
         document.getElementById("edit-rate-"+parseInt(results[0].get("rating"))).checked=true;
         $('#edit_catDrop option[value=' + results[0].get("cat") + ']').prop('selected', true);
+        rating = results[0].get("rating");
         meme_id = results[0].id;
         bindEdit();
       },
@@ -348,7 +360,12 @@ var editSave = function(){
     meme_query.equalTo("objectId",meme_id);
     meme_query.find({
       success: function(results){
-        console.log(results[0]);
+        results[0].set("name",document.edit_form.edit_name.value);
+        results[0].set("tag",$('.tagsystem').val());
+        results[0].set("comment",document.edit_form.edit_comment.value);
+        results[0].set("rating",rating);
+        results[0].set("cat",$('#edit_catDrop').val());
+        results[0].save();
       },
       error: function(error){
         alert("editSave error");
