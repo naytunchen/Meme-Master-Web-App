@@ -1,6 +1,8 @@
 //global declaration
 var Meme,Cat;
 var rating = 0;
+var meme_id;
+var cat_id;
 
 /* called when page loads first time */
 window.onload = function(){
@@ -198,33 +200,40 @@ var updateEditView = function(){
     meme_query.equalTo("objectId",target.childNodes[0].getAttribute("data-id"));
     meme_query.find({
       success: function(results){
+        document.getElementById("edit-img").src=results[0].get("src");
         document.edit_form.edit_name.value = results[0].get("name");
         $('.tagsystem').importTags(results[0].get("tag"));
         document.edit_form.edit_comment.value = results[0].get("comment");
         document.getElementById("edit-rate-"+parseInt(results[0].get("rating"))).checked=true;
         $('#edit_catDrop option[value=' + results[0].get("cat") + ']').prop('selected', true);
+        meme_id = results[0].id;
+        bindEdit();
       },
       error: function(error){
         alert("updateEditView error");
       }
     });
   }
-  //bind events
-  var es = document.getElementById("edit-save");
-  es.addEventListener("click",editSave,false);
-  var ec = document.getElementById("edit-cancel");
-  ec.addEventListener("click",updateAllCat,false);
-  //switch stylesheets
-  for ( i=0; i<document.styleSheets.length; i++) {
-    document.styleSheets.item(i).disabled=true;
+
+  var bindEdit = function(){
+    //bind events
+    var es = document.getElementById("edit-save");
+    es.addEventListener("click",editSave,false);
+    var ec = document.getElementById("edit-cancel");
+    ec.addEventListener("click",updateAllCat,false);
+    //switch stylesheets
+    for ( i=0; i<document.styleSheets.length; i++) {
+      document.styleSheets.item(i).disabled=true;
+    }
+    document.styleSheets.item(0).disabled=false;
+    document.styleSheets.item(1).disabled=false;
+    document.styleSheets.item(2).disabled=false;
+    document.styleSheets.item(3).disabled=false;
+    //show edit view only
+    hideView();
+    var ev = document.getElementById('edit-view');
+    ev.style.display = "block";
   }
-  document.styleSheets.item(0).disabled=false;
-  document.styleSheets.item(1).disabled=false;
-  document.styleSheets.item(2).disabled=false;
-  //show edit view only
-  hideView();
-  var ev = document.getElementById('edit-view');
-  ev.style.display = "block";
 };
 
 //show memes in content view based on category
@@ -283,6 +292,7 @@ var updateAddView = function(){
   document.styleSheets.item(0).disabled=false;
   document.styleSheets.item(1).disabled=false;
   document.styleSheets.item(2).disabled=false;
+  document.styleSheets.item(3).disabled=false;
   //show edit view only
   hideView();
   var ev = document.getElementById('add-view');
@@ -324,6 +334,7 @@ var updateCreateView = function(){
   document.styleSheets.item(0).disabled=false;
   document.styleSheets.item(1).disabled=false;
   document.styleSheets.item(2).disabled=false;
+  document.styleSheets.item(3).disabled=false;
   //show edit view only
   hideView();
   var ev = document.getElementById('create-view');
@@ -333,6 +344,17 @@ var updateCreateView = function(){
 //called when edit page is saved
 var editSave = function(){
   //TODO: save action
+  var meme_query = new Parse.Query(Meme);
+    meme_query.equalTo("objectId",meme_id);
+    meme_query.find({
+      success: function(results){
+        console.log(results[0]);
+      },
+      error: function(error){
+        alert("editSave error");
+      }
+    });
+
   updateAllCat();
   updateCatBar();
 };

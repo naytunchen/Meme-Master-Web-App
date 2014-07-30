@@ -48,26 +48,8 @@
 					<div class="slide_wrapper">
 					<div class="diy-slideshow">
 						<figure class="show">
-							<img src="pic/meme1.png" style="width:100%;" /><figcaption>meme1</figcaption>
+							<img id="edit-img" src="pic/meme1.png" style="width:100%;" /><figcaption>meme1</figcaption>
 						</figure>
-						<figure>
-							<img src="pic/meme2.png" style="width:100%;" /><figcaption>meme2</figcaption>
-						</figure>
-						<figure>
-							<img src="pic/meme3.png" style="width:100%;" /><figcaption>meme3</figcaption>
-						</figure>
-						<figure>
-							<img src="pic/meme4.png" style="width:100%;" /><figcaption>meme4</figcaption>
-						</figure>
-						<figure>
-							<img src="pic/meme5.png" style="width:100%;" /><figcaption>meme5</figcaption>
-						</figure>
-						<figure>
-							<img src="pic/meme6.png" style="width:100%;" /><figcaption>meme6</figcaption>
-						</figure>
-						
-						<span class="prev">&laquo;</span>
-						<span class="next">&raquo;</span>
 					</div>
 					</div>
 					
@@ -119,7 +101,7 @@
 									<textarea name="edit_comment" rows="7">
 									</textarea>
 								</div>
-								<div class="button">
+								<div class="button" >
 									<input id="edit-save" tabindex="4" type='button' value='Save Changes'>
 									<input id="edit-cancel" tabindex="5" type='button' value='Cancel'>
 									</div>
@@ -404,38 +386,6 @@
 		</footer>
 
 		<script>
-		(function(){
-			var counter = 0, // to keep track of current slide
-			$items = document.querySelectorAll('.diy-slideshow figure'), 
-			// a collection of all of the slides, caching for performance
-			numItems = $items.length; // total number of slides
-
-			// this function is what cycles the slides, showing the next or previous slide and hiding all the others
-			var showCurrent = function(){
-				var itemToShow = Math.abs(counter%numItems);// uses remainder (aka modulo) operator to get the actual index of the element to show  
-  
-  // remove .show from whichever element currently has it 
-  // http://stackoverflow.com/a/16053538/2006057
-  			[].forEach.call( $items, function(el){
-	  			el.classList.remove('show');
-	  		});
-  
-  // add .show to the one item that's supposed to have it
-  			$items[itemToShow].classList.add('show');    
-  			};
-
-// add click events to prev & next buttons 
-			document.querySelector('.next').addEventListener('click', function() {
-				counter++;
-				showCurrent();
-			}, false);
-
-			document.querySelector('.prev').addEventListener('click', function() 			{
-				counter--;
-				showCurrent();
-			}, false);
-  
-		})();  
 
 	$("#uploadImgBtn").click(function() {
 		$("#imgInp").trigger('click');
