@@ -34,12 +34,12 @@
 				</tr>
 				<tr>
 					<td>Rating: </td>
-					<td tabindex="3" id="star" class="rating">
-						<span>☆</span>
-						<span>☆</span>
-						<span>☆</span>
-						<span>☆</span>
-						<span>☆</span>
+					<td tabindex="3"  class="rating">
+						<span id="star1" onclick="getstar(rate)">☆</span>
+						<span id="star2" onclick="getstar(rate)">☆</span>
+						<span id="star3" onclick="getstar(rate)">☆</span>
+						<span id="star4" onclick="getstar(rate)">☆</span>
+						<span id="star5" onclick="getstar(rate)">☆</span>
 					</td>
 				</tr>
 				<tr>
@@ -51,7 +51,7 @@
 				<tr id="button">
 					<td colspan="2" class ="comment">
 						<span>
-							<input tabindex="4" id="add_button" type="submit" value="Add">
+							<input tabindex="4" onclick="doit()" id="add_button" type="submit" value="Submit">
 							&nbsp;
 						</span>
 						<span>
