@@ -238,7 +238,7 @@ div.tag-row > input
 	position: absolute;
 	height: 0.5in;
 	width: 100%;
-	margin-top: 70%;
+	margin-top: 90%;
 }
 
 div.rating-row > label
@@ -251,7 +251,7 @@ div.rating-row > label
 .comment-wrapper
 {
 	position: absolute;
-	margin-top: 90%;
+	margin-top: 110%;
 	height: 50%;
 	width: 100%;
 	text-align: center;
