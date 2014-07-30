@@ -16,11 +16,11 @@
   display: inline-block;
   overflow: hidden;
   width: auto;
-  height: 3.5in;
-  min-width: 4in;
+  height: 4.5in;
+  min-width: 5in;
   min-height: 3.5in;
-  max-width: 4in;
-  max-height: 3.5in;
+  max-width: 6in;
+  max-height: 4.5in;
   background-color: black;
   margin: auto;
   overflow: visible;
@@ -331,4 +331,47 @@ textarea
 
 .starRating:hover input:hover + label{
   background : url('stars.png') repeat-x 0 -48px;
+}
+
+#createMeme_container
+{
+  position: relative;
+  text-align: center;
+}
+
+#top_text_pane {
+  position: absolute;
+  width: 5in;
+  top: 0.1in;
+  border: 1px dotted black;
+  font-size: 40pt;
+  text-align: center;
+  line-height: 0.5in;
+  left: 0.5in;
+  border-bottom: 1px dottbed black;
+  font-family: Impact;
+  font-weight: bold;
+  color: white;
+  max-height: 2.2in;
+  overflow: hidden;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
+}
+
+#bot_text_pane {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  border: 1px dotted black;
+  left: 0.5in;
+  line-height: 0.5in;
+  max-height: 2.2in;
+  color: white;
+  overflow: hidden;
+  font-size: 40pt;
+  font-family: Impact;
+  font-weight: bold;
+  width: 5in;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: black;
 }
