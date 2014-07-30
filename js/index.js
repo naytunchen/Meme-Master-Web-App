@@ -397,7 +397,8 @@ var imgScreenshot = function(){
 
   html2canvas($('#createMeme_container'), {
     onrendered: function(canvas) {
-      document.body.appendChild(canvas);
+      var imgString = canvas.toDataURL("image/png");
+      window.open(imgString, '_blank');
     }
   });
 };
