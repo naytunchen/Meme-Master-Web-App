@@ -215,7 +215,11 @@ var updateEditView = function(){
         document.edit_form.edit_name.value = results[0].get("name");
         $('.tagsystem').importTags(results[0].get("tag"));
         document.edit_form.edit_comment.value = results[0].get("comment");
-        document.getElementById("edit-rate-"+parseInt(results[0].get("rating"))).checked=true;
+        for(i=1;i<6;i++){
+          document.getElementById("add-rate-"+i).checked=false;
+        }
+        if(parseInt(results[0].get("rating"))>0)
+          document.getElementById("edit-rate-"+parseInt(results[0].get("rating"))).checked=true;
         $('#edit_catDrop option[value=' + results[0].get("cat") + ']').prop('selected', true);
         rating = results[0].get("rating");
         meme_id = results[0].id;
@@ -295,11 +299,12 @@ var updateAddView = function(){
   //clear fields
   document.add_form.add_url.value="";
   document.add_form.add_name.value="";
-  document.add_form.add_tag.value="";
+  $("#add_tag").importTags("");
   document.add_form.add_comment.value="";
   for(i=1;i<6;i++){
     document.getElementById("add-rate-"+i).checked=false;
   }
+  document.getElementById("add_imageViewer").src="pic/Placeholder.jpg";
 
   //fill in cat drop down info
   var add_catDrop = $("#add_catDrop");
@@ -315,6 +320,7 @@ var updateAddView = function(){
       alert("updateAddView error");
     }
   });
+  rating=0;
 
   //bind events
   var as = document.getElementById("add-save");
@@ -385,9 +391,9 @@ var editSave = function(){
   meme_query.find({
     success: function(results){
       results[0].set("name",document.edit_form.edit_name.value);
-      results[0].set("tag",decument.edit_form.edit_tag.value);
+      results[0].set("tag",document.edit_form.edit_tag.value);
       results[0].set("comment",document.edit_form.edit_comment.value);
-      results[0].set("rating",rating);
+      results[0].set("rating",String(rating));
       results[0].set("cat",$('#edit_catDrop').val());
       results[0].save();
 
@@ -417,7 +423,7 @@ var addSave = function(){
     name: document.add_form.add_name.value,
     tag: document.add_form.add_tag.value,
     comment: document.add_form.add_comment.value,
-    "rating": rating,
+    "rating": String(rating),
     cat: $('#add_catDrop').val()
   }
   var meme = new Meme();
