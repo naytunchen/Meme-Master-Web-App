@@ -207,8 +207,8 @@ var updateCatBar = function(){
     success: function(results){
       var cb = $("#cat-bar");
       $("div").remove(".category-sub");
-      for(i in results){
-        cb.append("<div class=\"category-item category-sub\" data-name=\""
+      for(i=0;i<results.length;i++){
+        cb.append("<div class=\"category-item category-sub\" draggable=\"true\" data-name=\""
           +results[i].get("name")+"\" data-id=\""+results[i].id+"\">"
           +results[i].get("name")+"</div>");
       }

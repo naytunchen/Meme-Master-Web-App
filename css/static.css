@@ -371,6 +371,7 @@ footer
 	width: 50%;
 	height: 40px;
 	margin-top: 2.5%;
+	text-align: center;
 }
 
 .createBtn:hover{
@@ -383,6 +384,7 @@ footer
 	background-color: red;
 	font-size: auto;
 	height:40px;
+	padding: 3px;
 }
 
 .uploadBtn:hover{

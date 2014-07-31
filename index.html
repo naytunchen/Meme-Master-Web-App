@@ -31,9 +31,9 @@
 					<img id="logopic" src="pic/logo.jpg" alt="logo" onclick="updateAllCat()"/>
 				</div>
 				<div class="category" id="cat-bar">
-					<input class="createBtn" id="createBtn" type="button" value="Create Meme" style="font-weight: bold;" />
-					<input class="uploadBtn" id="uploadBtn" type="button" value="Upload" style="font-weight: bold;" />
-					<div class="category-item" id="all-cat">All</div>
+					<input class="createBtn" id="createBtn" type="button" value="Create Meme" style="font-weight: bold; outline:none; border:none; opacity: .80" />
+					<input class="uploadBtn" id="uploadBtn" type="button" value="Upload" style="font-weight: bold; outline:none; border:none; opacity: .80" />
+					<div class="category-item" draggable="true" id="all-cat">All</div>
 				</div>
 			</div>
 			<div class="right-panel">
@@ -61,7 +61,7 @@
 										<label style="float:right; text-shadow: 1px 1px 1px black;">Name:&nbsp</label>
 									</td>
 									<td>
-										<input style="float:left;" name="edit_name" type='text' tabindex='1' value="WTF Patrick Steward" />
+										<input style="float:left; width: 100%;" name="edit_name" type='text' tabindex='1' value="WTF Patrick Steward"/>
 									</td>
 								</tr>
 								
@@ -70,7 +70,7 @@
 										<label style="float:right; text-shadow: 1px 1px 1px black;">Category:&nbsp</label>
 									</td>
 									<td>
-										<select id="edit_catDrop" name="edit_catDrop" style="float:left; width: 1.58in">
+										<select id="edit_catDrop" name="edit_catDrop" style="float:left; width: 100%">
 										</select>
 									</td>
 								</tr>
@@ -122,10 +122,10 @@
 									</td>
 								</tr>
 							</table>
-								<div class="button" >
-									<input id="edit-save" tabindex="4" type='button' value='Save Changes'>
-									<input id="edit-cancel" tabindex="5" type='button' value='Cancel'>
-									<input id="edit-delete" tabindex="6" type='button' value='Delete'>
+								<div class="button" style="margin-top: 20px;">
+									<input id="edit-save" tabindex="4" type='button' value='Save Changes' style="width: 120px; height: 25px; text-align: center;">
+									<input id="edit-cancel" tabindex="5" type='button' value='Cancel' style="width: 80px; height: 25px;">
+									<input id="edit-delete" tabindex="6" type='button' value='Delete' style="width: 80px; height: 25px;">
 								</div>
 						</form>
 					</div>
@@ -231,7 +231,7 @@
 					<div id="add_meme_container" class="addMeme"><img id='add_imageViewer' src="pic/Placeholder.jpg" style="width:100%;" alt="cat"/></div>
 					</div>
 					
-					<div class="edit-meme" style="height:auto">
+					<div class="edit-meme" style="height:4.84in">
 					<form class="form-box" name="add_form">
 						<table style="height:100%">
 							<tr>
@@ -239,7 +239,7 @@
 									<label style="float:right; text-shadow: 1px 1px 1px black;">URL:&nbsp</label>
 								</td>
 								<td>
-									<input style="float: left; -webkit-appearance: none; border:none; height:20px; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey;" class="url_textbox" name="add_url" type="text" tabindex='1' placeholder="URL here"/>
+									<input style="float: left; -webkit-appearance: none; border:none; height:20px; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey; width: 100%;" class="url_textbox" name="add_url" type="text" tabindex='1' placeholder="URL here"/>
 								</td>							
 							</tr>
 							
@@ -248,7 +248,7 @@
 									<label style="float:right; text-shadow: 1px 1px 1px black;">Name:&nbsp</label>
 								</td>
 								<td>
-									<input style="float: left; -webkit-appearance: none; border:none; height:20px; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey;" name="add_name" type='text' tabindex="2" placeholder="Name here" />
+									<input style="float: left; -webkit-appearance: none; border:none; height:20px; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey; width: 100%;" name="add_name" type='text' tabindex="2" placeholder="Name here" />
 								</td>
 							</tr>
 							
@@ -257,7 +257,7 @@
 									<label style="float:right; text-shadow: 1px 1px 1px black;">Category:&nbsp</label>
 								</td>
 								<td>
-									<select id="add_catDrop" name="add_catDrop" style="width: 1.58in; float:left">
+									<select id="add_catDrop" name="add_catDrop" style="width: 1.58in; float:left; width: 100%;">
 									<option>Category 1</option>
 									<option>Category 2</option>
 									<option>Category 3</option>
@@ -309,13 +309,13 @@
 									<label style="float:right; text-shadow: 1px 1px 1px black;">Comment:&nbsp</label>
 								</td>
 								<td>
-									<textarea name="add_comment" rows="7" style="float:left; width: 100%; height: 80px;"></textarea>
+									<textarea name="add_comment" rows="7" style="float:left; width: 100%; height: 70px;"></textarea>
 								</td>
 							<tr>
 						</table>
-								<div class="button" style="position: relative; margin-top: 2%; margin-bottom: 1%;bottom: 0; left: 0;">
-									<input id="add-save" tabindex="4" type='button' value="Save">
-									<input id="add-cancel" tabindex="5" type='button' value="Cancel">
+								<div class="button" style="position: relative; margin-top: 2%; margin-bottom: 1%;bottom: 9px; left: 0;">
+									<input id="add-save" tabindex="4" type='button' value="Save" style="width:100px; height: 25px;">
+									<input id="add-cancel" tabindex="5" type='button' value="Cancel" style= "width:100px; height: 25px;">
 								</div>
 							
 							
@@ -325,27 +325,23 @@
 
 
 				<div class="content-view" id="create-view" display="none">
-					<div class="slide_wrapper" style="height: 4.84in">
+					<div class="slide_wrapper" style="height: 4.84in;">
 						<div id="createMeme_container" class="addMeme" style="z-index: 99997;"><div class="textfield1" id="top_text_pane" contenteditable="true" style="z-index: 99999;" max="50">Enter Top Text Here</div><div class="textfield1" id="bot_text_pane" contenteditable="true" style="z-index: 99999;" max="50">Enter Bot Text Here</div><img id='create_imageViewer' src="pic/Placeholder.jpg" style="width:100%; z-index: 99998;" alt="cat"/></div>
 					</div>
 
-					<div class="edit-meme" style="height:auto">
+					<div class="edit-meme" style="height:4.84in;">
 						<form class="form-box" name="create_form" runat="server">
 						
-						<table style="height:100%">
-							<tr>
-								<td colspan="2" align="center">
-									<input class="uploadImgBtn" id="uploadImgBtn" type="button" value="Upload Your Image" style="padding: 0; color: white; background-color: red; font-size: medium; font-weight: bold; position: relative; width: auto; height: 150%"/>
-									<input type="file" id="imgInp" style="display:none;" />
-								</td>
-							</tr>
-							
+						<input class="uploadImgBtn" id="uploadImgBtn" type="button" value="Upload Your Image" style="color: white; background-color: red; font-size: medium; font-weight: bold; position: relative; width: auto; height: auto; border: none; outline:none; opacity:0.73; padding: 9px; margin-top: 20px; margin-bottom: 5px; cursor: pointer;"/>
+						<input type="file" id="imgInp" style="display:none;" />
+									
+						<table style="height:100%;">
 							<tr>
 								<td> 
 									<label style="float:right; text-shadow: 1px 1px 1px black;">Name:&nbsp</label>
 								</td>
 								<td>
-									<input style="float: left; text-align: center; -webkit-appearance: none; border:none; height:20px; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey;" name="create_name" type='text' tabindex="2" placeholder="Name here" />
+									<input style="float: left;-webkit-appearance: none; border:none; height:20px; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey; width: 100%;" name="create_name" type='text' tabindex="2" placeholder="Name here" />
 								</td>
 							</tr>
 							
@@ -354,7 +350,7 @@
 									<label style="float:right; text-shadow: 1px 1px 1px black;">Category:&nbsp</label>
 								</td>
 								<td>
-									<select id="create_catDrop" name="create_catDrop" style="float: left; width: 1.58in">
+									<select id="create_catDrop" name="create_catDrop" style="float: left; width: 100%">
 									<option>Category 1</option>
 									<option>Category 2</option>
 									<option>Category 3</option>
@@ -378,7 +374,7 @@
 									<label style="float:right; text-shadow: 1px 1px 1px black;">Rating:&nbsp</label>
 								</td>
 								<td>
-									<div class="starRating" style="float:left">
+									<div class="starRating" style="float:left;">
 									<div>
 										<div>
 											<div>
@@ -406,13 +402,13 @@
 									<label style="float:right; text-shadow: 1px 1px 1px black;">Comment:&nbsp</label>
 								</td>
 								<td style="padding-bottom:13px;">
-									<textarea name="create_comment" rows="7" style="float:left; width: 100%; height: 80px;"></textarea>
+									<textarea name="create_comment" rows="7" style="float:left; width: 100%; height: 60px;"></textarea>
 								</td>
 							</tr>
 						</table>
-								<div class="button" style="position: relative; bottom: 0; left: 0;">
-									<input id="create-save" tabindex="6" type='button' value="Create">
-									<input id="create-cancel" tabindex="7" type='button' value="Cancel">
+								<div class="button" style="position: relative; bottom: 7px; left: 0;">
+									<input id="create-save" tabindex="6" type='button' value="Create" style="width: 100px; height: 25px">
+									<input id="create-cancel" tabindex="7" type='button' value="Cancel" style="width: 100px; height: 25px">
 								</div>
 						</form>
 					</div>
