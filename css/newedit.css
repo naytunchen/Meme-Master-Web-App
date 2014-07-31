@@ -31,19 +31,18 @@
 }
 
 img {
-  vertical-align: middle;
   height: 100%;
 }
 
 figure{
   position: absolute;
+  text-align: center;
   opacity: 0;
   vertical-align: middle;
   /*max-width: auto;*/
   height: 100%;
   min-width: 4in;
   min-height: 3.5in;
-  max-height: 3.5in;
   transition: 1s opacity;
 }
 
@@ -63,16 +62,11 @@ figcaption a{
 }
 figure.show{
   opacity: 1;
-<<<<<<< HEAD
-  position: static;
-  transition: 1s opacity;
-=======
   margin: auto;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
->>>>>>> bb99d8c0d0482fd63e8871ee963ccb0756a27c85
 }
 
 table, th, td
