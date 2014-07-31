@@ -377,7 +377,7 @@ var updateCreateView = function(){
   document.styleSheets.item(1).disabled=false;
   document.styleSheets.item(2).disabled=false;
   document.styleSheets.item(3).disabled=false;
-  //show edit view only
+  //show create view only
   hideView();
   var ev = document.getElementById('create-view');
   ev.style.display = "block";
