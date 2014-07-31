@@ -153,7 +153,7 @@ var setupDefault = function(){
 
 //show all memes in content view
 var updateAllCat = function(){
-	document.getElementById("signout-button").firstChild.data = "Sign out";
+	document.getElementById("signout-button").firstChild.data = "Sign Out";
   //insert memes
   var meme_query = new Parse.Query(Meme);
   meme_query.find({
