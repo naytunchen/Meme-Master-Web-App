@@ -10,26 +10,34 @@ window.onload = function(){
   //associate parse account
   Parse.initialize("EfZFq1ljZwCgYudEG4bkkLrSeUtJ9UxHyLHL6wYI", "DGtqZV6fc6o2hjn9UiuSJPe0p3dURcNv05hBgwFk");  
 
-  //gloabal definition
-  Meme = Parse.Object.extend("Meme");
-  Cat = Parse.Object.extend("Cat");
+  var currentUser = Parse.User.current();
+  
+  			//gloabal definition
+	  Meme = Parse.Object.extend("Meme");
+	  Cat = Parse.Object.extend("Cat");
 
-  //setup default meme and cat (run only once)
-  //setupDefault();
+	  //setup default meme and cat (run only once)
+	  //setupDefault();
 
-  //bind rating events
-  ratingFunc();
+	  //bind rating events
+	  ratingFunc();
 
-  //switch stylesheets
-  for ( i=0; i<document.styleSheets.length; i++) {
-    document.styleSheets.item(i).disabled=true;
-  }
-  document.styleSheets.item(0).disabled=false;
-  document.styleSheets.item(1).disabled=false;
+	  //switch stylesheets
+	  for ( i=0; i<document.styleSheets.length; i++) {
+		document.styleSheets.item(i).disabled=true;
+	  }
+	  document.styleSheets.item(0).disabled=false;
+	  document.styleSheets.item(1).disabled=false;
 
-  //insert contents
-  updateAllCat();
-  updateCatBar();
+	if (currentUser) {
+	  // do stuff with the user
+	  	//insert contents
+	  updateCatBar();
+	  updateAllCat();
+	} else {
+		// show the signup or login page
+		updateLoginView();
+	}
 };
 
 var ratingFunc = function(){
@@ -132,16 +140,9 @@ var updateCatBar = function(){
       }
       var cb = document.getElementById('createBtn');
       var ub = document.getElementById("uploadBtn");
-	  var lb = document.getElementById("login-button");
-	  var sb = document.getElementById("login_signupButton");
-	  var signupSubmit = document.getElementById("signupSubmitButton");
-	  var signIn = document.getElementById("login_signinButton");
-      cb.addEventListener("click",updateCreateView,false);
+	  
+	  cb.addEventListener("click",updateCreateView,false);
       ub.addEventListener("click",updateAddView,false);
-	  lb.addEventListener("click", updateLoginView, false);
-	  sb.addEventListener("click", updateSignupView, false);
-	  signupSubmit.addEventListener("click", submitSignup, false);
-	  signIn.addEventListener("click", signin, false);
     },
     error: function(error){
       alert("updateCatBar error");
@@ -151,6 +152,10 @@ var updateCatBar = function(){
 
 //signIn
 var signin = function() {
+	updateCatBar();
+	updateAllCat();
+	var lb = document.getElementById("signout-button");
+	lb.addEventListener("click", updateLoginView, false);
 	Parse.User.logIn(document.getElementById("loginUsername").value, document.getElementById("loginPassword").value, {
 	  success: function(user) {
 		updateAllCat();
@@ -344,7 +349,17 @@ var updateSignupView = function() {
 
 //show login page in content view
 var updateLoginView = function() {
+	  var lb = document.getElementById("signout-button");
+	  var sb = document.getElementById("login_signupButton");
+	  var signupSubmit = document.getElementById("signupSubmitButton");
+	  var signIn = document.getElementById("login_signinButton");
+	  lb.addEventListener("click", updateLoginView, false);
+	  sb.addEventListener("click", updateSignupView, false);
+	  signupSubmit.addEventListener("click", submitSignup, false);
+	  signIn.addEventListener("click", signin, false);
+	  
 	hideView();
+	Parse.User.logOut();
 	var ev = document.getElementById('login-view');
 	ev.style.display="block";
 }
