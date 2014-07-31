@@ -53,23 +53,43 @@
 					</div>
 					</div>
 					
-					<div class="edit-meme">
-						<form class="form-box" name="edit_form">
-							<div class="name-row">
-								<label>Name:</label> <input name="edit_name" type='text' tabindex='1' value="WTF Patrick Steward" />
-							</div>
-							<div class="cat-row">
-								<label>Category:</label>
-								<select id="edit_catDrop" name="edit_catDrop" style="width: 1.58in">
-								</select>
-							</div>
-							<div class="tag-row">
-								<label>Tag:</label> 
-								<input class="tagsystem" id="tag1" name="edit_tag" style="display: none;"/>
-							</div>
-							<div class="rating-row">
-								<label>Rating:</label>
-								<div class="starRating" id="edit-rating">
+					<div class="edit-meme" style="height:auto;">
+						<form class="form-box" name="edit_form" style="height:auto; margin-bottom: 20px">
+							<table style="height:100%">
+								<tr>
+									<td>
+										<label style="float:right; text-shadow: 1px 1px 1px black;">Name:&nbsp</label>
+									</td>
+									<td>
+										<input style="float:left;" name="edit_name" type='text' tabindex='1' value="WTF Patrick Steward" />
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
+										<label style="float:right; text-shadow: 1px 1px 1px black;">Category:&nbsp</label>
+									</td>
+									<td>
+										<select id="edit_catDrop" name="edit_catDrop" style="float:left; width: 1.58in">
+										</select>
+									</td>
+								</tr>
+								
+								<tr>
+									<td style="vertical-align: top">
+										<label style="float:right; text-shadow: 1px 1px 1px black;">Tag:&nbsp</label>
+									</td>
+									<td>
+										<input class="tagsystem" id="tag1" name="edit_tag" style="float: left; display: none;"/>
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
+										<label style="float:right; text-shadow: 1px 1px 1px black;">Rating:&nbsp</label>
+									</td>
+									<td>
+										<div class="starRating" id="edit-rating" style="float:left">
 											<div>
 												<div>
 													<div>
@@ -89,19 +109,24 @@
 											<input id="edit-rate-5" class="rating5" type="radio" name="rating" value="5">
 											<label for="rating5"><span>5</span></label>
 										</div>
-							</div>
-							<div class='comment-wrapper'>
-								<div class='comment-row'>
-									<label>Comment:</label> <br />
-									<textarea name="edit_comment" rows="7">
+									</td>
+								</tr>
+								
+								<tr>
+									<td style="vertical-align:top">	
+										<label style="float:right; text-shadow: 1px 1px 1px black;">Comment:&nbsp</label>
+									</td>
+									<td>
+										<textarea name="edit_comment" rows="7" style="float:left; height: 80px; width:100%;">
 									</textarea>
-								</div>
+									</td>
+								</tr>
+							</table>
 								<div class="button" >
 									<input id="edit-save" tabindex="4" type='button' value='Save Changes'>
 									<input id="edit-cancel" tabindex="5" type='button' value='Cancel'>
 									<input id="edit-delete" tabindex="6" type='button' value='Delete'>
 									</div>
-							</div>
 						</form>
 					</div>
 				</div>
@@ -202,40 +227,61 @@
 				
 
 				<div class="content-view" id="add-view" display="none">
-					<div class="slide_wrapper">
+					<div class="slide_wrapper" style="height:100%">
 					<div id="add_meme_container" class="addMeme"><img id='add_imageViewer' src="pic/Placeholder.jpg" style="width:100%;" alt="cat"/></div>
 					</div>
 					
-					<div class="edit-meme">
+					<div class="edit-meme" style="height:auto">
 					<form class="form-box" name="add_form">
-						<div class="url-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 10%;">
-							<label style="float: left; margin-left: 10%; text-shadow: 1px 1px 1px black;">URL:</label><input style="float: right; margin-right: 10%; text-align: center; -webkit-appearance: none; border:none; height:45%; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey;" class="url_textbox" name="add_url" type="text" tabindex='1' placeholder="URL here"/>
-						</div>
-						
-						<div class="name-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 30%;">
-							<label style="float:left; margin-left:10%; text-shadow: 1px 1px 1px black;">Name:</label><input style="float: right; margin-right: 10%; text-align: center; -webkit-appearance: none; border:none; height:45%; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey;" name="add_name" type='text' tabindex="2" placeholder="Name here" />
-						</div>
-						
-
-						<div class="cat-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 50%;">
-								<label>Category:</label>
-								<select id="add_catDrop" name="add_catDrop" style="width: 1.58in">
+						<table style="height:100%">
+							<tr>
+								<td>
+									<label style="float:right; text-shadow: 1px 1px 1px black;">URL:&nbsp</label>
+								</td>
+								<td>
+									<input style="float: left; -webkit-appearance: none; border:none; height:45%; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey;" class="url_textbox" name="add_url" type="text" tabindex='1' placeholder="URL here"/>
+								</td>							
+							</tr>
+							
+							<tr>
+								<td>
+									<label style="float:right; text-shadow: 1px 1px 1px black;">Name:&nbsp</label>
+								</td>
+								<td>
+									<input style="float: left; -webkit-appearance: none; border:none; height:45%; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey;" name="add_name" type='text' tabindex="2" placeholder="Name here" />
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<label style="float:right; text-shadow: 1px 1px 1px black;">Category:&nbsp</label>
+								</td>
+								<td>
+									<select id="add_catDrop" name="add_catDrop" style="width: 1.58in; float:left">
 									<option>Category 1</option>
 									<option>Category 2</option>
 									<option>Category 3</option>
 									<option>Category 4</option>
 									<option>Category 5</option>
 								</select>
-						</div>
-
-						<div class="tag-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 70%;">
-							<label style="float:left; margin-left:10%; text-shadow: 1px 1px 1px black;">Tag:</label>
-							<input class="tagsystem" style="display: none; float: right; margin-right: 10%; text-align: center; -webkit-appearance: none; border:none; height:45%; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey;" name="add_tag" id="add_tag"/>
-						</div>
-						
-						<div class="rating-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 100%;">
-								<label style="float:left; margin-left: 10%; text-shadow: 1px 1px 1px black;">Rating:</label>
-								<div class="starRating">
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<label style="float:right; text-shadow: 1px 1px 1px black;">Tags:&nbsp</label>
+								</td>
+								<td>
+									<input class="tagsystem" style="display: none; float: left; -webkit-appearance: none; border:none; height:70px; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey;" name="add_tag" id="add_tag"/>
+								</td>
+							</tr>
+							
+							<tr>
+								<td>
+									<label style="float:right; text-shadow: 1px 1px 1px black;">Rating:&nbsp</label>
+								</td>
+								<td>
+									<div class="starRating" style="float:left">
 											<div>
 												<div>
 													<div>
@@ -255,18 +301,22 @@
 											<input id="add-rate-5" class="rating5" type="radio" name="rating" value="5">
 											<label for="rating5"><span>5</span></label>
 										</div>
-							</div>
+								</td>
+							</tr>
 							
-							<div class='comment-wrapper' style="position: absolute; margin-top: 120%; height: 60%; width: 100%; text-align: center; overflow: hidden !important;">
-								<div class="comment-row" style="text-shadow: 1px 1px 1px black; overflow: hidden !important;">
-									<label>Comment</label><br />
-									<textarea name="add_comment" rows="7"></textarea>
-								</div>
-								<div class="button" style="position: relative; margin-top: 2%; bottom: 0; left: 0;">
+							<tr>
+								<td>
+									<label style="float:right; text-shadow: 1px 1px 1px black;">Comment:&nbsp</label>
+								</td>
+								<td>
+									<textarea name="add_comment" rows="7" style="float:left; width: 100%; height: 80px;"></textarea>
+								</td>
+							<tr>
+						</table>
+								<div class="button" style="position: relative; margin-top: 2%; margin-bottom: 1%;bottom: 0; left: 0;">
 									<input id="add-save" tabindex="4" type='button' value="Save">
 									<input id="add-cancel" tabindex="5" type='button' value="Cancel">
 								</div>
-							</div>
 							
 							
 					</form>
@@ -360,16 +410,12 @@
 								</td>
 							</tr>
 						</table>
-						
-							
-
-								<div class="button" style="position: relative; margin-top: 2%; bottom: 0; left: 0;">
+								<div class="button" style="position: relative; bottom: 0; left: 0;">
 									<input id="create-save" tabindex="6" type='button' value="Create">
 									<input id="create-cancel" tabindex="7" type='button' value="Cancel">
 								</div>
 						</form>
 					</div>
-
 				</div>
 			</div>
 		</div>
