@@ -12,7 +12,8 @@ window.onload = function(){
 
   var currentUser = Parse.User.current();
   
-  			//gloabal definition
+  if(currentUser) {
+   			//gloabal definition
 	  Meme = Parse.Object.extend("Meme");
 	  Cat = Parse.Object.extend("Cat");
 
@@ -41,6 +42,11 @@ window.onload = function(){
 
       });
   });
+  }
+  else {
+	updateLoginView();
+  }
+
 };
 
 var searchMeme = function(target){
@@ -147,6 +153,7 @@ var setupDefault = function(){
 
 //show all memes in content view
 var updateAllCat = function(){
+	document.getElementById("signout-button").firstChild.data = "Sign out";
   //insert memes
   var meme_query = new Parse.Query(Meme);
   meme_query.find({
@@ -202,9 +209,11 @@ var updateCatBar = function(){
       }
       var cb = document.getElementById('createBtn');
       var ub = document.getElementById("uploadBtn");
+	  var sb = document.getElementById("signout-button");
 	  
 	  cb.addEventListener("click",updateCreateView,false);
       ub.addEventListener("click",updateAddView,false);
+	  sb.addEventListener("click", updateLoginView, false);
     },
     error: function(error){
       alert("updateCatBar error");
@@ -214,13 +223,39 @@ var updateCatBar = function(){
 
 //signIn
 var signin = function() {
-	updateCatBar();
-	updateAllCat();
 	var lb = document.getElementById("signout-button");
 	lb.addEventListener("click", updateLoginView, false);
 	Parse.User.logIn(document.getElementById("loginUsername").value, document.getElementById("loginPassword").value, {
 	  success: function(user) {
-		updateAllCat();
+			   			//gloabal definition
+	  Meme = Parse.Object.extend("Meme");
+	  Cat = Parse.Object.extend("Cat");
+
+	  //setup default meme and cat (run only once)
+	  //setupDefault();
+
+	  //bind rating events
+	  ratingFunc();
+
+  //switch stylesheets
+  for ( i=0; i<document.styleSheets.length; i++) {
+    document.styleSheets.item(i).disabled=true;
+  }
+  document.styleSheets.item(0).disabled=false;
+  document.styleSheets.item(1).disabled=false;
+
+  //insert contents
+  updateAllCat();
+  updateCatBar();
+
+   $(function() {
+    $('#search-box').on("change", function() {
+      var source_file = $(this).val();
+      searchMeme(source_file);
+      document.getElementById('search-box').value = "";
+
+      });
+  });	
 	  },
 	  error: function(user, error) {
 		// The login failed. Check error to see why.
@@ -245,6 +280,7 @@ var submitSignup = function() {
 		document.getElementById("signup_email").value = "";
 		alert("Congratulations! You're now a MemeMaster.");
 		updateAllCat();
+		updateCatBar();
 	  },
 	  error: function(user, error) {
 		// Show the error message somewhere and let the user try again.
@@ -414,6 +450,11 @@ var updateAddView = function(){
 //show signup page in content view
 var updateSignupView = function() {
 	hideView();
+	document.getElementById('signup_email').value = "";
+	document.getElementById('signup_firstName').value = "";
+	document.getElementById('signup_lastName').value = "";
+	document.getElementById('signup_username').value = "";
+	document.getElementById('signup_password').value = "";
 	var ev = document.getElementById('signup-view');
 	ev.style.display="block";
 }
@@ -429,6 +470,10 @@ var updateLoginView = function() {
 	  signupSubmit.addEventListener("click", submitSignup, false);
 	  signIn.addEventListener("click", signin, false);
 	  
+	  document.getElementById("loginUsername").value = "";
+	  document.getElementById("loginPassword").value = "";
+	  document.getElementById("signout-button").firstChild.data = "Sign in";
+
 	hideView();
 	Parse.User.logOut();
 	var ev = document.getElementById('login-view');
