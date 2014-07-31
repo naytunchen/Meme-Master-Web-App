@@ -37,6 +37,7 @@ window.onload = function(){
     $('#search-box').on("change", function() {
       var source_file = $(this).val();
       searchMeme(source_file);
+      document.getElementById('search-box').value = "";
 
       });
   });
