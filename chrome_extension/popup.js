@@ -8,7 +8,11 @@ window.onload = function(){
 
   //gloabal definition
   Meme = Parse.Object.extend("Meme");
-  //alert("the page is loading.")
+
+  var as = document.getElementById("add-save");
+  as.addEventListener("click",saveMeme,false);
+  var ac = document.getElementById("add-cancel");
+  ac.addEventListener("click",clear,false);
 };
 // // $('#add_button').click( function() { alert('clicked'); });
 
@@ -46,10 +50,12 @@ function saveMeme(){
 	
 	// meme.save({success: function(object) {alert("s");}, error: function(model, error) {alert("e");}});
 	// alert("You've submitted meme, yo.");
-	meme.save(meme_obj,{success: function(object) {alert("succ");}, error: function(model, error) {}});
-};
+	meme.save(meme_obj,{success: function(object) {alert("You have successfully submitted a meme!");}, error: function(model, error) {}});
+ };
 
+function clear(){
 
+}
 // determine which star was pressed (rating 1-5)
 // function rating(num){
 // 	if(meme === 1)
