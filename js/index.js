@@ -277,6 +277,8 @@ var updateEditView = function(){
       success: function(results){
         document.getElementById("edit-img").src=results[0].get("src");
         document.edit_form.edit_name.value = results[0].get("name");
+        document.getElementById('figcap').innerHTML = results[0].get("name");
+
         $('.tagsystem').importTags(results[0].get("tag"));
         document.edit_form.edit_comment.value = results[0].get("comment");
         for(i=1;i<6;i++){
