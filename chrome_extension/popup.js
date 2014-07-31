@@ -1,4 +1,4 @@
-var Meme;
+var Meme, Cat;
 var meme_rating = 1;
 
 window.onload = function(){
@@ -8,11 +8,28 @@ window.onload = function(){
 
   //gloabal definition
   Meme = Parse.Object.extend("Meme");
+  Cat = Parse.Object.extend("Cat");
 
   var as = document.getElementById("add-save");
   as.addEventListener("click",saveMeme,false);
   var ac = document.getElementById("add-cancel");
   ac.addEventListener("click",clear,false);
+
+  var add_catDrop = $("#add_catDrop");
+  add_catDrop.empty();
+  var cat_query = new Parse.Query(Cat);
+  cat_query.find({
+    success: function(results){
+      for(i in results){
+        add_catDrop.append($('<option></option>').val(results[i].get("name")).html(results[i].get("name")));
+      }
+    },
+    error: function(error){
+      alert("updateAddView error");
+    }
+  });
+  	  ratingFunc();
+
 };
 // // $('#add_button').click( function() { alert('clicked'); });
 
@@ -55,6 +72,14 @@ function saveMeme(){
 
 function clear(){
 
+}
+
+var ratingFunc = function(){
+  for(i=1;i<6;i++){
+    $(".rating"+i).bind("click",function(){
+      meme_rating = this.value;
+    });
+  }
 }
 // determine which star was pressed (rating 1-5)
 // function rating(num){
