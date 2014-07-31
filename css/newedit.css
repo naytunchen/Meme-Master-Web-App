@@ -62,7 +62,11 @@ figcaption a{
 }
 figure.show{
   opacity: 1;
-  transition: 1s opacity;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 table, th, td
