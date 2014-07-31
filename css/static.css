@@ -12,7 +12,7 @@ html
 	line-height: 18px;
 	overflow-y: auto;
 	position: relative;
-	min-width: 930px;
+	min-width: 1100px;
 	min-height: 200px;
 }
 
@@ -139,7 +139,7 @@ span,div,input,button{
 }
 
 #signout-button{
-	width: 80px;
+	width: auto;
 	margin-top: 0.15in;
 	margin-left: 1%;
 	font-size: 17px;
