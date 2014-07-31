@@ -30,7 +30,71 @@ window.onload = function(){
   //insert contents
   updateAllCat();
   updateCatBar();
+
+   $(function() {
+    $('#search-box').on("change", function() {
+      var source_file = $(this).val();
+      searchMeme(source_file);
+
+      });
+  });
 };
+
+var searchMeme = function(target){
+  var meme_query = new Parse.Query(Meme);
+  var memeArray1 = {};
+  meme_query.contains("name", target);
+  meme_query.find({
+      success: function(results){
+        for(i in results)
+        {
+          memeArray1[results[i].id] = results[i];
+        }
+        var query = new Parse.Query(Meme);
+        query.contains("tag", target);
+        query.find({
+          success: function(results){
+            for(i in results)
+            {
+              memeArray1[results[i].id] = results[i];
+            }
+            //-------------------------------------------------
+            var mv = $("#meme-view");
+            $("div").remove(".memeImg");
+            for(i in memeArray1){
+              mv.append("<div class=\"memeImg\">"+
+                    "<img src=\""+memeArray1[i].get("src")+"\" alt=\""
+                    +memeArray1[i].get("name")+"\" data-id=\""+memeArray1[i].id
+                    +"\" height=\"150\" width=\"150\">"+
+                    "</div>");
+            }
+            //attach event listener
+            var meme_div = document.getElementsByClassName('memeImg');
+            for(i=0;i<meme_div.length;i++){
+              meme_div[i].addEventListener("click",updateEditView,false);
+            }
+            //switch stylesheets
+            for ( i=0; i<document.styleSheets.length; i++) {
+              document.styleSheets.item(i).disabled=true;
+            }
+            document.styleSheets.item(0).disabled=false;
+            document.styleSheets.item(1).disabled=false;
+            //show meme view only
+            hideView();
+            var MV = document.getElementById('meme-view');
+            MV.style.display = "block";
+          },
+          error: function(error){
+            alaert("ERROR in search tag")
+          }
+        });
+      },
+      error: function(error){
+        alert("updateEditView error");
+      }
+    });
+}
+
 
 var ratingFunc = function(){
   for(i=1;i<6;i++){
