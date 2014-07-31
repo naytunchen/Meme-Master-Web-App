@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta charset="utf-8">
+		<meta charset="utf-8">
 		<title>MemeChromeExt</title>
-		<link rel="stylesheet" href="css/popup.css" />
+		<link rel="stylesheet" href="popup.css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.19.min.js"></script>
+		<script src="popup.js"></script>
+
 	</head>
 	<body class="edit-meme">
 		<table  class="form_table">
@@ -13,7 +17,7 @@
 						<label>Url:</label>
 					</td>
 					<td>
-						<input type="text" tabindex="0" id="meme_url" value="Url here">
+						<input type="text" tabindex="0" id="meme_url">
 					</td>
 				</tr>
 				<tr>
@@ -21,7 +25,15 @@
 						<label>Name:</label>
 					</td>
 					<td>
-						<input type="text" tabindex="1" id="meme_title" value="WTF Patrick Stewart">
+						<input type="text" tabindex="1" id="memeName">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>Add Category:</label>
+					</td>
+					<td>
+						<input type="text" tabindex="2" id="meme_cat">
 					</td>
 				</tr>
 				<tr>
@@ -29,38 +41,37 @@
 						<label>Add Tag:</label>
 					</td>
 					<td>
-						<input type="text" tabindex="2" id="meme_tag" placeholder="enter tag here">
+						<input type="text" tabindex="2" id="meme_tag">
 					</td>
 				</tr>
 				<tr>
 					<td>Rating: </td>
 					<td tabindex="3"  class="rating">
-						<span id="star1" onclick="getstar(rate)">☆</span>
-						<span id="star2" onclick="getstar(rate)">☆</span>
-						<span id="star3" onclick="getstar(rate)">☆</span>
-						<span id="star4" onclick="getstar(rate)">☆</span>
-						<span id="star5" onclick="getstar(rate)">☆</span>
+						<span id="star1" onclick="getstar(1)">☆</span>
+						<span id="star2" onclick="getstar(2)">☆</span>
+						<span id="star3" onclick="getstar(3)">☆</span>
+						<span id="star4" onclick="getstar(4)">☆</span>
+						<span id="star5" onclick="getstar(5)">☆</span>
 					</td>
 				</tr>
 				<tr>
 					<td>Comments:</td>
 				</tr>
 				<tr>
-					<td colspan="2" class="comment" id="meme_comment"><textarea rows="4" ></textarea></td>
+					<td colspan="2" class="comment" ><textarea rows="4" id="meme_comment"></textarea></td>
 				</tr>
 				<tr id="button">
 					<td colspan="2" class ="comment">
 						<span>
-							<input tabindex="4" onclick="doit()" id="add_button" type="submit" value="Submit">
+							<input tabindex="4" onclick="saveMeme()" id="add_button" type="button" value="Submit">
 							&nbsp;
 						</span>
 						<span>
-							<input tabindex="5" id="cancel" type="submit" value="Cancel">
+							<input tabindex="5" id="cancel" type="button" value="Cancel">
 						</span>
 					</td>
 				</tr>
 			</tbody>
 		</table>
 	</body>
-	<script src="popup.js"></script>
 </html>
