@@ -342,6 +342,8 @@ var updateEditView = function(){
     es.addEventListener("click",editSave,false);
     var ec = document.getElementById("edit-cancel");
     ec.addEventListener("click",updateAllCat,false);
+    var ed = document.getElementById("edit-delete");
+    ed.addEventListener("click",editDelete,false);
     //switch stylesheets
     for ( i=0; i<document.styleSheets.length; i++) {
       document.styleSheets.item(i).disabled=true;
@@ -533,6 +535,28 @@ var updateCreateView = function(){
   var ev = document.getElementById('create-view');
   ev.style.display = "block";
 };
+
+var editDelete = function(){
+  var meme_query = new Parse.Query(Meme);
+  meme_query.equalTo("objectId",meme_id);
+  meme_query.find({
+    success: function(results){
+      results[0].destroy({
+        success:function(myObject){
+
+        },
+        error:function(myObject,error){
+          alert("editDelete error");
+        }
+      })
+      updateAllCat();
+      updateCatBar();
+    },
+    error: function(error){
+      alert("editDelete error");
+    }
+  });
+}
 
 //called when edit page is saved
 var editSave = function(){
