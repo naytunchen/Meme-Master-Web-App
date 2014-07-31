@@ -71,7 +71,10 @@ function saveMeme(){
  };
 
 function clear(){
-
+	document.getElementById("meme_url").value = "";
+	document.getElementById("memeName").value = "";
+	document.getElementById("meme_tag").value = "";
+	document.getElementById("meme_comment").value = "";
 }
 
 var ratingFunc = function(){
