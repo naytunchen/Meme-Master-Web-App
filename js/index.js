@@ -554,14 +554,13 @@ var editDelete = function(){
     success: function(results){
       results[0].destroy({
         success:function(myObject){
-
+        	updateAllCat();
+      		updateCatBar();
         },
         error:function(myObject,error){
           alert("editDelete error");
         }
       })
-      updateAllCat();
-      updateCatBar();
     },
     error: function(error){
       alert("editDelete error");
