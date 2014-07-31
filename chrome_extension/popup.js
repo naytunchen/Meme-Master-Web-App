@@ -24,17 +24,17 @@ function saveMeme(){
 
 	var meme_src = document.getElementById("meme_url").value;
 	var memeName = document.getElementById("memeName").value;
-	var meme_cat = document.getElementById("meme_cat").value;
+	var meme_cat = "Cat1"; //document.getElementById("meme_cat").value;
 	var meme_tag = document.getElementById("meme_tag").value;
 	var meme_comment = document.getElementById("meme_comment").value;
 
-	console.log(meme_src);
-	console.log(memeName);
-	console.log(meme_cat);
-	console.log(meme_tag);
-	console.log(meme_comment);
+	// console.log(meme_src);
+	// console.log(memeName);
+	// console.log(meme_cat);
+	// console.log(meme_tag);
+	// console.log(meme_comment);
 
-	alert(typeof(meme_cat));
+	// alert(typeof(meme_cat));
 	var meme_obj = {
 		src: String(meme_src),
 		name: String(memeName),

@@ -9,7 +9,7 @@
 		<script src="popup.js"></script>
 
 	</head>
-	<body class="edit-meme">
+	<body class="edit-meme" style="background-color: rgba(150,150,150,0.4)">
 		<table  class="form_table">
 			<tbody >
 				<tr>
@@ -18,6 +18,7 @@
 					</td>
 					<td>
 						<input type="text" tabindex="0" id="meme_url">
+
 					</td>
 				</tr>
 				<tr>
@@ -30,10 +31,16 @@
 				</tr>
 				<tr>
 					<td>
-						<label>Add Category:</label>
+						<label>Category:</label>
 					</td>
 					<td>
-						<input type="text" tabindex="2" id="meme_cat">
+						<select  id="add_catDrop" name="add_catDrop" tabindex="2">
+									<option>Category 1</option>
+									<option>Category 2</option>
+									<option>Category 3</option>
+									<option>Category 4</option>
+									<option>Category 5</option>
+						</select>
 					</td>
 				</tr>
 				<tr>
@@ -41,18 +48,36 @@
 						<label>Add Tag:</label>
 					</td>
 					<td>
-						<input type="text" tabindex="2" id="meme_tag">
+						<input type="text" tabindex="3" id="meme_tag">
 					</td>
 				</tr>
 				<tr>
-					<td>Rating: </td>
-					<td tabindex="3"  class="rating">
-						<span id="star1" onclick="getstar(1)">☆</span>
-						<span id="star2" onclick="getstar(2)">☆</span>
-						<span id="star3" onclick="getstar(3)">☆</span>
-						<span id="star4" onclick="getstar(4)">☆</span>
-						<span id="star5" onclick="getstar(5)">☆</span>
+					<td>
+						<label style="float:left;">Rating:</label>
 					</td>
+					<td>
+						<div class="starRating">
+										<div>
+											<div>
+												<div>
+													<div>
+														<input id="add-rate-1" class="rating1" type="radio" name="rating" value="1">
+															<label for="rating1"><span>1</span></label>
+														</div>
+														<input id="add-rate-2" class="rating2" type="radio" name="rating" value="2">
+														<label for="rating2"><span>2</span></label>
+													</div>
+													<input id="add-rate-3" class="rating3" type="radio" name="rating" value="3">
+													<label for="rating3"><span>3</span></label>
+												</div>
+												<input id="add-rate-4" class="rating4" type="radio" name="rating" value="4">
+												<label for="rating4"><span>4</span></label>
+										</div>
+									<input id="add-rate-5" class="rating5" type="radio" name="rating" value="5">
+								<label for="rating5"><span>5</span></label>
+						</div>
+					</td>
+
 				</tr>
 				<tr>
 					<td>Comments:</td>
@@ -63,7 +88,7 @@
 				<tr id="button">
 					<td colspan="2" class ="comment">
 						<span>
-							<input tabindex="4" onclick="saveMeme()" id="add_button" type="button" value="Submit">
+							<input tabindex="4" onclick="saveMeme()" type="button" value="Submit">
 							&nbsp;
 						</span>
 						<span>
@@ -75,3 +100,4 @@
 		</table>
 	</body>
 </html>
+
