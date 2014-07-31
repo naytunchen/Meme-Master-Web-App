@@ -486,7 +486,7 @@ var updateLoginView = function() {
 	  document.getElementById("loginUsername").value = "";
 	  document.getElementById("loginPassword").value = "";
 	  document.getElementById("signout-button").firstChild.data = "Sign in";
-
+$("div").remove(".category-sub");
 	hideView();
 	Parse.User.logOut();
 	var ev = document.getElementById('login-view');
