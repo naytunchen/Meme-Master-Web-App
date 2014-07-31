@@ -357,10 +357,36 @@ var updateLoginView = function() {
 
 //show create page in content view
 var updateCreateView = function(){
+  //clear fields
+  document.getElementById("imgInp").value="";
+  document.create_form.create_name.value="";
+  $("#create_tag").importTags("");
+  document.create_form.create_comment.value="";
+  for(i=1;i<6;i++){
+    document.getElementById("create-rate-"+i).checked=false;
+  }
+  document.getElementById("create_imageViewer").src="pic/Placeholder.jpg";
+
+  //fill in cat drop down info
+  var create_catDrop = $("#create_catDrop");
+  create_catDrop.empty();
+  var cat_query = new Parse.Query(Cat);
+  cat_query.find({
+    success: function(results){
+      for(i in results){
+        create_catDrop.append($('<option></option>').val(results[i].get("name")).html(results[i].get("name")));
+      }
+    },
+    error: function(error){
+      alert("updateCreateView error");
+    }
+  });
+  rating=0;
+
   //bind events
   document.getElementById('top_text_pane').style.border = '1px dotted black';
   document.getElementById('bot_text_pane').style.border = '1px dotted black';
-  var imgViewer = document.getElementById('imageViewer');
+  var imgViewer = document.getElementById('create_imageViewer');
   imgViewer.src = "pic/Placeholder.jpg";
   $("#top_text_pane").text("Enter Top Text Here");
   $("#bot_text_pane").text("Enter Bot Text Here");
@@ -408,11 +434,38 @@ var editSave = function(){
 
 //called when create page is saved
 var createSave = function(){
-  //TODO: save action
+  //save action
+  var new_meme;
   borderClearer();
-  updateAllCat();
-  updateCatBar();
-  imgScreenshot();
+  html2canvas($('#createMeme_container'), {
+    onrendered: function(canvas) {
+      var imgString = canvas.toDataURL("image/png");
+      var file = new Parse.File("memePic.png", { base64: imgString });
+      file.save().then(function() {
+        new_meme = {
+          src: file._url,
+          name: document.create_form.create_name.value,
+          tag: document.create_form.create_tag.value,
+          comment: document.create_form.create_comment.value,
+          "rating": String(rating),
+          cat: $('#create_catDrop').val()
+        };
+        var meme = new Meme();
+        meme.save(new_meme,{
+        success: function(object) {
+          updateAllCat();
+          updateCatBar();
+        },
+        error: function(model, error) {
+          alert("addSave error");
+        }
+        });
+      }, function(error) {
+        alert("upload file failed");
+      });
+
+    }
+  });
 };
 
 //called when add page is saved
@@ -444,8 +497,7 @@ var imgScreenshot = function(){
   html2canvas($('#createMeme_container'), {
     onrendered: function(canvas) {
       var imgString = canvas.toDataURL("image/png");
-      var tab = window.open('about:blank', '_blank');
-      tab.document.write("<img src='" + imgString + "' alt='created' />");
+      
     }
   });
 };

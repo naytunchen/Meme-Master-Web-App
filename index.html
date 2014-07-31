@@ -280,7 +280,7 @@
 
 				<div class="content-view" id="create-view" display="none">
 					<div class="slide_wrapper">
-						<div id="createMeme_container" class="addMeme" style="z-index: 99997;"><div id="top_text_pane" contenteditable="true" style="z-index: 99999;">Enter Top Text Here</div><div id="bot_text_pane" contenteditable="true" style="z-index: 99999;">Enter Bot Text Here</div><img id='imageViewer' src="pic/Placeholder.jpg" style="width:100%; z-index: 99998;" alt="cat"/></div>
+						<div id="createMeme_container" class="addMeme" style="z-index: 99997;"><div id="top_text_pane" contenteditable="true" style="z-index: 99999;">Enter Top Text Here</div><div id="bot_text_pane" contenteditable="true" style="z-index: 99999;">Enter Bot Text Here</div><img id='create_imageViewer' src="pic/Placeholder.jpg" style="width:100%; z-index: 99998;" alt="cat"/></div>
 					</div>
 
 					<div class="edit-meme">
@@ -288,9 +288,6 @@
 							<div class="upload-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 10%;">
 								<input class="uploadImgBtn" id="uploadImgBtn" type="button" value="Upload Your Image" style="color: white; background-color: red; font-size: medium; font-weight: bold; position: relative: width: 100%; height: 100%"/>
 								<input type="file" id="imgInp" style="display:none;" />
-							</div>
-							<div class="url-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 30%;">
-								<label style="float: left; margin-left: 10%; text-shadow: 1px 1px 1px black;">URL:</label><input style="float: right; margin-right: 10%; text-align: center; -webkit-appearance: none; border:none; height:45%; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey;" class="url_textbox" name="create_url" type="text" tabindex='1' placeholder="URL here"/>
 							</div>
 						
 							<div class="name-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 50%;">
@@ -300,7 +297,7 @@
 							
 							<div class="cat-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 70%;">
 								<label>Category:</label>
-								<select id="add_catDrop" name="add_catDrop" style="width: 1.58in">
+								<select id="create_catDrop" name="create_catDrop" style="width: 1.58in">
 									<option>Category 1</option>
 									<option>Category 2</option>
 									<option>Category 3</option>
@@ -310,7 +307,7 @@
 						</div>
 
 							<div class="tag-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 90%;">
-								<label style="float:left; margin-left:10%; text-shadow: 1px 1px 1px black;">Tag:</label><input class="tagsystem" style="display: none; float: right; margin-right: 10%; text-align: center; -webkit-appearance: none; border:none; height:45%; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey;" name="create_tag"/>
+								<label style="float:left; margin-left:10%; text-shadow: 1px 1px 1px black;">Tag:</label><input class="tagsystem" style="display: none; float: right; margin-right: 10%; text-align: center; -webkit-appearance: none; border:none; height:45%; font-size: 10pt; background-color: whitesmoke; color:rgba(0,0,0,0.9); border: 1px solid grey;" id="create_tag" name="create_tag"/>
 							</div>
 						
 							<div class="rating-row" style="position: absolute; height: 0.5in; width: 100%; margin-top: 120%;">
@@ -320,19 +317,19 @@
 										<div>
 											<div>
 												<div>
-													<input class="rating1" type="radio" name="rating" value="1" >
+													<input id="create-rate-1" class="rating1" type="radio" name="rating" value="1" >
 													<label for="rating1"><span>1</span></label>
 												</div>
-												<input class="rating2" type="radio" name="rating" value="2">
+												<input id="create-rate-2" class="rating2" type="radio" name="rating" value="2">
 												<label for="rating2"><span>2</span></label>
 											</div>
-											<input class="rating3" type="radio" name="rating" value="3">
+											<input id="create-rate-3" class="rating3" type="radio" name="rating" value="3">
 											<label for="rating3"><span>3</span></label>
 										</div>
-										<input class="rating4" type="radio" name="rating" value="4">
+										<input id="create-rate-4" class="rating4" type="radio" name="rating" value="4">
 										<label for="rating4"><span>4</span></label>
 									</div>
-									<input class="rating5" type="radio" name="rating" value="5">
+									<input id="create-rate-5" class="rating5" type="radio" name="rating" value="5">
 									<label for="rating5"><span>5</span></label>
 								</div>
 							</div>
@@ -389,7 +386,7 @@
             var reader = new FileReader();
             
             reader.onload = function (e) {
-                $('#imageViewer').attr('src', e.target.result);
+                $('#create_imageViewer').attr('src', e.target.result);
             }
             
             reader.readAsDataURL(input.files[0]);
