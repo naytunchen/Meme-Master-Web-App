@@ -64,6 +64,8 @@ var searchMeme = function(target){
             //-------------------------------------------------
             var mv = $("#meme-view");
             $("div").remove(".memeImg");
+            $("div").remove(".temp_div")
+            mv.append("<div class=\"temp_div\" style=\"width: 100%; font-size: large; margin-left: 2%; margin-top: 1%\">Search Result For:\t" + target + "</div>");
             for(i in memeArray1){
               mv.append("<div class=\"memeImg\">"+
                     "<img src=\""+memeArray1[i].get("src")+"\" alt=\""
@@ -151,6 +153,7 @@ var updateAllCat = function(){
     success: function(results){
       var mv = $("#meme-view");
       $("div").remove(".memeImg");
+      $("div").remove(".temp_div")
       for(i in results){
         mv.append("<div class=\"memeImg\">"+
               "<img src=\""+results[i].get("src")+"\" alt=\""
@@ -330,6 +333,7 @@ var updateCatView = function(){
       success: function(results){
         var mv = $("#meme-view");
         $("div").remove(".memeImg");
+        $("div").remove(".temp_div")
         for(i in results){
           mv.append("<div class=\"memeImg\">"+
                 "<img src=\""+results[i].get("src")+"\" alt=\""
