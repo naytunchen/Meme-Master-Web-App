@@ -33,6 +33,7 @@ window.onload = function(){
   //insert contents
   updateAllCat();
   updateCatBar();
+  document.getElementById("all-cat").style.backgroundColor="rgba(255,133,133,0.6)";
 
    $(function() {
     $('#search-box').on("change", function() {
@@ -50,6 +51,10 @@ window.onload = function(){
 };
 
 var searchMeme = function(target){
+  var cats = document.getElementsByClassName("category-item");
+  for(i=0;i<cats.length;i++){
+	  cats[i].style.backgroundColor = "rgba(255,255,255,0.6)";
+  }
   var meme_query = new Parse.Query(Meme);
   var memeArray1 = {};
   meme_query.contains("name", target);
@@ -153,6 +158,11 @@ var setupDefault = function(){
 
 //show all memes in content view
 var updateAllCat = function(){
+  var cats = document.getElementsByClassName("category-item");
+  for(i=0;i<cats.length;i++){
+	  cats[i].style.backgroundColor = "rgba(255,255,255,0.6)";
+  }
+  document.getElementById("all-cat").style.backgroundColor="rgba(255,133,133,0.6)";
 	document.getElementById("signout-button").firstChild.data = "Sign Out";
   //insert memes
   var meme_query = new Parse.Query(Meme);
@@ -206,6 +216,7 @@ var updateCatBar = function(){
       var cat_div = document.getElementsByClassName('category-item');
       for(i=0;i<cat_div.length;i++){
         cat_div[i].addEventListener("click",updateCatView,false);
+        cat_div[i].addEventListener("click",catClick,false);
       }
       var cb = document.getElementById('createBtn');
       var ub = document.getElementById("uploadBtn");
@@ -659,4 +670,12 @@ var borderClearer = function(){
   ttp.style.textShadow = '3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000';
   btp.style.textShadow = '3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000';
 
+};
+
+var catClick = function(){
+  var cats = document.getElementsByClassName("category-item");
+  for(i=0;i<cats.length;i++){
+	  cats[i].style.backgroundColor = "rgba(255,255,255,0.6)";
+  }
+  this.style.backgroundColor="rgba(255,133,133,0.6)";
 };
