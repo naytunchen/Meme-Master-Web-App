@@ -4,8 +4,24 @@
 	<meta charset="utf-8">
 		<title>MemeChromeExt</title>
 		<link rel="stylesheet" href="css/popup.css" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  		<script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.19.min.js"></script>
+  		<script src="popup.js"></script>
+
+  		<link rel="stylesheet" href="jquery.tagsinput.css" />
+  		<script type="text/javascript" src="jquery.tagsinput.js"></script>
+  		<script type="text/javascript" src="html2canvas.js"></script>
+  		<script>
+  			$(function() {
+  				$('.tagsystem').tagsInput({
+  					width: '70%',
+  					height: '70px',
+  				});
+  			});
+  		</script>
+
 	</head>
-	<body class="edit-meme">
+	<body class="edit-meme" style="background-color: rgba(150,150,150,0.4)">
 		<table  class="form_table">
 			<tbody >
 				<tr>
@@ -13,7 +29,7 @@
 						<label>Url:</label>
 					</td>
 					<td>
-						<input type="text" tabindex="0" id="meme_url" value="Url here">
+						<input type="text" tabindex="0" id="meme_url" placeholder="Url here">
 					</td>
 				</tr>
 				<tr>
@@ -21,7 +37,21 @@
 						<label>Name:</label>
 					</td>
 					<td>
-						<input type="text" tabindex="1" id="meme_title" value="WTF Patrick Stewart">
+						<input type="text" tabindex="1" id="meme_title" placeholder="enter name here">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>Category:</label>
+					</td>
+					<td>
+						<select  id="add_catDrop" name="add_catDrop" tabindex="2">
+									<option>Category 1</option>
+									<option>Category 2</option>
+									<option>Category 3</option>
+									<option>Category 4</option>
+									<option>Category 5</option>
+						</select>
 					</td>
 				</tr>
 				<tr>
@@ -29,24 +59,42 @@
 						<label>Add Tag:</label>
 					</td>
 					<td>
-						<input type="text" tabindex="2" id="meme_tag" placeholder="enter tag here">
+						<input type="text" tabindex="3" id="meme_tag" placeholder="enter tag here">
 					</td>
 				</tr>
 				<tr>
-					<td>Rating: </td>
-					<td tabindex="3"  class="rating">
-						<span id="star1" onclick="getstar(rate)">☆</span>
-						<span id="star2" onclick="getstar(rate)">☆</span>
-						<span id="star3" onclick="getstar(rate)">☆</span>
-						<span id="star4" onclick="getstar(rate)">☆</span>
-						<span id="star5" onclick="getstar(rate)">☆</span>
+					<td>
+						<label style="float:left;">Rating:</label>
 					</td>
+					<td>
+						<div class="starRating">
+										<div>
+											<div>
+												<div>
+													<div>
+														<input id="add-rate-1" class="rating1" type="radio" name="rating" value="1">
+															<label for="rating1"><span>1</span></label>
+														</div>
+														<input id="add-rate-2" class="rating2" type="radio" name="rating" value="2">
+														<label for="rating2"><span>2</span></label>
+													</div>
+													<input id="add-rate-3" class="rating3" type="radio" name="rating" value="3">
+													<label for="rating3"><span>3</span></label>
+												</div>
+												<input id="add-rate-4" class="rating4" type="radio" name="rating" value="4">
+												<label for="rating4"><span>4</span></label>
+										</div>
+									<input id="add-rate-5" class="rating5" type="radio" name="rating" value="5">
+								<label for="rating5"><span>5</span></label>
+						</div>
+					</td>
+
 				</tr>
 				<tr>
 					<td>Comments:</td>
 				</tr>
 				<tr>
-					<td colspan="2" class="comment" id="meme_comment"><textarea rows="4" ></textarea></td>
+					<td colspan="2" class="comment" id="meme_comment"><textarea rows="4" style="resize: none;"></textarea></td>
 				</tr>
 				<tr id="button">
 					<td colspan="2" class ="comment">
@@ -62,5 +110,52 @@
 			</tbody>
 		</table>
 	</body>
-	<script src="popup.js"></script>
+   	<script>
+
+	$("#uploadImgBtn").click(function() {
+		$("#imgInp").trigger('click');
+	});
+
+	function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#imageViewer').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#imgInp").change(function(){
+        readURL(this);
+    });
+
+
+    $(function() {
+		$('.url_textbox').on("change", function() {
+			var source_file = $(this).val();
+			$("#add_imageViewer").attr('src', source_file);
+			$("#imageViewer").attr('src', source_file);
+		});
+	});
+
+	</script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+		//  Check Radio-box
+   			$(".rating input:radio").attr("checked", false);
+    		$('.rating input').click(function () {
+        		$(".rating span").removeClass('checked');
+        		$(this).parent().addClass('checked');
+    		});
+
+    		$('input:radio').change(
+    		function(){
+        		var userRating = this.value;
+    		}); 
+		});
+	</script>
 </html>

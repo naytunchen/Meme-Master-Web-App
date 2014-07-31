@@ -22,23 +22,81 @@ window.onload = function(){
 	  //bind rating events
 	  ratingFunc();
 
-	  //switch stylesheets
-	  for ( i=0; i<document.styleSheets.length; i++) {
-		document.styleSheets.item(i).disabled=true;
-	  }
-	  document.styleSheets.item(0).disabled=false;
-	  document.styleSheets.item(1).disabled=false;
+  //switch stylesheets
+  for ( i=0; i<document.styleSheets.length; i++) {
+    document.styleSheets.item(i).disabled=true;
+  }
+  document.styleSheets.item(0).disabled=false;
+  document.styleSheets.item(1).disabled=false;
 
-	if (currentUser) {
-	  // do stuff with the user
-	  	//insert contents
-	  updateCatBar();
-	  updateAllCat();
-	} else {
-		// show the signup or login page
-		updateLoginView();
-	}
+  //insert contents
+  updateAllCat();
+  updateCatBar();
+
+   $(function() {
+    $('#search-box').on("change", function() {
+      var source_file = $(this).val();
+      searchMeme(source_file);
+
+      });
+  });
 };
+
+var searchMeme = function(target){
+  var meme_query = new Parse.Query(Meme);
+  var memeArray1 = {};
+  meme_query.contains("name", target);
+  meme_query.find({
+      success: function(results){
+        for(i in results)
+        {
+          memeArray1[results[i].id] = results[i];
+        }
+        var query = new Parse.Query(Meme);
+        query.contains("tag", target);
+        query.find({
+          success: function(results){
+            for(i in results)
+            {
+              memeArray1[results[i].id] = results[i];
+            }
+            //-------------------------------------------------
+            var mv = $("#meme-view");
+            $("div").remove(".memeImg");
+            for(i in memeArray1){
+              mv.append("<div class=\"memeImg\">"+
+                    "<img src=\""+memeArray1[i].get("src")+"\" alt=\""
+                    +memeArray1[i].get("name")+"\" data-id=\""+memeArray1[i].id
+                    +"\" height=\"150\" width=\"150\">"+
+                    "</div>");
+            }
+            //attach event listener
+            var meme_div = document.getElementsByClassName('memeImg');
+            for(i=0;i<meme_div.length;i++){
+              meme_div[i].addEventListener("click",updateEditView,false);
+            }
+            //switch stylesheets
+            for ( i=0; i<document.styleSheets.length; i++) {
+              document.styleSheets.item(i).disabled=true;
+            }
+            document.styleSheets.item(0).disabled=false;
+            document.styleSheets.item(1).disabled=false;
+            //show meme view only
+            hideView();
+            var MV = document.getElementById('meme-view');
+            MV.style.display = "block";
+          },
+          error: function(error){
+            alaert("ERROR in search tag")
+          }
+        });
+      },
+      error: function(error){
+        alert("updateEditView error");
+      }
+    });
+}
+
 
 var ratingFunc = function(){
   for(i=1;i<6;i++){
@@ -218,9 +276,15 @@ var updateEditView = function(){
       success: function(results){
         document.getElementById("edit-img").src=results[0].get("src");
         document.edit_form.edit_name.value = results[0].get("name");
+        document.getElementById('figcap').innerHTML = results[0].get("name");
+
         $('.tagsystem').importTags(results[0].get("tag"));
         document.edit_form.edit_comment.value = results[0].get("comment");
-        document.getElementById("edit-rate-"+parseInt(results[0].get("rating"))).checked=true;
+        for(i=1;i<6;i++){
+          document.getElementById("add-rate-"+i).checked=false;
+        }
+        if(parseInt(results[0].get("rating"))>0)
+          document.getElementById("edit-rate-"+parseInt(results[0].get("rating"))).checked=true;
         $('#edit_catDrop option[value=' + results[0].get("cat") + ']').prop('selected', true);
         rating = results[0].get("rating");
         meme_id = results[0].id;
@@ -300,11 +364,12 @@ var updateAddView = function(){
   //clear fields
   document.add_form.add_url.value="";
   document.add_form.add_name.value="";
-  document.add_form.add_tag.value="";
+  $("#add_tag").importTags("");
   document.add_form.add_comment.value="";
   for(i=1;i<6;i++){
     document.getElementById("add-rate-"+i).checked=false;
   }
+  document.getElementById("add_imageViewer").src="pic/Placeholder.jpg";
 
   //fill in cat drop down info
   var add_catDrop = $("#add_catDrop");
@@ -320,6 +385,7 @@ var updateAddView = function(){
       alert("updateAddView error");
     }
   });
+  rating=0;
 
   //bind events
   var as = document.getElementById("add-save");
@@ -366,10 +432,36 @@ var updateLoginView = function() {
 
 //show create page in content view
 var updateCreateView = function(){
+  //clear fields
+  document.getElementById("imgInp").value="";
+  document.create_form.create_name.value="";
+  $("#create_tag").importTags("");
+  document.create_form.create_comment.value="";
+  for(i=1;i<6;i++){
+    document.getElementById("create-rate-"+i).checked=false;
+  }
+  document.getElementById("create_imageViewer").src="pic/Placeholder.jpg";
+
+  //fill in cat drop down info
+  var create_catDrop = $("#create_catDrop");
+  create_catDrop.empty();
+  var cat_query = new Parse.Query(Cat);
+  cat_query.find({
+    success: function(results){
+      for(i in results){
+        create_catDrop.append($('<option></option>').val(results[i].get("name")).html(results[i].get("name")));
+      }
+    },
+    error: function(error){
+      alert("updateCreateView error");
+    }
+  });
+  rating=0;
+
   //bind events
   document.getElementById('top_text_pane').style.border = '1px dotted black';
   document.getElementById('bot_text_pane').style.border = '1px dotted black';
-  var imgViewer = document.getElementById('imageViewer');
+  var imgViewer = document.getElementById('create_imageViewer');
   imgViewer.src = "pic/Placeholder.jpg";
   $("#top_text_pane").text("Enter Top Text Here");
   $("#bot_text_pane").text("Enter Bot Text Here");
@@ -386,7 +478,7 @@ var updateCreateView = function(){
   document.styleSheets.item(1).disabled=false;
   document.styleSheets.item(2).disabled=false;
   document.styleSheets.item(3).disabled=false;
-  //show edit view only
+  //show create view only
   hideView();
   var ev = document.getElementById('create-view');
   ev.style.display = "block";
@@ -400,9 +492,9 @@ var editSave = function(){
   meme_query.find({
     success: function(results){
       results[0].set("name",document.edit_form.edit_name.value);
-      results[0].set("tag",decument.edit_form.edit_tag.value);
+      results[0].set("tag",document.edit_form.edit_tag.value);
       results[0].set("comment",document.edit_form.edit_comment.value);
-      results[0].set("rating",rating);
+      results[0].set("rating",String(rating));
       results[0].set("cat",$('#edit_catDrop').val());
       results[0].save();
 
@@ -417,11 +509,38 @@ var editSave = function(){
 
 //called when create page is saved
 var createSave = function(){
-  //TODO: save action
+  //save action
+  var new_meme;
   borderClearer();
-  updateAllCat();
-  updateCatBar();
-  imgScreenshot();
+  html2canvas($('#createMeme_container'), {
+    onrendered: function(canvas) {
+      var imgString = canvas.toDataURL("image/png");
+      var file = new Parse.File("memePic.png", { base64: imgString });
+      file.save().then(function() {
+        new_meme = {
+          src: file._url,
+          name: document.create_form.create_name.value,
+          tag: document.create_form.create_tag.value,
+          comment: document.create_form.create_comment.value,
+          "rating": String(rating),
+          cat: $('#create_catDrop').val()
+        };
+        var meme = new Meme();
+        meme.save(new_meme,{
+        success: function(object) {
+          updateAllCat();
+          updateCatBar();
+        },
+        error: function(model, error) {
+          alert("addSave error");
+        }
+        });
+      }, function(error) {
+        alert("upload file failed");
+      });
+
+    }
+  });
 };
 
 //called when add page is saved
@@ -432,7 +551,7 @@ var addSave = function(){
     name: document.add_form.add_name.value,
     tag: document.add_form.add_tag.value,
     comment: document.add_form.add_comment.value,
-    "rating": rating,
+    "rating": String(rating),
     cat: $('#add_catDrop').val()
   }
   var meme = new Meme();
@@ -453,7 +572,7 @@ var imgScreenshot = function(){
   html2canvas($('#createMeme_container'), {
     onrendered: function(canvas) {
       var imgString = canvas.toDataURL("image/png");
-      window.open(imgString, '_blank');
+      
     }
   });
 };

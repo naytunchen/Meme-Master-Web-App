@@ -31,19 +31,18 @@
 }
 
 img {
-  vertical-align: middle;
   height: 100%;
 }
 
 figure{
   position: absolute;
+  text-align: center;
   opacity: 0;
   vertical-align: middle;
   /*max-width: auto;*/
   height: 100%;
   min-width: 4in;
   min-height: 3.5in;
-  max-height: 3.5in;
   transition: 1s opacity;
 }
 
@@ -63,7 +62,6 @@ figcaption a{
 }
 figure.show{
   opacity: 1;
-  position: static;
   transition: 1s opacity;
 }
 
